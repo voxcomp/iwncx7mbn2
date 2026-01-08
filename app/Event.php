@@ -26,7 +26,7 @@ class Event extends Model
      */
     public function donations()
     {
-        return $this->hasMany('App\Donation')->whereDate('created_at', '<=', Carbon::today());
+        return $this->hasMany(\App\Donation::class)->whereDate('created_at', '<=', Carbon::today());
     }
 
     /**
@@ -36,7 +36,7 @@ class Event extends Model
      */
     public function participants()
     {
-        return $this->hasMany('App\Registrant');
+        return $this->hasMany(\App\Registrant::class);
     }
 
     /**
@@ -46,7 +46,7 @@ class Event extends Model
      */
     public function teams()
     {
-        return $this->hasMany('App\Team');
+        return $this->hasMany(\App\Team::class);
     }
 
     /**
@@ -56,7 +56,7 @@ class Event extends Model
      */
     public function sponsors()
     {
-        return $this->hasMany('App\Sponsor');
+        return $this->hasMany(\App\Sponsor::class);
     }
 
     /**
@@ -66,7 +66,7 @@ class Event extends Model
      */
     public function sponsorSubmissions()
     {
-        return $this->hasMany('App\SponsorSubmission');
+        return $this->hasMany(\App\SponsorSubmission::class);
     }
 
     /**
@@ -76,7 +76,7 @@ class Event extends Model
      */
     public function volunteerSubmissions()
     {
-        return $this->hasMany('App\VolunteerSubmission');
+        return $this->hasMany(\App\VolunteerSubmission::class);
     }
 
     /**
@@ -86,7 +86,7 @@ class Event extends Model
      */
     public function costs()
     {
-        return $this->hasMany('App\Cost');
+        return $this->hasMany(\App\Cost::class);
     }
 
     /**

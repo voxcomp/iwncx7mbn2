@@ -20,22 +20,22 @@ class Team extends Model
 
     public function members()
     {
-        return $this->hasMany('App\TeamMember');
+        return $this->hasMany(\App\TeamMember::class);
     }
 
     public function event()
     {
-        return $this->belongsTo('App\Event', 'event_id', 'id');
+        return $this->belongsTo(\App\Event::class, 'event_id', 'id');
     }
 
     public function captain()
     {
-        return $this->belongsTo('App\Registrant', 'registrant_id', 'id');
+        return $this->belongsTo(\App\Registrant::class, 'registrant_id', 'id');
     }
 
     public function donations()
     {
-        return $this->hasMany('App\Donation');
+        return $this->hasMany(\App\Donation::class);
     }
 
     public function eventDonations(Event $event)

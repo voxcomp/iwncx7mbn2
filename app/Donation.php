@@ -17,16 +17,16 @@ class Donation extends Model
 
     public function registrant()
     {
-        return $this->belongsTo('App\Registrant');
+        return $this->belongsTo(\App\Registrant::class);
     }
 
     public function team()
     {
-        return $this->belongsTo('App\Team');
+        return $this->belongsTo(\App\Team::class);
     }
 
     public function event()
     {
-        return $this->belongsTo('App\Event');
+        return $this->belongsTo(\App\Event::class);
     }
 }

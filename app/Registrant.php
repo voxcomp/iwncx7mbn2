@@ -25,7 +25,7 @@ class Registrant extends Model
      */
     public function donations()
     {
-        return $this->hasMany('App\Donation');
+        return $this->hasMany(\App\Donation::class);
     }
 
     public function eventDonations(Event $event)
@@ -43,7 +43,7 @@ class Registrant extends Model
 
     public function event()
     {
-        return $this->belongsTo('App\Event');
+        return $this->belongsTo(\App\Event::class);
     }
 
     public function isParticipant(Event $event)
@@ -53,17 +53,17 @@ class Registrant extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(\App\User::class);
     }
 
     public function teams()
     {
-        return $this->hasMany('App\TeamMember');
+        return $this->hasMany(\App\TeamMember::class);
     }
 
     public function team()
     {
-        return $this->hasOne('App\Team');
+        return $this->hasOne(\App\Team::class);
     }
 
     /**
