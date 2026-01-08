@@ -5,16 +5,17 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class ModeratePersonalPages extends Mailable
 {
     use Queueable, SerializesModels;
 
-	public $count;
-	public $link;
-	public $subject;
-	
+    public $count;
+
+    public $link;
+
+    public $subject;
+
     /**
      * Create a new message instance.
      *

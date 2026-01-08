@@ -12,6 +12,6 @@ class Sponsor extends Model
      * @var array
      */
     protected $fillable = [
-        'event_id', 'name', 'filename', 'presenting', 'vendor', 'url'
+        'event_id', 'name', 'filename', 'presenting', 'vendor', 'url',
     ];
 }

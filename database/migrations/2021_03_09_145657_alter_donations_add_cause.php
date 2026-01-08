@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class AlterDonationsAddCause extends Migration
 {
@@ -13,9 +12,9 @@ class AlterDonationsAddCause extends Migration
      */
     public function up()
     {
-	    Schema::table('donations', function($table) {
-	        $table->string('cause',30)->default('');
-	    });
+        Schema::table('donations', function ($table) {
+            $table->string('cause', 30)->default('');
+        });
     }
 
     /**
@@ -25,8 +24,8 @@ class AlterDonationsAddCause extends Migration
      */
     public function down()
     {
-	    Schema::table('donations', function($table) {
-	        $table->dropColumn('cause');
-	    });
+        Schema::table('donations', function ($table) {
+            $table->dropColumn('cause');
+        });
     }
 }

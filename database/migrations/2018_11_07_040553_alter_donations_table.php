@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class AlterDonationsTable extends Migration
 {
@@ -13,9 +12,9 @@ class AlterDonationsTable extends Migration
      */
     public function up()
     {
-	    Schema::table('donations', function($table) {
-	        $table->string('paytype',20)->nullable()->default('');
-	    });
+        Schema::table('donations', function ($table) {
+            $table->string('paytype', 20)->nullable()->default('');
+        });
     }
 
     /**
@@ -25,8 +24,8 @@ class AlterDonationsTable extends Migration
      */
     public function down()
     {
-	    Schema::table('donations', function($table) {
-	        $table->dropColumn('paytype');
-	    });
+        Schema::table('donations', function ($table) {
+            $table->dropColumn('paytype');
+        });
     }
 }

@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class AlterRegistrantsAddCodeTable extends Migration
 {
@@ -13,9 +12,9 @@ class AlterRegistrantsAddCodeTable extends Migration
      */
     public function up()
     {
-	    Schema::table('registrants', function($table) {
-	        $table->string('discountcode',50)->nullable()->default('');
-	    });
+        Schema::table('registrants', function ($table) {
+            $table->string('discountcode', 50)->nullable()->default('');
+        });
     }
 
     /**
@@ -25,8 +24,8 @@ class AlterRegistrantsAddCodeTable extends Migration
      */
     public function down()
     {
-	    Schema::table('registrants', function($table) {
-	        $table->dropColumn('discountcode');
-	    });
+        Schema::table('registrants', function ($table) {
+            $table->dropColumn('discountcode');
+        });
     }
 }

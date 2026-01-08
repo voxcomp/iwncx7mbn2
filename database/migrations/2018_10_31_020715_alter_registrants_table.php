@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class AlterRegistrantsTable extends Migration
 {
@@ -13,10 +12,10 @@ class AlterRegistrantsTable extends Migration
      */
     public function up()
     {
-	    Schema::table('registrants', function($table) {
-	        $table->string('pageurl',150)->nullable()->default('');
-	        $table->string('pageshorturl',100)->nullable()->default('');
-	    });
+        Schema::table('registrants', function ($table) {
+            $table->string('pageurl', 150)->nullable()->default('');
+            $table->string('pageshorturl', 100)->nullable()->default('');
+        });
     }
 
     /**
@@ -26,9 +25,9 @@ class AlterRegistrantsTable extends Migration
      */
     public function down()
     {
-	    Schema::table('registrants', function($table) {
-	        $table->dropColumn('pageurl');
-	        $table->dropColumn('pageshorturl');
-	    });
+        Schema::table('registrants', function ($table) {
+            $table->dropColumn('pageurl');
+            $table->dropColumn('pageshorturl');
+        });
     }
 }

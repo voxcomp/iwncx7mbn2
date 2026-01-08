@@ -5,15 +5,16 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class PersonalPageRejected extends Mailable
 {
     use Queueable, SerializesModels;
 
-	public $link;
-	public $registrant;
-	public $subject;
+    public $link;
+
+    public $registrant;
+
+    public $subject;
 
     /**
      * Create a new message instance.
@@ -34,6 +35,6 @@ class PersonalPageRejected extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.personalpagerejected')->text('mail.personalpagerejected_plain');;
+        return $this->view('mail.personalpagerejected')->text('mail.personalpagerejected_plain');
     }
 }

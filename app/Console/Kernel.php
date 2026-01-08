@@ -13,20 +13,19 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-	    Commands\PPReviewAlert::class,
-	    Commands\RecurringDonations::class,
+        Commands\PPReviewAlert::class,
+        Commands\RecurringDonations::class,
     ];
 
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('personalpage:review')->hourly();
-         $schedule->command('donations:recurring')->daily();
+        $schedule->command('personalpage:review')->hourly();
+        $schedule->command('donations:recurring')->daily();
     }
 
     /**

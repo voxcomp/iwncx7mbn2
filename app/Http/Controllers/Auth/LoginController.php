@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -28,7 +28,8 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-	protected $username = 'username';
+
+    protected $username = 'username';
 
     /**
      * Create a new controller instance.
@@ -40,26 +41,25 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-	/**
-    * Override the username method used to validate login
-    *
-    * @return string
-    */
+    /**
+     * Override the username method used to validate login
+     *
+     * @return string
+     */
     public function username()
     {
         return 'username';
     }
-    
+
     /**
      * Handle a login request to the application.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function login(Request $request)
     {
         $this->validateLogin($request);
-        
+
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.
@@ -70,20 +70,20 @@ class LoginController extends Controller
         }
 
         $credentials = $this->credentials($request);
-        
-        $user = \App\User::where('username',$request->username)->first();
-        
-        if(\Auth::validate($credentials)) {
-	        
-	        if(!$user->validated) {
-		        return \Redirect::to('login')->with('validationWarning',true);
-	        }
+
+        $user = \App\User::where('username', $request->username)->first();
+
+        if (\Auth::validate($credentials)) {
+
+            if (! $user->validated) {
+                return \Redirect::to('login')->with('validationWarning', true);
+            }
         }
 
         if ($this->guard()->attempt($credentials, $request->has('remember'))) {
-	        $user->last_login = time();
-	        $user->update();
-	        
+            $user->last_login = time();
+            $user->update();
+
             $res = $this->sendLoginResponse($request);
 
             return $res;

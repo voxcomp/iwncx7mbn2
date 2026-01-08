@@ -12,6 +12,6 @@ class SponsorSubmission extends Model
      * @var array
      */
     protected $fillable = [
-        'event_id', 'company', 'fname', 'lname', 'email', 'phone', 'address', 'city', 'state', 'zip', 'level', 'paid', 'image', 'paytype', 'inkind_value'
+        'event_id', 'company', 'fname', 'lname', 'email', 'phone', 'address', 'city', 'state', 'zip', 'level', 'paid', 'image', 'paytype', 'inkind_value',
     ];
 }

@@ -5,14 +5,15 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class JoinTeamCaptain extends Mailable
 {
     use Queueable, SerializesModels;
-    
+
     public $team;
+
     public $registrant;
+
     public $subject;
 
     /**
@@ -24,7 +25,7 @@ class JoinTeamCaptain extends Mailable
     {
         $this->team = $team;
         $this->registrant = $registrant;
-        $this->subject = "New Team Member";
+        $this->subject = 'New Team Member';
     }
 
     /**

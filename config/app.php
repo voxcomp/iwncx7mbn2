@@ -163,13 +163,12 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-		NZTim\Mailchimp\MailchimpServiceProvider::class,
-		Unisharp\Ckeditor\ServiceProvider::class,
+        NZTim\Mailchimp\MailchimpServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Waavi\UrlShortener\UrlShortenerServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
-		
         /*
          * Package Service Providers...
          */
@@ -218,7 +217,7 @@ return [
         'Lang' => Illuminate\Support\Facades\Lang::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
-		'Mailchimp' => NZTim\Mailchimp\MailchimpFacade::class,
+        'Mailchimp' => NZTim\Mailchimp\MailchimpFacade::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Password' => Illuminate\Support\Facades\Password::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
@@ -233,10 +232,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-		'Form' => Collective\Html\FormFacade::class,
-		'Image' => Intervention\Image\Facades\Image::class,
-		'UrlShortener' => Waavi\UrlShortener\Facades\UrlShortener::class,
-		'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'UrlShortener' => Waavi\UrlShortener\Facades\UrlShortener::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

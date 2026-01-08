@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
 
-use App\Event;
 use App\Donation;
+use App\Event;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -15,9 +13,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * Show the application dashboard.
@@ -26,37 +22,43 @@ class HomeController extends Controller
      */
     public function index()
     {
-	    if(\Auth::check() && \Auth::user()->isAdmin()) {
-		    $events = \App\Event::orderBy('event_date','DESC')->limit(1)->get();
-	    } else {
-		    $events = \App\Event::where("event_date",">",time())->get();
-	    }
-	    	    
-	    if($events->count()==1) {
-		    $event=$events->first();
-		    return \Redirect::route('event.view',[$event->slug]);
-	    } else {
-	        return view('welcome',compact('events'));
-	    }
+        if (\Auth::check() && \Auth::user()->isAdmin()) {
+            $events = \App\Event::orderBy('event_date', 'DESC')->limit(1)->get();
+        } else {
+            $events = \App\Event::where('event_date', '>', time())->get();
+        }
+
+        if ($events->count() == 1) {
+            $event = $events->first();
+
+            return \Redirect::route('event.view', [$event->slug]);
+        } else {
+            return view('welcome', compact('events'));
+        }
     }
 
-	public function test() {
-		//dd(new Carbon("june 12, 2023"));
-		//dd(\UrlShortener::shorten("https://events.czarspromise.com/event/personal/2023-inspiring-hope-walk/vicki-nussbaum-4"));
-		$event = Event::where('id',7)->first();
-		dd($event->raised());
-	}
-	
-	public function unauthorized() {
-		return view('pages.unauthorized');
-	}
-	
-	public function pagePromise() {
-		$donations = Donation::where('promise','yes')->where('photo','<>','')->orderBy('id','DESC')->get();
-		
-		return view('pages.promisewall',compact("donations"));
-	}
-	public function pagePromiseConfirm() {
-		return view('pages.donatepromiseconfirm');
-	}
+    public function test()
+    {
+        // dd(new Carbon("june 12, 2023"));
+        // dd(\UrlShortener::shorten("https://events.czarspromise.com/event/personal/2023-inspiring-hope-walk/vicki-nussbaum-4"));
+        $event = Event::where('id', 7)->first();
+        dd($event->raised());
+    }
+
+    public function unauthorized()
+    {
+        return view('pages.unauthorized');
+    }
+
+    public function pagePromise()
+    {
+        $donations = Donation::where('promise', 'yes')->where('photo', '<>', '')->orderBy('id', 'DESC')->get();
+
+        return view('pages.promisewall', compact('donations'));
+    }
+
+    public function pagePromiseConfirm()
+    {
+        return view('pages.donatepromiseconfirm');
+    }
 }

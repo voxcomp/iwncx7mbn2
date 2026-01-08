@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class AlterRegistrationsAddShirtShipping extends Migration
 {
@@ -13,13 +12,13 @@ class AlterRegistrationsAddShirtShipping extends Migration
      */
     public function up()
     {
-	    Schema::table('registrants', function($table) {
+        Schema::table('registrants', function ($table) {
             $table->smallInteger('shipshirt')->default(0);
-            $table->string('shipaddress',200)->nullable()->default('');
-            $table->string('shipcity',75)->nullable()->default('');
-            $table->string('shipstate',2)->nullable()->default('');
-            $table->string('shipzip',10)->nullable()->default('');
-	    });
+            $table->string('shipaddress', 200)->nullable()->default('');
+            $table->string('shipcity', 75)->nullable()->default('');
+            $table->string('shipstate', 2)->nullable()->default('');
+            $table->string('shipzip', 10)->nullable()->default('');
+        });
     }
 
     /**
@@ -29,12 +28,12 @@ class AlterRegistrationsAddShirtShipping extends Migration
      */
     public function down()
     {
-	    Schema::table('registrants', function($table) {
-	        $table->dropColumn('shipshirt');
-	        $table->dropColumn('shipaddress');
-	        $table->dropColumn('shipcity');
-	        $table->dropColumn('shipstate');
-	        $table->dropColumn('shipzip');
-	    });
+        Schema::table('registrants', function ($table) {
+            $table->dropColumn('shipshirt');
+            $table->dropColumn('shipaddress');
+            $table->dropColumn('shipcity');
+            $table->dropColumn('shipstate');
+            $table->dropColumn('shipzip');
+        });
     }
 }

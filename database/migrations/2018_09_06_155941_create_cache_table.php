@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateCacheTable extends Migration
 {
@@ -14,7 +14,7 @@ class CreateCacheTable extends Migration
     public function up()
     {
         Schema::create('cache', function (Blueprint $table) {
-            $table->string('key',100)->unique();
+            $table->string('key', 100)->unique();
             $table->text('value');
             $table->integer('expiration');
         });

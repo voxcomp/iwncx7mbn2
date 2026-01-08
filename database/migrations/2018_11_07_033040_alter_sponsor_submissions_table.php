@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class AlterSponsorSubmissionsTable extends Migration
 {
@@ -13,10 +12,10 @@ class AlterSponsorSubmissionsTable extends Migration
      */
     public function up()
     {
-	    Schema::table('sponsor_submissions', function($table) {
-	        $table->string('paytype',20)->nullable()->default('');
-	        $table->integer('inkind_value')->default(0);
-	    });
+        Schema::table('sponsor_submissions', function ($table) {
+            $table->string('paytype', 20)->nullable()->default('');
+            $table->integer('inkind_value')->default(0);
+        });
     }
 
     /**
@@ -26,9 +25,9 @@ class AlterSponsorSubmissionsTable extends Migration
      */
     public function down()
     {
-	    Schema::table('sponsor_submissions', function($table) {
-	        $table->dropColumn('paytype');
-	        $table->dropColumn('inkind_value');
-	    });
+        Schema::table('sponsor_submissions', function ($table) {
+            $table->dropColumn('paytype');
+            $table->dropColumn('inkind_value');
+        });
     }
 }

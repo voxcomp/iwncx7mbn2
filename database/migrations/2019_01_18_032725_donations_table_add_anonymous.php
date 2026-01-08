@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class DonationsTableAddAnonymous extends Migration
 {
@@ -13,9 +12,9 @@ class DonationsTableAddAnonymous extends Migration
      */
     public function up()
     {
-	    Schema::table('donations', function($table) {
-	        $table->smallInteger('anonymous')->default(0);
-	    });
+        Schema::table('donations', function ($table) {
+            $table->smallInteger('anonymous')->default(0);
+        });
     }
 
     /**
@@ -25,8 +24,8 @@ class DonationsTableAddAnonymous extends Migration
      */
     public function down()
     {
-	    Schema::table('donations', function($table) {
-	        $table->dropColumn('anonymous');
-	    });
+        Schema::table('donations', function ($table) {
+            $table->dropColumn('anonymous');
+        });
     }
 }

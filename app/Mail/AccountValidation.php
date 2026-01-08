@@ -5,13 +5,15 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class AccountValidation extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $link;
-    public $title = "Account Validation";
+
+    public $title = 'Account Validation';
+
     public $subject = "Czar's Promise Account Validation";
 
     /**

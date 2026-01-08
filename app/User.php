@@ -2,14 +2,14 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     use Notifiable;
-	use Sluggable;
+    use Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'fname', 'lname', 'username', 'email', 'password', 'validated', 'user_type', 'photo', 'phone', 'address', 'city', 'state', 'zip', 'join','slug'
+        'fname', 'lname', 'username', 'email', 'password', 'validated', 'user_type', 'photo', 'phone', 'address', 'city', 'state', 'zip', 'join', 'slug',
     ];
 
     /**
@@ -29,18 +29,20 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-	public function registrations() {
-	    return $this->hasMany('App\Registrant');
-	}
+    public function registrations()
+    {
+        return $this->hasMany('App\Registrant');
+    }
 
     /**
      * Tests user_type field, returns true if user is admin
      *
      * @return bool
      */
-	public function isAdmin() {
-		return $this->user_type=='admin';
-	}
+    public function isAdmin()
+    {
+        return $this->user_type == 'admin';
+    }
 
     /**
      * Return the sluggable configuration array for this model.
@@ -51,10 +53,11 @@ class User extends Authenticatable
     {
         return [
             'slug' => [
-                'source' => 'username'
-            ]
+                'source' => 'username',
+            ],
         ];
     }
+
     /**
      * Get the route key for the model.
      *

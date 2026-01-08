@@ -5,16 +5,18 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class PersonalPageApproved extends Mailable
 {
     use Queueable, SerializesModels;
-	
-	public $link;
-	public $shortlink;
-	public $registrant;
-	public $subject;
+
+    public $link;
+
+    public $shortlink;
+
+    public $registrant;
+
+    public $subject;
 
     /**
      * Create a new message instance.
@@ -36,6 +38,6 @@ class PersonalPageApproved extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.personalpageapproved')->text('mail.personalpageapproved_plain');;
+        return $this->view('mail.personalpageapproved')->text('mail.personalpageapproved_plain');
     }
 }

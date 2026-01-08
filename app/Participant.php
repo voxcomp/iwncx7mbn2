@@ -12,7 +12,6 @@ class Participant extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'event_id'
+        'user_id', 'event_id',
     ];
-
 }

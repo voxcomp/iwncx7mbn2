@@ -5,13 +5,13 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class CreateTeam extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $team;
+
     public $subject;
 
     /**
@@ -22,7 +22,7 @@ class CreateTeam extends Mailable
     public function __construct($team)
     {
         $this->team = $team;
-        $this->subject = "Your ".$team->event->title." Team Information";
+        $this->subject = 'Your '.$team->event->title.' Team Information';
     }
 
     /**

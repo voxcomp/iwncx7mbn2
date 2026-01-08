@@ -5,16 +5,18 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class TeamPageApproved extends Mailable
 {
     use Queueable, SerializesModels;
-	
-	public $link;
-	public $shortlink;
-	public $team;
-	public $subject;
+
+    public $link;
+
+    public $shortlink;
+
+    public $team;
+
+    public $subject;
 
     /**
      * Create a new message instance.
@@ -36,6 +38,6 @@ class TeamPageApproved extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.teampageapproved')->text('mail.teampageapproved_plain');;
+        return $this->view('mail.teampageapproved')->text('mail.teampageapproved_plain');
     }
 }

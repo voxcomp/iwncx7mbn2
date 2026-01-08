@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class AlterDonationsAddRecurring extends Migration
 {
@@ -13,14 +12,14 @@ class AlterDonationsAddRecurring extends Migration
      */
     public function up()
     {
-	    Schema::table('donations', function($table) {
-	        $table->string('recurring',3)->default('NO');
+        Schema::table('donations', function ($table) {
+            $table->string('recurring', 3)->default('NO');
             $table->float('recurring_amount')->default(0);
-	        $table->string('customerid',50)->default(0);
-	        $table->string('planid',50)->default(0);
-	        $table->string('subscriptionid',50)->default(0);
+            $table->string('customerid', 50)->default(0);
+            $table->string('planid', 50)->default(0);
+            $table->string('subscriptionid', 50)->default(0);
             $table->unsignedInteger('cancelled_on')->nullable()->default(null);
-	    });
+        });
     }
 
     /**
@@ -30,13 +29,13 @@ class AlterDonationsAddRecurring extends Migration
      */
     public function down()
     {
-	    Schema::table('donations', function($table) {
-	        $table->dropColumn('recurring');
-	        $table->dropColumn('recurring_amount');
-	        $table->dropColumn('customerid');
-	        $table->dropColumn('planid');
-	        $table->dropColumn('subscriptionid');
-	        $table->dropColumn('cancelled_on');
-	    });
+        Schema::table('donations', function ($table) {
+            $table->dropColumn('recurring');
+            $table->dropColumn('recurring_amount');
+            $table->dropColumn('customerid');
+            $table->dropColumn('planid');
+            $table->dropColumn('subscriptionid');
+            $table->dropColumn('cancelled_on');
+        });
     }
 }

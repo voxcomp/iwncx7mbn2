@@ -1,34 +1,41 @@
 <?php
 
 /** This file is part of KCFinder project. The class are taken from
-  * http://www.php.net/manual/en/function.ziparchive-addemptydir.php
-  *
-  *      @desc Directory to ZIP file archivator
-  *   @package KCFinder
-  *   @version 3.12
-  *    @author Pavel Tzonkov <sunhater@sunhater.com>
-  * @copyright 2010-2014 KCFinder Project
-  *   @license http://opensource.org/licenses/GPL-3.0 GPLv3
-  *   @license http://opensource.org/licenses/LGPL-3.0 LGPLv3
-  *      @link http://kcfinder.sunhater.com
-  */
+ * http://www.php.net/manual/en/function.ziparchive-addemptydir.php
+ *
+ *      @desc Directory to ZIP file archivator
+ *
+ *   @version 3.12
+ *
+ *    @author Pavel Tzonkov <sunhater@sunhater.com>
+ * @copyright 2010-2014 KCFinder Project
+ *   @license http://opensource.org/licenses/GPL-3.0 GPLv3
+ *   @license http://opensource.org/licenses/LGPL-3.0 LGPLv3
+ *
+ *      @link http://kcfinder.sunhater.com
+ */
 
 namespace kcfinder;
 
-class zipFolder {
+class zipFolder
+{
     protected $zip;
+
     protected $root;
+
     protected $ignored;
 
-    function __construct($file, $folder, $ignored=null) {
-        $this->zip = new \ZipArchive();
+    public function __construct($file, $folder, $ignored = null)
+    {
+        $this->zip = new \ZipArchive;
 
         $this->ignored = is_array($ignored)
             ? $ignored
-            : ($ignored ? array($ignored) : array());
+            : ($ignored ? [$ignored] : []);
 
-        if ($this->zip->open($file, \ZipArchive::CREATE) !== TRUE)
+        if ($this->zip->open($file, \ZipArchive::CREATE) !== true) {
             throw new \Exception("cannot open <$file>\n");
+        }
 
         $folder = rtrim($folder, '/');
 
@@ -41,20 +48,23 @@ class zipFolder {
         $this->zip->close();
     }
 
-    function zip($folder, $parent=null) {
+    public function zip($folder, $parent = null)
+    {
         $full_path = "{$this->root}$parent$folder";
         $zip_path = "$parent$folder";
         $this->zip->addEmptyDir($zip_path);
         $dir = new \DirectoryIterator($full_path);
-        foreach ($dir as $file)
-            if (!$file->isDot()) {
+        foreach ($dir as $file) {
+            if (! $file->isDot()) {
                 $filename = $file->getFilename();
-                if (!in_array($filename, $this->ignored)) {
-                    if ($file->isDir())
+                if (! in_array($filename, $this->ignored)) {
+                    if ($file->isDir()) {
                         $this->zip($filename, "$zip_path/");
-                    else
+                    } else {
                         $this->zip->addFile("$full_path/$filename", "$zip_path/$filename");
+                    }
                 }
             }
+        }
     }
 }

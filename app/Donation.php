@@ -12,18 +12,21 @@ class Donation extends Model
      * @var array
      */
     protected $fillable = [
-        'fname', 'lname', 'email', 'phone', 'address', 'city', 'state','zip','join','amount', 'event_id', 'registrant_id', 'team_id', 'paytype', 'anonymous', 'payid', 'recurring', 'customerid', 'planid', 'subscriptionid', 'cancelled_on', 'recurring_amount', 'promise', 'memoryof', 'photo', 'cause'
+        'fname', 'lname', 'email', 'phone', 'address', 'city', 'state', 'zip', 'join', 'amount', 'event_id', 'registrant_id', 'team_id', 'paytype', 'anonymous', 'payid', 'recurring', 'customerid', 'planid', 'subscriptionid', 'cancelled_on', 'recurring_amount', 'promise', 'memoryof', 'photo', 'cause',
     ];
 
-	public function registrant() {
-	    return $this->belongsTo('App\Registrant');
-	}
+    public function registrant()
+    {
+        return $this->belongsTo('App\Registrant');
+    }
 
-	public function team() {
-	    return $this->belongsTo('App\Team');
-	}
+    public function team()
+    {
+        return $this->belongsTo('App\Team');
+    }
 
-	public function event() {
-	    return $this->belongsTo('App\Event');
-	}
+    public function event()
+    {
+        return $this->belongsTo('App\Event');
+    }
 }

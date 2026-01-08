@@ -5,28 +5,35 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class DonationRegistrant extends Mailable
 {
     use Queueable, SerializesModels;
 
-	public $amount;
-	public $fname;
-	public $lname;
-	public $email;
-	public $anonymous;
-	public $event;
-	public $comment;
+    public $amount;
+
+    public $fname;
+
+    public $lname;
+
+    public $email;
+
+    public $anonymous;
+
+    public $event;
+
+    public $comment;
+
     public $subject;
+
     public $link;
-	
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($amount,$fname,$lname,$email,$anonymous,$event,$comment)
+    public function __construct($amount, $fname, $lname, $email, $anonymous, $event, $comment)
     {
         $this->amount = $amount;
         $this->fname = $fname;
@@ -35,7 +42,7 @@ class DonationRegistrant extends Mailable
         $this->comment = $comment;
         $this->anonymous = $anonymous;
         $this->event = $event;
-        $this->subject = "You have received a donation!";
+        $this->subject = 'You have received a donation!';
         $this->link = config('app.url').'/login';
     }
 

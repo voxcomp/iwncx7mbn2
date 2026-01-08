@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 
-
 class ResetPasswordController extends Controller
 {
     /*
@@ -41,23 +40,21 @@ class ResetPasswordController extends Controller
         $this->middleware('guest');
     }
 
-	/**
-    * Override the username method used to validate login
-    *
-    * @return string
-    */
+    /**
+     * Override the username method used to validate login
+     *
+     * @return string
+     */
     public function username()
     {
         return 'username';
     }
-
 
     /**
      * Display the password reset view for the given token.
      *
      * If no token is present, display the link request form.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  string|null  $token
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -71,7 +68,6 @@ class ResetPasswordController extends Controller
     /**
      * Reset the given user's password.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function reset(Request $request)
@@ -122,7 +118,6 @@ class ResetPasswordController extends Controller
     /**
      * Get the password reset credentials from the request.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     protected function credentials(Request $request)
@@ -158,7 +153,7 @@ class ResetPasswordController extends Controller
     protected function sendResetResponse($response)
     {
         return redirect($this->redirectPath())
-                            ->with('status', trans($response));
+            ->with('status', trans($response));
     }
 
     /**
@@ -171,7 +166,7 @@ class ResetPasswordController extends Controller
     protected function sendResetFailedResponse(Request $request, $response)
     {
         return redirect()->back()
-                    ->withInput($request->only('username'))
-                    ->withErrors(['username' => trans($response)]);
+            ->withInput($request->only('username'))
+            ->withErrors(['username' => trans($response)]);
     }
 }

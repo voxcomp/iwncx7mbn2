@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use App\Registrant;
+use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use Illuminate\Auth\Events\Registered;
-use App\Registrant;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -32,6 +31,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+
     protected $validationFactory;
 
     /**
@@ -45,16 +45,15 @@ class RegisterController extends Controller
         $this->validationFactory = $validationFactory;
     }
 
-	
     /**
      * Displays a validation message to the user.
      *
      * @return \Illuminate\Http\Response
      */
     public function needValidation()
-	{
-		return view('auth.validation');
-	}
+    {
+        return view('auth.validation');
+    }
 
     /**
      * Show page after registration about validation step.
@@ -63,16 +62,16 @@ class RegisterController extends Controller
      */
     public function email()
     {
-	    if(auth()->check()) {
-		    return redirect('home');
-	    }
+        if (auth()->check()) {
+            return redirect('home');
+        }
+
         return view('pages.registration');
     }
 
     /**
      * Get a validator for an incoming registration request step 1.
      *
-     * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator_step1(array $data)
@@ -89,59 +88,58 @@ class RegisterController extends Controller
     /**
      * Handle a registration request for the application.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function register(Request $request)
     {
-		$this->validator_step1($request->all())->validate();
-		$data = [
-			'fname' => $request->fname,
-			'lname' => $request->lname,
-			'email' => $request->email,
-			'username' => $request->username,
-			'password' => bcrypt($request->password),
-		];
+        $this->validator_step1($request->all())->validate();
+        $data = [
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'email' => $request->email,
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+        ];
         event(new Registered($user = $this->create($data)));
-        
+
         $this->validationFactory->sendValidationMail($user);
 
-        return \Redirect::route('login')->with('validationMessage',true);
+        return \Redirect::route('login')->with('validationMessage', true);
     }
 
-	
-	public function resendValidation(Request $request) {
+    public function resendValidation(Request $request)
+    {
         $this->validate($request, [
-            'username' => 'required|max:255|exists:users'
+            'username' => 'required|max:255|exists:users',
         ]);
-		
-		$user=User::where('username',$request->username)->first();
-		$this->validationFactory->sendValidationMail($user,true);
-		
-		return \Redirect::route('login')->with('validationMessage',true);
-	}
+
+        $user = User::where('username', $request->username)->first();
+        $this->validationFactory->sendValidationMail($user, true);
+
+        return \Redirect::route('login')->with('validationMessage', true);
+    }
 
     /**
      * Handle a registration request for the application.
      *
-     * @param  string $token
+     * @param  string  $token
      * @return \Illuminate\Http\Response
      */
     public function validateUser($token)
-	{
-	    if ($user = $this->validationFactory->validateUser($token)) {
-		    // add user to mailchimp
-		    
-	        auth()->login($user);
-			return redirect('home')->with('message',__('auth.validationConfirm'));
-	    }
-	    abort(404);
-	}
+    {
+        if ($user = $this->validationFactory->validateUser($token)) {
+            // add user to mailchimp
+
+            auth()->login($user);
+
+            return redirect('home')->with('message', __('auth.validationConfirm'));
+        }
+        abort(404);
+    }
 
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -158,33 +156,32 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
      * @return \App\User
      */
     protected function create(array $data)
     {
-	    $user = User::create([
+        $user = User::create([
             'fname' => $data['fname'],
             'lname' => $data['lname'],
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        
-        Registrant::where('email',$user->email)->update(['user_id'=>$user->id]);
-        if(empty($user->address)) {
-	        $registrant = Registrant::orderBy('created_at','DESC')->where('user_id',$user->id)->first();
-	        if(!is_null($registrant)) {
-		        $user->update([
-			        'phone'=>$registrant->phone,
-			        'address'=>$registrant->address,
-			        'city'=>$registrant->city,
-			        'state'=>$registrant->state,
-			        'zip'=>$registrant->zip,
-		        ]);
-	        }
-	    }
-        
+
+        Registrant::where('email', $user->email)->update(['user_id' => $user->id]);
+        if (empty($user->address)) {
+            $registrant = Registrant::orderBy('created_at', 'DESC')->where('user_id', $user->id)->first();
+            if (! is_null($registrant)) {
+                $user->update([
+                    'phone' => $registrant->phone,
+                    'address' => $registrant->address,
+                    'city' => $registrant->city,
+                    'state' => $registrant->state,
+                    'zip' => $registrant->zip,
+                ]);
+            }
+        }
+
         return $user;
     }
 }

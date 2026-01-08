@@ -12,6 +12,6 @@ class VolunteerSubmission extends Model
      * @var array
      */
     protected $fillable = [
-        'event_id', 'company', 'fname', 'lname', 'email', 'phone', 'address', 'city', 'state', 'zip'
+        'event_id', 'company', 'fname', 'lname', 'email', 'phone', 'address', 'city', 'state', 'zip',
     ];
 }

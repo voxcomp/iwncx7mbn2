@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\Registrant;
 use App\Team;
+use Illuminate\Console\Command;
 
 class PPReviewAlert extends Command
 {
@@ -39,17 +39,17 @@ class PPReviewAlert extends Command
      */
     public function handle()
     {
-        $count = Registrant::where('moderated',0)->where(function($query) {
-		    $query->whereNotNull('pagetitle')->Where('pagetitle','<>','');
-		})->count();
-		
-        $count += Team::where('moderated',0)->where(function($query) {
-		    $query->whereNotNull('pagetitle')->Where('pagetitle','<>','');
-		})->count();
+        $count = Registrant::where('moderated', 0)->where(function ($query) {
+            $query->whereNotNull('pagetitle')->Where('pagetitle', '<>', '');
+        })->count();
 
-		if($count>0) {
-			$emails = explode(',',env("ADMIN_EMAIL"));
-			\Mail::to($emails)->send(new \App\Mail\ModeratePersonalPages($count));
-		}
+        $count += Team::where('moderated', 0)->where(function ($query) {
+            $query->whereNotNull('pagetitle')->Where('pagetitle', '<>', '');
+        })->count();
+
+        if ($count > 0) {
+            $emails = explode(',', env('ADMIN_EMAIL'));
+            \Mail::to($emails)->send(new \App\Mail\ModeratePersonalPages($count));
+        }
     }
 }

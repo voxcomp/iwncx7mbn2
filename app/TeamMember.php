@@ -12,14 +12,16 @@ class TeamMember extends Model
      * @var array
      */
     protected $fillable = [
-        'registrant_id', 'team_id'
+        'registrant_id', 'team_id',
     ];
 
-	public function registrant() {
-	    return $this->belongsTo('App\Registrant');
-	}
+    public function registrant()
+    {
+        return $this->belongsTo('App\Registrant');
+    }
 
-	public function team() {
-	    return $this->belongsTo('App\Team');
-	}
+    public function team()
+    {
+        return $this->belongsTo('App\Team');
+    }
 }

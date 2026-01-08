@@ -12,7 +12,7 @@ class Coupon extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'amount', 'discount_type', 'active', 'valid_from', 'valid_to', 'last_used', 'used', 'maxuse'
+        'name', 'amount', 'discount_type', 'active', 'valid_from', 'valid_to', 'last_used', 'used', 'maxuse',
     ];
 
     /**
@@ -20,70 +20,77 @@ class Coupon extends Model
      *
      * @return bool
      */
-	public function isExpired() {
-		return $this->valid_to<time();
-	}
+    public function isExpired()
+    {
+        return $this->valid_to < time();
+    }
 
     /**
      * Tests valid_from field, returns true if coupon is usable
      *
      * @return bool
      */
-	public function isValid() {
-		return $this->valid_from>time();
-	}
+    public function isValid()
+    {
+        return $this->valid_from > time();
+    }
 
     /**
      * Tests active field, returns true if coupon is currently active
      *
      * @return bool
      */
-	public function isActive() {
-		return $this->active;
-	}
+    public function isActive()
+    {
+        return $this->active;
+    }
 
     /**
      * Tests if coupon code is usable, returns true if coupon is usable
      *
      * @return bool
      */
-	public function isUsable() {
-		return $this->active && $this->valid_from<time() && $this->valid_to>time() && ( ($this->maxuse==0) || ($this->used<$this->maxuse) );
-	}
-	
+    public function isUsable()
+    {
+        return $this->active && $this->valid_from < time() && $this->valid_to > time() && (($this->maxuse == 0) || ($this->used < $this->maxuse));
+    }
+
     /**
      * Returns cost after coupon value is taken
-     * @param float $charge
      *
+     * @param  float  $charge
      * @return bool
      */
-	public function value($charge) {
-		if($this->discount_type=='dollar') {
-			$charge = $charge-floatval($this->amount);
-		} elseif($this->discount_type=='percent') {
-			$charge = $charge-($charge*(floatval($this->amount)/100));
-		}
-		return ($charge>0)?$charge:0;
-	}
+    public function value($charge)
+    {
+        if ($this->discount_type == 'dollar') {
+            $charge = $charge - floatval($this->amount);
+        } elseif ($this->discount_type == 'percent') {
+            $charge = $charge - ($charge * (floatval($this->amount) / 100));
+        }
+
+        return ($charge > 0) ? $charge : 0;
+    }
 
     /**
      * Adds to number of uses, deactivate if used more than max times
-     *
      */
-	public function useCoupon() {
-		if($this->isUsable()) {
-			$this->used += 1;
-			$this->last_used = time();
-			if($this->used > $this->maxuse && $this->maxuse>0) {
-				$this->active = 0;
-			}
-			$this->save();
-			return true;
-		} else {
-			$this->active = 0;
-			$this->save();
-			return false;
-		}
-	}
-	
+    public function useCoupon()
+    {
+        if ($this->isUsable()) {
+            $this->used += 1;
+            $this->last_used = time();
+            if ($this->used > $this->maxuse && $this->maxuse > 0) {
+                $this->active = 0;
+            }
+            $this->save();
+
+            return true;
+        } else {
+            $this->active = 0;
+            $this->save();
+
+            return false;
+        }
+    }
 }

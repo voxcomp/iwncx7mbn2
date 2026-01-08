@@ -5,25 +5,27 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class VolunteerAdmin extends Mailable
 {
     use Queueable, SerializesModels;
-	public $submission;
-	public $event;
-	public $subject;
+
+    public $submission;
+
+    public $event;
+
+    public $subject;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($submission,$event)
+    public function __construct($submission, $event)
     {
-	    $this->submission = $submission;
-	    $this->event = $event;
-	    $this->subject = "New ".$event->short." Volunteer";
+        $this->submission = $submission;
+        $this->event = $event;
+        $this->subject = 'New '.$event->short.' Volunteer';
     }
 
     /**
@@ -33,6 +35,6 @@ class VolunteerAdmin extends Mailable
      */
     public function build()
     {
-	    return $this->view('mail.volunteerAdmin');
+        return $this->view('mail.volunteerAdmin');
     }
 }

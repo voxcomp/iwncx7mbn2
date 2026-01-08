@@ -1,21 +1,22 @@
 <?php
 
 namespace App;
+
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-	use Sluggable;
-	
+    use Sluggable;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'title', 'short', 'event_date', 'description', 'image', 'goal', 'user_id', 'event_id'
+        'title', 'short', 'event_date', 'description', 'image', 'goal', 'user_id', 'event_id',
     ];
 
     /**
@@ -23,91 +24,100 @@ class Event extends Model
      *
      * @return App\Donation
      */
-	public function donations() {
-	    return $this->hasMany('App\Donation')->whereDate('created_at','<=',Carbon::today());
-	}
+    public function donations()
+    {
+        return $this->hasMany('App\Donation')->whereDate('created_at', '<=', Carbon::today());
+    }
 
     /**
      * Gets participants for event
      *
      * @return App\Participant
      */
-    public function participants() {
-	    return $this->hasMany('App\Registrant');
-    } 
-    
+    public function participants()
+    {
+        return $this->hasMany('App\Registrant');
+    }
+
     /**
      * Gets teams for event
      *
      * @return App\Team
      */
-    public function teams() {
-	    return $this->hasMany('App\Team');
-    } 
+    public function teams()
+    {
+        return $this->hasMany('App\Team');
+    }
 
     /**
      * Gets sponsors for event
      *
      * @return App\Sponsor
      */
-    public function sponsors() {
-	    return $this->hasMany('App\Sponsor');
-    } 
+    public function sponsors()
+    {
+        return $this->hasMany('App\Sponsor');
+    }
 
     /**
      * Gets sponsor submissions for event
      *
      * @return App\SponsorSubmission
      */
-    public function sponsorSubmissions() {
-	    return $this->hasMany('App\SponsorSubmission');
-    } 
+    public function sponsorSubmissions()
+    {
+        return $this->hasMany('App\SponsorSubmission');
+    }
 
     /**
      * Gets volunteer submissions for event
      *
      * @return App\VolunteerSubmission
      */
-    public function volunteerSubmissions() {
-	    return $this->hasMany('App\VolunteerSubmission');
-    } 
+    public function volunteerSubmissions()
+    {
+        return $this->hasMany('App\VolunteerSubmission');
+    }
 
     /**
      * Gets costs for event
      *
      * @return App\Cost
      */
-    public function costs() {
-	    return $this->hasMany('App\Cost');
-    } 
+    public function costs()
+    {
+        return $this->hasMany('App\Cost');
+    }
 
     /**
      * Gets donations and signups for event
      *
-     * @return integer
+     * @return int
      */
-    public function raised() {
-	    $total = $this->participants->sum('paid');
-	    $total += $this->sponsorSubmissions->sum('paid');
-	    $total += $this->sponsorSubmissions->sum('inkind_value');
+    public function raised()
+    {
+        $total = $this->participants->sum('paid');
+        $total += $this->sponsorSubmissions->sum('paid');
+        $total += $this->sponsorSubmissions->sum('inkind_value');
         $total += $this->donations->sum('amount');
-	    //$total += \App\Donation::whereDate('created_at', ">=", new Carbon("june 22, 2025"))->get()->sum('amount');
-        //->whereDate('created_at',"<",Carbon::today()->addDay())
-            //where('event_id',0)->where('team_id',0)->where('registrant_id',0)->
-	    
-	    return $total;
-    } 
+        // $total += \App\Donation::whereDate('created_at', ">=", new Carbon("june 22, 2025"))->get()->sum('amount');
+        // ->whereDate('created_at',"<",Carbon::today()->addDay())
+        // where('event_id',0)->where('team_id',0)->where('registrant_id',0)->
+
+        return $total;
+    }
 
     /**
      * Gets percentage of goal for event
      *
-     * @return integer
+     * @return int
      */
-    public function percent() {
-	    $percent = round(($this->raised()/$this->goal)*100);
+    public function percent()
+    {
+        $percent = round(($this->raised() / $this->goal) * 100);
 
-	    return ($percent>100)?100:$percent;
-    } 
+        return ($percent > 100) ? 100 : $percent;
+    }
 
     /**
      * Return the sluggable configuration array for this model.
@@ -118,10 +128,11 @@ class Event extends Model
     {
         return [
             'slug' => [
-                'source' => 'short'
-            ]
+                'source' => 'short',
+            ],
         ];
     }
+
     /**
      * Get the route key for the model.
      *

@@ -12,6 +12,6 @@ class Cost extends Model
      * @var array
      */
     protected $fillable = [
-        'event_id', 'cost', 'ends'
+        'event_id', 'cost', 'ends',
     ];
 }
