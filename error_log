@@ -1,0 +1,11 @@
+[25-Aug-2018 01:30:28 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 84 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/Repository/ComposerRepository.php on line 565
+[25-Aug-2018 13:51:08 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 86 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/Repository/ComposerRepository.php on line 565
+[06-Sep-2018 16:55:22 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 90 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/Repository/ComposerRepository.php on line 565
+[08-Sep-2018 00:34:36 UTC] PHP Fatal error:  Class 'User' not found in /home/czarspromise/staging/database/seeds/UsersTableSeeder.php on line 15
+[17-Sep-2018 19:15:31 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/czarspromise/staging/app/Donation.php on line 15
+[25-Sep-2018 21:30:23 UTC] PHP Parse error:  syntax error, unexpected ''earlybird'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/czarspromise/staging/database/seeds/EventsTableSeeder.php on line 28
+[25-Sep-2018 21:52:03 UTC] PHP Parse error:  syntax error, unexpected 'Donation' (T_STRING) in /home/czarspromise/staging/database/seeds/EventsTableSeeder.php on line 60
+[25-Sep-2018 21:52:13 UTC] PHP Fatal error:  Class 'Team' not found in /home/czarspromise/staging/database/seeds/EventsTableSeeder.php on line 49
+[26-Sep-2018 23:22:08 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/czarspromise/staging/database/seeds/EventsTableSeeder.php on line 36
+[28-Sep-2018 18:54:12 UTC] PHP Parse error:  syntax error, unexpected ''goal'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/czarspromise/staging/database/seeds/EventsTableSeeder.php on line 63
+[20-Feb-2019 14:29:25 America/Chicago] PHP Fatal error:  Class 'AlterRegistrantsAddCodeTable' not found in /home/czarspromise/staging/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php on line 417

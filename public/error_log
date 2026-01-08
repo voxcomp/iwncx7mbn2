@@ -1,0 +1,152 @@
+[27-Aug-2018 20:32:10 UTC] PHP Fatal error:  Cannot use try without catch or finally in /home/czarspromise/events/app/Http/Controllers/DonateController.php on line 51
+[28-Aug-2018 21:10:20 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/czarspromise/events/app/Http/Controllers/DonateController.php on line 60
+[28-Aug-2018 21:25:17 UTC] PHP Fatal error:  Class 'Mailchimp' not found in /home/czarspromise/events/app/Http/Controllers/DonateController.php on line 66
+[28-Aug-2018 21:28:24 UTC] PHP Fatal error:  Class 'Mailchimp' not found in /home/czarspromise/events/app/Http/Controllers/DonateController.php on line 66
+[28-Aug-2018 21:30:56 UTC] PHP Fatal error:  Class 'Mailchimp' not found in /home/czarspromise/events/app/Http/Controllers/DonateController.php on line 66
+[29-Aug-2018 02:08:53 UTC] PHP Fatal error:  Call to undefined method NZTim\Mailchimp\Mailchimp::status() in /home/czarspromise/events/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 221
+[06-Sep-2018 21:31:24 UTC] PHP Fatal error:  Class 'App\Http\Controllers\User' not found in /home/czarspromise/staging/app/Http/Controllers/DataController.php on line 17
+[07-Sep-2018 01:58:17 UTC] PHP Fatal error:  Class 'App\Http\Controllers\User' not found in /home/czarspromise/staging/app/Http/Controllers/DataController.php on line 17
+[08-Sep-2018 19:42:57 UTC] PHP Fatal error:  Class 'Form' not found in /home/czarspromise/staging/storage/framework/views/f71dadb85532f97609cc27d4753cebaf862172e5.php on line 14
+[08-Sep-2018 19:45:43 UTC] PHP Fatal error:  Class 'Form' not found in /home/czarspromise/staging/storage/framework/views/f71dadb85532f97609cc27d4753cebaf862172e5.php on line 14
+[08-Sep-2018 22:06:25 UTC] PHP Parse error:  syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/czarspromise/staging/routes/web.php on line 39
+[09-Sep-2018 15:21:16 UTC] PHP Parse error:  syntax error, unexpected ''update'' (T_CONSTANT_ENCAPSED_STRING) in /home/czarspromise/staging/storage/framework/views/4d22c0003d38a16342f895ba270fb9d6e5f1eb29.php on line 13
+[09-Sep-2018 15:21:34 UTC] PHP Parse error:  syntax error, unexpected ''update'' (T_CONSTANT_ENCAPSED_STRING) in /home/czarspromise/staging/storage/framework/views/4d22c0003d38a16342f895ba270fb9d6e5f1eb29.php on line 13
+[09-Sep-2018 18:54:18 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 29
+[09-Sep-2018 18:54:33 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 29
+[09-Sep-2018 18:55:48 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 29
+[09-Sep-2018 18:55:54 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 29
+[09-Sep-2018 18:56:05 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 29
+[09-Sep-2018 18:56:08 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 29
+[09-Sep-2018 18:56:09 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 29
+[09-Sep-2018 18:56:29 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 29
+[09-Sep-2018 19:00:17 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 29
+[09-Sep-2018 19:09:27 UTC] PHP Fatal error:  Class 'Str' not found in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 29
+[16-Sep-2018 01:10:15 UTC] PHP Parse error:  syntax error, unexpected 'list' (T_LIST), expecting identifier (T_STRING) in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 19
+[16-Sep-2018 01:11:55 UTC] PHP Parse error:  syntax error, unexpected 'list' (T_LIST), expecting identifier (T_STRING) in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 19
+[16-Sep-2018 01:15:57 UTC] PHP Parse error:  syntax error, unexpected 'list' (T_LIST), expecting identifier (T_STRING) in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 19
+[16-Sep-2018 16:06:25 UTC] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF) in /home/czarspromise/staging/storage/framework/views/c76c7fe0c6e77f4085796baf824623f36b833a6a.php on line 58
+[16-Sep-2018 16:36:29 UTC] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF) in /home/czarspromise/staging/storage/framework/views/c76c7fe0c6e77f4085796baf824623f36b833a6a.php on line 58
+[16-Sep-2018 16:45:47 UTC] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF) in /home/czarspromise/staging/storage/framework/views/c76c7fe0c6e77f4085796baf824623f36b833a6a.php on line 63
+[16-Sep-2018 16:45:49 UTC] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF) in /home/czarspromise/staging/storage/framework/views/c76c7fe0c6e77f4085796baf824623f36b833a6a.php on line 63
+[16-Sep-2018 16:58:44 UTC] PHP Fatal error:  Call to a member function isParticipant() on null in /home/czarspromise/staging/storage/framework/views/c76c7fe0c6e77f4085796baf824623f36b833a6a.php on line 38
+[16-Sep-2018 17:09:11 UTC] PHP Fatal error:  Call to a member function each() on array in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 105
+[16-Sep-2018 19:03:08 UTC] PHP Fatal error:  Class 'App\Providers\DB' not found in /home/czarspromise/staging/app/Providers/AppServiceProvider.php on line 16
+[16-Sep-2018 19:35:04 UTC] PHP Fatal error:  Function name must be a string in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 105
+[17-Sep-2018 19:24:26 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/czarspromise/staging/app/Donation.php on line 15
+[17-Sep-2018 22:05:16 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/czarspromise/staging/storage/framework/views/c76c7fe0c6e77f4085796baf824623f36b833a6a.php on line 52
+[17-Sep-2018 22:06:33 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/czarspromise/staging/storage/framework/views/c76c7fe0c6e77f4085796baf824623f36b833a6a.php on line 52
+[17-Sep-2018 22:06:38 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/czarspromise/staging/storage/framework/views/c76c7fe0c6e77f4085796baf824623f36b833a6a.php on line 52
+[17-Sep-2018 22:15:25 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/czarspromise/staging/storage/framework/views/d259a3870fd070baab5ebb6c1be124049ac50279.php on line 12
+[17-Sep-2018 22:15:45 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/czarspromise/staging/storage/framework/views/d259a3870fd070baab5ebb6c1be124049ac50279.php on line 12
+[26-Sep-2018 14:42:58 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 135
+[26-Sep-2018 16:55:00 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 135
+[26-Sep-2018 19:23:27 UTC] PHP Parse error:  syntax error, unexpected ']' in /home/czarspromise/staging/storage/framework/views/d259a3870fd070baab5ebb6c1be124049ac50279.php on line 74
+[26-Sep-2018 19:23:51 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/czarspromise/staging/storage/framework/views/d259a3870fd070baab5ebb6c1be124049ac50279.php on line 74
+[26-Sep-2018 19:50:36 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/czarspromise/staging/storage/framework/views/ddf5436597d7738fb6b42d943e7184fa0e76fdcc.php on line 51
+[26-Sep-2018 19:54:08 UTC] PHP Fatal error:  Call to a member function pluck() on null in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 36
+[26-Sep-2018 19:54:40 UTC] PHP Fatal error:  Call to a member function pluck() on null in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 38
+[26-Sep-2018 19:55:01 UTC] PHP Fatal error:  Call to a member function pluck() on null in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 38
+[26-Sep-2018 19:57:33 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/czarspromise/staging/storage/framework/views/ddf5436597d7738fb6b42d943e7184fa0e76fdcc.php on line 51
+[26-Sep-2018 19:58:36 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/czarspromise/staging/storage/framework/views/ddf5436597d7738fb6b42d943e7184fa0e76fdcc.php on line 51
+[27-Sep-2018 02:15:07 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Input' not found in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 72
+[28-Sep-2018 00:38:09 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Event' not found in /home/czarspromise/staging/app/Http/Controllers/UsersController.php on line 31
+[28-Sep-2018 00:54:23 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Registrant' not found in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 37
+[28-Sep-2018 01:48:09 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 38
+[28-Sep-2018 02:03:12 UTC] PHP Fatal error:  Function name must be a string in /home/czarspromise/staging/app/Http/Controllers/UsersController.php on line 41
+[28-Sep-2018 21:22:15 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/czarspromise/staging/storage/framework/views/eec9231d34649fa2e3de0a44eba95e7b64241126.php on line 53
+[28-Sep-2018 21:32:26 UTC] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF) in /home/czarspromise/staging/storage/framework/views/2eaa21159e694dfce8fc47e9ba3be571cdefb81d.php on line 44
+[30-Sep-2018 16:34:11 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 216
+[30-Sep-2018 16:34:25 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Rule' not found in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 214
+[30-Sep-2018 16:34:33 UTC] PHP Fatal error:  Class 'Rule' not found in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 214
+[30-Sep-2018 19:14:48 UTC] PHP Fatal error:  Call to a member function each() on null in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 161
+[30-Sep-2018 19:15:02 UTC] PHP Fatal error:  Call to a member function each() on null in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 161
+[30-Sep-2018 19:15:48 UTC] PHP Fatal error:  Call to a member function each() on null in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 161
+[02-Oct-2018 03:04:20 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/czarspromise/staging/storage/framework/views/15ec4b9f0925a485e0ef63049aa396eea66dafec.php on line 83
+[02-Oct-2018 03:29:47 UTC] PHP Fatal error:  Class 'App\Mail\SponsorAdmin' not found in /home/czarspromise/staging/app/Http/Controllers/SponsorsController.php on line 68
+[02-Oct-2018 17:48:16 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/czarspromise/staging/app/Http/Controllers/SponsorsController.php on line 75
+[07-Oct-2018 14:28:20 UTC] PHP Parse error:  syntax error, unexpected ''registrant'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 304
+[07-Oct-2018 14:28:22 UTC] PHP Parse error:  syntax error, unexpected ''registrant'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 304
+[07-Oct-2018 14:28:22 UTC] PHP Parse error:  syntax error, unexpected ''registrant'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 304
+[07-Oct-2018 14:36:51 UTC] PHP Parse error:  syntax error, unexpected ''registrant'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 304
+[07-Oct-2018 14:37:27 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 323
+[07-Oct-2018 14:43:58 UTC] PHP Parse error:  syntax error, unexpected ']' in /home/czarspromise/staging/storage/framework/views/15ec4b9f0925a485e0ef63049aa396eea66dafec.php on line 119
+[07-Oct-2018 16:41:32 UTC] PHP Fatal error:  Call to undefined method Illuminate\View\Engines\CompilerEngine::levelCost() in /home/czarspromise/staging/storage/framework/views/15ec4b9f0925a485e0ef63049aa396eea66dafec.php on line 112
+[07-Oct-2018 16:42:16 UTC] PHP Fatal error:  Class 'App\Html\Controllers\Controller' not found in /home/czarspromise/staging/storage/framework/views/15ec4b9f0925a485e0ef63049aa396eea66dafec.php on line 112
+[07-Oct-2018 17:38:00 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 228
+[07-Oct-2018 17:38:58 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 228
+[07-Oct-2018 17:39:20 UTC] PHP Parse error:  syntax error, unexpected ''newteam'' (T_CONSTANT_ENCAPSED_STRING), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 333
+[07-Oct-2018 17:40:20 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ']' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 345
+[07-Oct-2018 17:40:33 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 366
+[07-Oct-2018 21:34:20 UTC] PHP Parse error:  syntax error, unexpected 'endforeach' (T_ENDFOREACH) in /home/czarspromise/staging/storage/framework/views/eec9231d34649fa2e3de0a44eba95e7b64241126.php on line 115
+[07-Oct-2018 22:43:31 UTC] PHP Parse error:  syntax error, unexpected '','' (T_CONSTANT_ENCAPSED_STRING) in /home/czarspromise/staging/storage/framework/views/ccdec7caa3f7fce5a3e40cc551771531ee07e836.php on line 18
+[07-Oct-2018 22:44:31 UTC] PHP Parse error:  syntax error, unexpected '','' (T_CONSTANT_ENCAPSED_STRING) in /home/czarspromise/staging/storage/framework/views/ccdec7caa3f7fce5a3e40cc551771531ee07e836.php on line 18
+[07-Oct-2018 23:04:14 UTC] PHP Parse error:  syntax error, unexpected '"' in /home/czarspromise/staging/storage/framework/views/ccdec7caa3f7fce5a3e40cc551771531ee07e836.php on line 27
+[07-Oct-2018 23:28:36 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 323
+[07-Oct-2018 23:28:47 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 323
+[08-Oct-2018 00:12:37 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ']' in /home/czarspromise/staging/storage/framework/views/ccdec7caa3f7fce5a3e40cc551771531ee07e836.php on line 28
+[08-Oct-2018 00:13:44 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 323
+[08-Oct-2018 00:22:20 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 323
+[08-Oct-2018 00:22:23 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 323
+[08-Oct-2018 04:13:55 UTC] PHP Parse error:  syntax error, unexpected '" class="' (T_CONSTANT_ENCAPSED_STRING) in /home/czarspromise/staging/storage/framework/views/c76c7fe0c6e77f4085796baf824623f36b833a6a.php on line 55
+[08-Oct-2018 04:14:05 UTC] PHP Parse error:  syntax error, unexpected '" class="' (T_CONSTANT_ENCAPSED_STRING) in /home/czarspromise/staging/storage/framework/views/c76c7fe0c6e77f4085796baf824623f36b833a6a.php on line 55
+[08-Oct-2018 18:49:58 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth' not found in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 408
+[08-Oct-2018 18:53:56 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth' not found in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 408
+[08-Oct-2018 18:57:46 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 16128 bytes) in /home/czarspromise/staging/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 136
+[08-Oct-2018 19:06:46 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[08-Oct-2018 20:49:24 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[08-Oct-2018 20:55:21 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[08-Oct-2018 21:16:49 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[08-Oct-2018 21:18:41 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[08-Oct-2018 21:19:15 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[08-Oct-2018 21:45:20 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[09-Oct-2018 13:46:35 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[09-Oct-2018 13:50:51 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[09-Oct-2018 13:53:14 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[09-Oct-2018 13:54:50 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[09-Oct-2018 13:56:49 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[11-Oct-2018 22:53:19 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[11-Oct-2018 22:56:11 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[11-Oct-2018 23:16:04 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[11-Oct-2018 23:25:38 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[11-Oct-2018 23:30:16 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 15
+[11-Oct-2018 23:31:38 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 10
+[11-Oct-2018 23:31:52 UTC] PHP Parse error:  syntax error, unexpected 'layouts' (T_STRING) in /home/czarspromise/staging/storage/framework/views/7975ffc211cc810a68e35f3af5df176752cfba58.php on line 6
+[12-Oct-2018 15:52:31 UTC] PHP Fatal error:  Class 'App\Mail\TeamPageApproved' not found in /home/czarspromise/staging/app/Http/Controllers/DataController.php on line 146
+[13-Oct-2018 03:02:52 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 368
+[13-Oct-2018 04:09:34 UTC] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF) in /home/czarspromise/staging/storage/framework/views/eec9231d34649fa2e3de0a44eba95e7b64241126.php on line 111
+[13-Oct-2018 04:15:52 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 630
+[13-Oct-2018 20:29:15 UTC] PHP Fatal error:  Class 'App\Http\Controllers\SponsorsExport' not found in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 38
+[13-Oct-2018 20:29:42 UTC] PHP Parse error:  syntax error, unexpected ':', expecting ';' or '{' in /home/czarspromise/staging/app/Exports/SponsorsExport.php on line 12
+[13-Oct-2018 20:29:58 UTC] PHP Fatal error:  Interface 'Maatwebsite\Excel\Concerns\FromView' not found in /home/czarspromise/staging/app/Exports/SponsorsExport.php on line 11
+[13-Oct-2018 20:44:06 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 43
+[13-Oct-2018 20:44:40 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Excel' not found in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 38
+[13-Oct-2018 20:48:30 UTC] PHP Fatal error:  Class 'App\Http\Controllers\SponsorSubmission' not found in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 40
+[13-Oct-2018 21:16:30 UTC] PHP Parse error:  syntax error, unexpected 'endforeach' (T_ENDFOREACH) in /home/czarspromise/staging/storage/framework/views/de2cc2c6b9dae7512fc3cf1363b5ff5e60b3d316.php on line 33
+[13-Oct-2018 22:16:51 UTC] PHP Fatal error:  Call to a member function first() on null in /home/czarspromise/staging/app/Http/Controllers/ReportsController.php on line 55
+[13-Oct-2018 22:17:06 UTC] PHP Fatal error:  Call to a member function first() on null in /home/czarspromise/staging/app/Http/Controllers/ReportsController.php on line 55
+[13-Oct-2018 22:28:04 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/czarspromise/staging/app/Http/Controllers/ReportsController.php on line 76
+[13-Oct-2018 22:43:37 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DB' not found in /home/czarspromise/staging/app/Http/Controllers/ReportsController.php on line 99
+[31-Oct-2018 17:00:41 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/czarspromise/staging/app/Http/Controllers/UsersController.php on line 65
+[02-Nov-2018 03:26:04 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/czarspromise/staging/storage/framework/views/f71dadb85532f97609cc27d4753cebaf862172e5.php on line 35
+[02-Nov-2018 03:32:49 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth' not found in /home/czarspromise/staging/app/Http/Controllers/UsersController.php on line 197
+[02-Nov-2018 03:33:16 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth' not found in /home/czarspromise/staging/app/Http/Controllers/UsersController.php on line 197
+[07-Nov-2018 03:57:01 UTC] PHP Parse error:  syntax error, unexpected ''inkind_value'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/czarspromise/staging/app/Http/Controllers/SponsorsController.php on line 30
+[07-Nov-2018 03:57:28 UTC] PHP Parse error:  syntax error, unexpected ''inkind_value'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/czarspromise/staging/app/Http/Controllers/SponsorsController.php on line 30
+[07-Nov-2018 04:08:20 UTC] PHP Parse error:  syntax error, unexpected ''paytype'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/czarspromise/staging/app/Http/Controllers/DonateController.php on line 87
+[19-Dec-2018 04:10:43 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth\Password' not found in /home/czarspromise/staging/app/Http/Controllers/Auth/ForgotPasswordController.php on line 52
+[19-Dec-2018 04:13:47 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth\Password' not found in /home/czarspromise/staging/app/Http/Controllers/Auth/ForgotPasswordController.php on line 52
+[19-Dec-2018 04:21:51 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth\Str' not found in /home/czarspromise/staging/app/Http/Controllers/Auth/ResetPasswordController.php on line 144
+[11-Jan-2019 22:00:40 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/czarspromise/staging/storage/framework/views/c76c7fe0c6e77f4085796baf824623f36b833a6a.php on line 115
+[14-Jan-2019 19:36:22 UTC] PHP Parse error:  syntax error, unexpected '!', expecting ',' or ';' in /home/czarspromise/staging/storage/framework/views/c76c7fe0c6e77f4085796baf824623f36b833a6a.php on line 115
+[14-Jan-2019 21:20:36 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 42
+[14-Jan-2019 21:20:51 UTC] PHP Fatal error:  Call to a member function teams() on null in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 42
+[14-Jan-2019 22:11:15 UTC] PHP Fatal error:  Class 'App\Events' not found in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 40
+[09-Feb-2019 12:20:46 America/Chicago] PHP Parse error:  syntax error, unexpected 'if' (T_IF), expecting function (T_FUNCTION) in /home/czarspromise/staging/app/Http/Controllers/DonateController.php on line 69
+[18-Feb-2019 11:58:29 America/Chicago] PHP Fatal error:  Call to a member function count() on null in /home/czarspromise/staging/storage/framework/views/eec9231d34649fa2e3de0a44eba95e7b64241126.php on line 21
+[18-Feb-2019 11:59:10 America/Chicago] PHP Fatal error:  Call to a member function count() on null in /home/czarspromise/staging/storage/framework/views/eec9231d34649fa2e3de0a44eba95e7b64241126.php on line 21
+[18-Feb-2019 11:59:23 America/Chicago] PHP Fatal error:  Call to a member function count() on null in /home/czarspromise/staging/storage/framework/views/eec9231d34649fa2e3de0a44eba95e7b64241126.php on line 21
+[04-Apr-2019 21:29:17 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/czarspromise/staging/app/Http/Controllers/EventsController.php on line 511
+[21-Aug-2019 14:38:46 America/Chicago] PHP Fatal error:  Cannot pass parameter 1 by reference in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 42
+[21-Aug-2019 14:40:35 America/Chicago] PHP Fatal error:  Call to undefined method Stripe\Collection::each() in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 40
+[21-Aug-2019 14:44:25 America/Chicago] PHP Fatal error:  Call to undefined method Stripe\Collection::search() in /home/czarspromise/staging/app/Http/Controllers/HomeController.php on line 44
+[22-Aug-2019 10:54:22 America/Chicago] PHP Parse error:  syntax error, unexpected 'cancelSubscription' (T_STRING), expecting variable (T_VARIABLE) in /home/czarspromise/staging/app/Http/Controllers/DonateController.php on line 238
