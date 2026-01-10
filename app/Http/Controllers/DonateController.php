@@ -25,13 +25,13 @@ class DonateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function page(?Event $event = null, ?Registrant $registrant = null)
+    public function page(Event $event = null, Registrant $registrant = null)
     {
 
         if (is_null($event->id)) {
             return view('pages.donate', ['hideHeader' => true, 'stripe_pk' => ((env('STRIPE_MODE', 'test') == 'live') ? env('STRIPE_PK') : env('STRIPE_TEST_PK'))]);
         } else {
-            if (is_null($registrant->id)) {
+            if (is_null($registrant)) {
                 return view('pages.donate', ['event' => $event, 'stripe_pk' => ((env('STRIPE_MODE', 'test') == 'live') ? env('STRIPE_PK') : env('STRIPE_TEST_PK'))]);
             } else {
                 return view('pages.donate', ['registrant' => $registrant, 'event' => $event, 'stripe_pk' => ((env('STRIPE_MODE', 'test') == 'live') ? env('STRIPE_PK') : env('STRIPE_TEST_PK'))]);
