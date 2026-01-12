@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Hash;
 use App\Donation;
 use App\Event;
 use App\Registrant;
@@ -11,6 +10,7 @@ use App\TeamMember;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class EventsController extends Controller
