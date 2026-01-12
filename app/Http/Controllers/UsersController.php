@@ -313,6 +313,6 @@ class UsersController extends Controller
             }
         }
 
-        return \Redirect::route('user.create')->with('message','A user account has been created for '.$request->fname.' '.$request->lname.'.');
+        return \Redirect::route('user.create')->with('message', 'A user account has been created for '.$request->fname.' '.$request->lname.'.');
     }
 }

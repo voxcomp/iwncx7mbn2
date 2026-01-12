@@ -275,6 +275,6 @@ class AdminController extends Controller
         $donation->team_id = $request->team;
         $donation->save();
 
-        return \Redirect::route('admin.donations')->with('message','Donation saved.');
+        return \Redirect::route('admin.donations')->with('message', 'Donation saved.');
     }
 }

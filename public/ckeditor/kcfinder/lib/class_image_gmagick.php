@@ -25,9 +25,10 @@ class image_gmagick extends image
     // ABSTRACT PUBLIC METHODS
 
     public function resize($width, $height) //
-    {if (! $width) {
-        $width = 1;
-    }
+    {
+        if (! $width) {
+            $width = 1;
+        }
         if (! $height) {
             $height = 1;
         }
@@ -43,9 +44,10 @@ class image_gmagick extends image
     }
 
     public function resizeFit($width, $height, $background = false) //
-    {if (! $width) {
-        $width = 1;
-    }
+    {
+        if (! $width) {
+            $width = 1;
+        }
         if (! $height) {
             $height = 1;
         }

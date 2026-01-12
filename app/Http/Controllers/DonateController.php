@@ -25,7 +25,7 @@ class DonateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function page(Event $event = null, Registrant $registrant = null)
+    public function page(?Event $event = null, ?Registrant $registrant = null)
     {
 
         if (is_null($event->id)) {
@@ -465,8 +465,8 @@ class DonateController extends Controller
                                     }
                     */
                 }
-                if (strpos($request->photo,'temp/') !== false && ! isset($request->anonymous)) {
-                    return \Redirect::route('donate.promise')->with('confirm','Thank you for your donation.');
+                if (strpos($request->photo, 'temp/') !== false && ! isset($request->anonymous)) {
+                    return \Redirect::route('donate.promise')->with('confirm', 'Thank you for your donation.');
                 } else {
                     return \Redirect::route('donate.promise.confirm');
                 }
@@ -475,7 +475,7 @@ class DonateController extends Controller
 
             return \Redirect::back();
         } else {
-            return \Redirect::route('donate.promise')->with('confirm','Thank you for your donation.');
+            return \Redirect::route('donate.promise')->with('confirm', 'Thank you for your donation.');
         }
     }
 }

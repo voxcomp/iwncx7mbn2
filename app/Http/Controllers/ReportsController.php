@@ -152,7 +152,7 @@ class ReportsController extends Controller
                 $dates = array_unique($dates);
                 sort($dates);
 
-                $sheet->loadView('reports.progress',compact('dates','registrants','teams','donations','registrations'));
+                $sheet->loadView('reports.progress', compact('dates', 'registrants', 'teams', 'donations', 'registrations'));
             });
         })->download('xlsx');
     }

@@ -928,7 +928,7 @@ class EventsController extends Controller
         }
         $registrants = Registrant::where($where)->orderBy('lname')->orderBy('fname')->get();
 
-        echo view('parts.registrantSearchResult',compact('registrants'));
+        echo view('parts.registrantSearchResult', compact('registrants'));
         exit();
     }
 }
