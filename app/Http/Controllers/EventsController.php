@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use App\Donation;
 use App\Event;
 use App\Registrant;
@@ -329,7 +330,7 @@ class EventsController extends Controller
                 'fname' => $registration['fname'],
                 'lname' => $registration['lname'],
                 'email' => $registration['email'],
-                'password' => bcrypt($registrationpersonal['password']),
+                'password' => Hash::make($registrationpersonal['password']),
                 'validated' => 0,
                 'phone' => $registration['phone'],
                 'address' => $registration['address'],
@@ -524,7 +525,7 @@ class EventsController extends Controller
                         'fname' => $registration['fname'],
                         'lname' => $registration['lname'],
                         'email' => $registration['email'],
-                        'password' => bcrypt($registrationpersonal['password']),
+                        'password' => Hash::make($registrationpersonal['password']),
                         'validated' => 0,
                         'phone' => $registration['phone'],
                         'address' => $registration['address'],

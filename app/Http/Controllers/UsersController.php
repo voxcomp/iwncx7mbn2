@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use App\Event;
 use App\Registrant;
 use App\Team;
@@ -183,7 +184,7 @@ class UsersController extends Controller
         }
         // if new password entered
         if (! empty($request->password)) {
-            $updatable['password'] = bcrypt($request->password);
+            $updatable['password'] = Hash::make($request->password);
         }
 
         if ($user->validated == 0 && $updatable['validated'] == 1) {
@@ -275,7 +276,7 @@ class UsersController extends Controller
         $updatable = [
             'user_type' => $request->user_type,
             'username' => $request->username,
-            'password' => bcrypt($request->password),
+            'password' => Hash::make($request->password),
             'fname' => $request->fname,
             'lname' => $request->lname,
             'email' => $request->email,

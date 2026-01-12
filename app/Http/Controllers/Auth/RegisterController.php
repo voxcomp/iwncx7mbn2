@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Registrant;
 use App\User;
@@ -98,7 +99,7 @@ class RegisterController extends Controller
             'lname' => $request->lname,
             'email' => $request->email,
             'username' => $request->username,
-            'password' => bcrypt($request->password),
+            'password' => Hash::make($request->password),
         ];
         event(new Registered($user = $this->create($data)));
 
@@ -165,7 +166,7 @@ class RegisterController extends Controller
             'lname' => $data['lname'],
             'username' => $data['username'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => Hash::make($data['password']),
         ]);
 
         Registrant::where('email', $user->email)->update(['user_id' => $user->id]);

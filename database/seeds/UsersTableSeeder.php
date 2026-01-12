@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use Illuminate\Database\Seeder;
 
@@ -19,7 +20,7 @@ class UsersTableSeeder extends Seeder
             'fname' => 'Beth',
             'lname' => 'Viney',
             'email' => 'info@czarspromise.com',
-            'password' => bcrypt('findThecause18'),
+            'password' => Hash::make('findThecause18'),
             'validated' => 1,
         ]);
         /*
@@ -29,7 +30,7 @@ class UsersTableSeeder extends Seeder
                     'fname' => 'Test',
                     'lname' => 'User',
                     'email' => 'test@voxcomp.com',
-                    'password' => bcrypt('password'),
+                    'password' => Hash::make('password'),
                     'validated' => 1,
                     'phone' => '123-123-1234',
                     'address' => '123 Street St',
@@ -43,7 +44,7 @@ class UsersTableSeeder extends Seeder
                     'fname' => 'Test',
                     'lname' => 'Participant',
                     'email' => 'test3@voxcomp.com',
-                    'password' => bcrypt('password'),
+                    'password' => Hash::make('password'),
                     'validated' => 1,
                 ]);
         */
