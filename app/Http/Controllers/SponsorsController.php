@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Event;
 use App\Sponsor;
 use App\SponsorSubmission;
@@ -143,7 +144,7 @@ class SponsorsController extends Controller
 
         $image = $request->file('image');
         if (! is_null($image)) {
-            $input['imagename'] = str_slug($request->name, '-').'-'.time().'.'.$image->getClientOriginalExtension();
+            $input['imagename'] = Str::slug($request->name, '-').'-'.time().'.'.$image->getClientOriginalExtension();
 
             $destinationPath = \Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix().'public';
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Repositories;
 
+use Illuminate\Support\Str;
 use App\User;
 use DB;
 
@@ -48,7 +49,7 @@ class ValidationRepo
 
     protected function getToken()
     {
-        return substr(hash_hmac('sha256', str_random(20), config('app.key')), 0, 20);
+        return substr(hash_hmac('sha256', Str::random(20), config('app.key')), 0, 20);
     }
 
     private function regenerateToken(User $user)

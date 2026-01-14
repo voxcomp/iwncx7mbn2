@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Event;
 use App\Registrant;
 use App\Team;
@@ -178,9 +179,9 @@ class UsersController extends Controller
                 'user_type' => $request->user_type,
                 'validated' => 1,
                 'username' => $request->username,
-                'slug' => str_slug($request->username, '-'),
+                'slug' => Str::slug($request->username, '-'),
             ]);
-            $viewredirect = '/user/profile/'.str_slug($request->username, '-');
+            $viewredirect = '/user/profile/'.Str::slug($request->username, '-');
         }
         // if new password entered
         if (! empty($request->password)) {

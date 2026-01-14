@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Donation;
 use App\Event;
 use App\Registrant;
@@ -46,7 +47,7 @@ class EventsController extends Controller
 
         $image = $request->file('image');
         if (! is_null($image)) {
-            $input['imagename'] = str_slug($request->short, '-').'-'.time().'.'.$image->getClientOriginalExtension();
+            $input['imagename'] = Str::slug($request->short, '-').'-'.time().'.'.$image->getClientOriginalExtension();
 
             $destinationPath = \Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix().'public';
 
@@ -109,7 +110,7 @@ class EventsController extends Controller
         $image = $request->file('image');
 
         if (! is_null($image)) {
-            $input['imagename'] = str_slug($request->short, '-').'-'.time().'.'.$image->getClientOriginalExtension();
+            $input['imagename'] = Str::slug($request->short, '-').'-'.time().'.'.$image->getClientOriginalExtension();
 
             $destinationPath = \Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix().'public';
 
