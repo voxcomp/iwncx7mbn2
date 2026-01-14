@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Donation;
 use App\Event;
-use Carbon\Carbon;
 
 class HomeController extends Controller
 {
