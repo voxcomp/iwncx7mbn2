@@ -11,7 +11,7 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
-   .scripts(['resources/assets/js/imagesloaded.pkgd.min.js','resources/assets/js/masonry.pkgd.min.js','resources/assets/js/theme.js','resources/assets/js/jquery.autocomplete.min.js', 'resources/assets/js/jquery.form.min.js', 'resources/assets/js/jquery.maskedinput.min.js', 'resources/assets/js/cropper.min.js'],'public/js/theme.js')
-   .styles(['resources/assets/sass/cropper.min.css'],'public/css/theme.css').sourceMaps();
+mix.js('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css')
+   .scripts(['resources/js/imagesloaded.pkgd.min.js','resources/js/masonry.pkgd.min.js','resources/js/theme.js','resources/js/jquery.autocomplete.min.js', 'resources/js/jquery.form.min.js', 'resources/js/jquery.maskedinput.min.js', 'resources/js/cropper.min.js'],'public/js/theme.js')
+   .styles(['resources/sass/cropper.min.css'],'public/css/theme.css').sourceMaps();
