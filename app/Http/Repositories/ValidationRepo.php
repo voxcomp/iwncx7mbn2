@@ -2,9 +2,9 @@
 
 namespace App\Http\Repositories;
 
-use Illuminate\Support\Str;
 use App\User;
 use DB;
+use Illuminate\Support\Str;
 
 class ValidationRepo
 {
