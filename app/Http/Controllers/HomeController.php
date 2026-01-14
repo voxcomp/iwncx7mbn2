@@ -39,8 +39,6 @@ class HomeController extends Controller
 
     public function test()
     {
-        // dd(new Carbon("june 12, 2023"));
-        // dd(\UrlShortener::shorten("https://events.czarspromise.com/event/personal/2023-inspiring-hope-walk/vicki-nussbaum-4"));
         $event = Event::where('id', 7)->first();
         dd($event->raised());
     }

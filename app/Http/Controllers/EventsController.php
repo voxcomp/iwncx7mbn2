@@ -382,7 +382,7 @@ class EventsController extends Controller
         $registrant = Registrant::create($create);
         if (! empty($registrant->pagetitle)) {
             $registrant->pageurl = config('app.url').'/event/personal/'.$event->slug.'/'.$registrant->slug;
-            $registrant->pageshorturl = $registrant->pageurl; // \UrlShortener::shorten($registrant->pageurl);
+            $registrant->pageshorturl = $registrant->pageurl; 
             $registrant->save();
         }
 
@@ -407,7 +407,7 @@ class EventsController extends Controller
             $team = Team::create($create);
             if (! empty($team->pagetitle)) {
                 $team->pageurl = config('app.url').'/event/team/'.$event->slug.'/'.$team->slug;
-                $team->pageshorturl = $team->pageurl; // \UrlShortener::shorten($team->pageurl);
+                $team->pageshorturl = $team->pageurl;
                 $team->save();
             }
             $is_member = \App\TeamMember::where('registrant_id', $registrant->id)->where('team_id', $team->id)->count();
@@ -584,7 +584,7 @@ class EventsController extends Controller
 
             if (! empty($registrant->pagetitle)) {
                 $registrant->pageurl = config('app.url').'/event/personal/'.$event->slug.'/'.$registrant->slug;
-                $registrant->pageshorturl = $registrant->pageurl; // \UrlShortener::shorten($registrant->pageurl);
+                $registrant->pageshorturl = $registrant->pageurl; 
                 $registrant->save();
             }
 
@@ -609,7 +609,7 @@ class EventsController extends Controller
                 $team = Team::create($create);
                 if (! empty($team->pagetitle)) {
                     $team->pageurl = config('app.url').'/event/team/'.$event->slug.'/'.$team->slug;
-                    $team->pageshorturl = $team->pageurl; // \UrlShortener::shorten($team->pageurl);
+                    $team->pageshorturl = $team->pageurl; 
                     $team->save();
                 }
                 $is_member = \App\TeamMember::where('registrant_id', $registrant->id)->where('team_id', $team->id)->count();
@@ -803,7 +803,7 @@ class EventsController extends Controller
         $registrant->goal = str_replace('$', '', $request->{'pagegoal'.$registrant->event_id});
         if (! empty($registrant->pagetitle)) {
             $registrant->pageurl = config('app.url').'/event/personal/'.$registrant->event->slug.'/'.$registrant->slug;
-            $registrant->pageshorturl = $registrant->pageurl; // \UrlShortener::shorten($registrant->pageurl);
+            $registrant->pageshorturl = $registrant->pageurl;
         }
         $registrant->save();
 
@@ -831,7 +831,7 @@ class EventsController extends Controller
         $team->goal = str_replace('$', '', $request->{'teampagegoal'.$team->event_id});
         if (! empty($team->pagetitle)) {
             $team->pageurl = config('app.url').'/event/team/'.$team->event->slug.'/'.$team->slug;
-            $team->pageshorturl = $team->pageurl; // \UrlShortener::shorten($team->pageurl);
+            $team->pageshorturl = $team->pageurl; 
         }
         $team->save();
 
@@ -884,7 +884,7 @@ class EventsController extends Controller
             try {
                 if (empty($registrant->pageurl) && ! is_null($registrant->pageurl)) {
                     $registrant->pageurl = config('app.url').'/event/personal/'.$event->slug.'/'.$registrant->slug;
-                    $registrant->pageshorturl = $registrant->pageurl; // \UrlShortener::shorten($registrant->pageurl);
+                    $registrant->pageshorturl = $registrant->pageurl; 
                     $registrant->save();
                 }
                 $registrant->page = $registrant->pageurl;
@@ -896,7 +896,7 @@ class EventsController extends Controller
             try {
                 if (empty($team->pageurl) && ! is_null($team->pageurl)) {
                     $team->pageurl = config('app.url').'/event/team/'.$event->slug.'/'.$team->slug;
-                    $team->pageshorturl = $team->pageurl; // \UrlShortener::shorten($team->pageurl);
+                    $team->pageshorturl = $team->pageurl; 
                     $team->save();
                 }
                 $team->page = $team->pageurl;

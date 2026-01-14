@@ -18,7 +18,6 @@
         "nztim/mailchimp": "^1.0",
         "stripe/stripe-php": "^14.9",
         "unisharp/laravel-ckeditor": "^4.7",
-        "waavi/url-shortener": "1.0.x",
         "fideloper/proxy": "^4.0"
     },
     "require-dev": {
