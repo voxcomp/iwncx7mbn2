@@ -40,7 +40,7 @@
 					<td>
                         {{ Illuminate\Mail\Markdown::parse($slot) }}
 
-                        {{ $subcopy or '' }}
+                        {{ $subcopy ?? '' }}
 					</td>
 					<td width="2%">&nbsp;</td>
 				</tr>

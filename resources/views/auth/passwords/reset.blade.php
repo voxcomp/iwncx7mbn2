@@ -11,7 +11,7 @@
         <input type="hidden" name="token" value="{{ $token }}">
 
         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                <input id="username" type="text" class="form-control" name="username" value="{{ $username or old('username') }}" placeholder="Username" required autofocus>
+                <input id="username" type="text" class="form-control" name="username" value="{{ $username ?? old('username') }}" placeholder="Username" required autofocus>
 
                 @if ($errors->has('username'))
                     <span class="help-block">
