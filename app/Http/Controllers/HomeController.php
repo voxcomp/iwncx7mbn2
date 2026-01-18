@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
 use App\Donation;
 use App\Event;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {

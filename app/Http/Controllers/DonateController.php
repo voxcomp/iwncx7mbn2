@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
 use App\Donation;
 use App\Event;
 use App\Registrant;
 use App\Team;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class DonateController extends Controller
 {

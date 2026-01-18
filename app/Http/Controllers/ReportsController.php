@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
 use App\Donation;
 use App\Event;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ReportsController extends Controller
 {

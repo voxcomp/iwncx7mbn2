@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
 use App\Event;
 use App\Sponsor;
 use App\SponsorSubmission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 
 class SponsorsController extends Controller
 {

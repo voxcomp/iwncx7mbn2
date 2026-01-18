@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 use App\Coupon;
 use App\Donation;
 use App\Event;
 use App\Registrant;
 use App\Team;
 use App\TeamMember;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class AdminController extends Controller
 {
