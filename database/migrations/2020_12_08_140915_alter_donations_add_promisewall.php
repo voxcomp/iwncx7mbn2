@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class AlterDonationsAddPromisewall extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -32,4 +32,4 @@ class AlterDonationsAddPromisewall extends Migration
             $table->dropColumn('photo');
         });
     }
-}
+};

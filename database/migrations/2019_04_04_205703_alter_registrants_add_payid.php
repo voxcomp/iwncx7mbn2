@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class AlterRegistrantsAddPayid extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -28,4 +28,4 @@ class AlterRegistrantsAddPayid extends Migration
             $table->dropColumn('payid');
         });
     }
-}
+};

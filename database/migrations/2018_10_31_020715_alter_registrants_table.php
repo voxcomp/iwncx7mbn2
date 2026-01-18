@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class AlterRegistrantsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -30,4 +30,4 @@ class AlterRegistrantsTable extends Migration
             $table->dropColumn('pageshorturl');
         });
     }
-}
+};
