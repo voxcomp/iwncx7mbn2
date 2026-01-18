@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Auth;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\EventsController;
@@ -10,6 +9,7 @@ use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\SponsorsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
