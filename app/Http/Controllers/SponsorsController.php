@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use App\Event;
 use App\Sponsor;
 use App\SponsorSubmission;
@@ -10,7 +11,7 @@ use Illuminate\Support\Str;
 
 class SponsorsController extends Controller
 {
-    public function sponsor(Event $event)
+    public function sponsor(Event $event): View
     {
         // return view('sponsors.closed',compact('event'));
         return view('sponsors.form', compact('event'));
@@ -117,12 +118,12 @@ class SponsorsController extends Controller
         }
     }
 
-    public function listing(Event $event)
+    public function listing(Event $event): View
     {
         return view('sponsors.list', ['event' => $event, 'sponsors' => $event->sponsorSubmissions]);
     }
 
-    public function delete(SponsorSubmission $sponsor)
+    public function delete(SponsorSubmission $sponsor): View
     {
         $event = Event::where('id', $sponsor->event_id);
         $sponsor->delete();
@@ -130,7 +131,7 @@ class SponsorsController extends Controller
         return view('sponsors.list', ['event' => $event, 'sponsors' => $event->sponsorSubmissions]);
     }
 
-    public function eventSponsors(Event $event)
+    public function eventSponsors(Event $event): View
     {
         return view('event.sponsors', compact('event'));
     }

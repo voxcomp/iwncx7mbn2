@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use App\Event;
 use App\Registrant;
 use App\Team;
@@ -80,7 +81,7 @@ class UsersController extends Controller
      * @param App\User
      * @return \Illuminate\Http\Response
      */
-    public function profile(?User $user = null)
+    public function profile(?User $user = null): View
     {
         if (! is_null($user->id)) {
             if (\Auth::user()->isAdmin()) {
@@ -226,7 +227,7 @@ class UsersController extends Controller
         }
     }
 
-    public function search()
+    public function search(): View
     {
         return view('user.search');
     }
@@ -255,7 +256,7 @@ class UsersController extends Controller
         exit();
     }
 
-    public function create()
+    public function create(): View
     {
         return view('user.create');
     }

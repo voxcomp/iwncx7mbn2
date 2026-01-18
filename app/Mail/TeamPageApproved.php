@@ -36,7 +36,7 @@ class TeamPageApproved extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(): static
     {
         return $this->view('mail.teampageapproved')->text('mail.teampageapproved_plain');
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use App\Donation;
 use App\Event;
 
@@ -42,19 +43,19 @@ class HomeController extends Controller
         dd($event->raised());
     }
 
-    public function unauthorized()
+    public function unauthorized(): View
     {
         return view('pages.unauthorized');
     }
 
-    public function pagePromise()
+    public function pagePromise(): View
     {
         $donations = Donation::where('promise', 'yes')->where('photo', '<>', '')->orderBy('id', 'DESC')->get();
 
         return view('pages.promisewall', compact('donations'));
     }
 
-    public function pagePromiseConfirm()
+    public function pagePromiseConfirm(): View
     {
         return view('pages.donatepromiseconfirm');
     }

@@ -95,7 +95,7 @@ class Event extends Model
      *
      * @return int
      */
-    public function raised()
+    public function raised(): int
     {
         $total = $this->participants->sum('paid');
         $total += $this->sponsorSubmissions->sum('paid');
@@ -113,7 +113,7 @@ class Event extends Model
      *
      * @return int
      */
-    public function percent()
+    public function percent(): int
     {
         $percent = round(($this->raised() / $this->goal) * 100);
 
@@ -137,7 +137,7 @@ class Event extends Model
      *
      * @return string
      */
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'slug';
     }

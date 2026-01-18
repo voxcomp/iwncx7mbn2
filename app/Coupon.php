@@ -20,7 +20,7 @@ class Coupon extends Model
      *
      * @return bool
      */
-    public function isExpired()
+    public function isExpired(): bool
     {
         return $this->valid_to < time();
     }
@@ -30,7 +30,7 @@ class Coupon extends Model
      *
      * @return bool
      */
-    public function isValid()
+    public function isValid(): bool
     {
         return $this->valid_from > time();
     }
@@ -40,7 +40,7 @@ class Coupon extends Model
      *
      * @return bool
      */
-    public function isActive()
+    public function isActive(): bool
     {
         return $this->active;
     }
@@ -50,7 +50,7 @@ class Coupon extends Model
      *
      * @return bool
      */
-    public function isUsable()
+    public function isUsable(): bool
     {
         return $this->active && $this->valid_from < time() && $this->valid_to > time() && (($this->maxuse == 0) || ($this->used < $this->maxuse));
     }
@@ -61,7 +61,7 @@ class Coupon extends Model
      * @param  float  $charge
      * @return bool
      */
-    public function value($charge)
+    public function value(float $charge): bool
     {
         if ($this->discount_type == 'dollar') {
             $charge = $charge - floatval($this->amount);

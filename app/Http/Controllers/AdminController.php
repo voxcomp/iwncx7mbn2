@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use App\Coupon;
 use App\Donation;
 use App\Event;
@@ -22,7 +24,7 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
-    public function personalpageReview()
+    public function personalpageReview(): View
     {
         $registrants = Registrant::where('moderated', 0)->where(function ($query) {
             $query->whereNotNull('pagetitle')->Where('pagetitle', '<>', '');
@@ -34,7 +36,7 @@ class AdminController extends Controller
         return view('admin.personalpage', compact('registrants', 'teams'));
     }
 
-    public function registrantView(Registrant $registrant)
+    public function registrantView(Registrant $registrant): View
     {
         $event = $registrant->event;
         $event->registrant = $registrant;
@@ -53,14 +55,14 @@ class AdminController extends Controller
         return view('admin.registrant', compact('event'));
     }
 
-    public function registrantEdit(Registrant $registrant)
+    public function registrantEdit(Registrant $registrant): View
     {
         $user = $registrant;
 
         return view('admin.registrant-edit', compact('registrant', 'user'));
     }
 
-    public function registrantSave(Request $request, Registrant $registrant)
+    public function registrantSave(Request $request, Registrant $registrant): View
     {
         $this->validate($request, [
             'fname' => 'required|string|max:50',
@@ -136,7 +138,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function coupons(Coupon $coupon)
+    public function coupons(Coupon $coupon): View
     {
         $coupons = Coupon::all();
         if (! is_null($coupon->id)) {
@@ -187,7 +189,7 @@ class AdminController extends Controller
      * @param  App\Http\Requests  $request
      * @return \Illuminate\Http\Response
      */
-    public function couponSave(Request $request)
+    public function couponSave(Request $request): RedirectResponse
     {
         $coupon = Coupon::where('id', '=', $request->id)->first();
         if (! empty($coupon)) {
@@ -227,7 +229,7 @@ class AdminController extends Controller
         echo 'confirm';
     }
 
-    public function donations()
+    public function donations(): View
     {
         $donations = Donation::orderBy('created_at', 'desc')->get();
 
@@ -240,7 +242,7 @@ class AdminController extends Controller
         echo 'confirm';
     }
 
-    public function donationEdit(Donation $donation)
+    public function donationEdit(Donation $donation): View
     {
         $events = Event::orderBy('event_date', 'desc')->orderBy('title', 'asc')->get();
         $registrants = Registrant::orderBy('lname', 'asc')->orderBy('fname', 'asc')->get();

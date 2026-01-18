@@ -33,7 +33,7 @@ class SponsorAdmin extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(): static
     {
         if (! empty($this->submission->image)) {
             $storagePath = \Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();

@@ -56,7 +56,7 @@ class DataController extends Controller
      *
      * @param  string  $coupon
      */
-    public function coupon($coupon, $amount)
+    public function coupon(string $coupon, $amount)
     {
         if (! is_null($coupon)) {
             $coupon = Coupon::where('name', '=', $coupon)->first();

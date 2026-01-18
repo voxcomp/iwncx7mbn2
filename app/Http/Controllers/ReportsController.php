@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use App\Donation;
 use App\Event;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class ReportsController extends Controller
         $this->middleware('admin');
     }
 
-    public function reports()
+    public function reports(): View
     {
         return view('reports.reports', ['events' => Event::all()]);
     }

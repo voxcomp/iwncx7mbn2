@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
@@ -37,7 +38,7 @@ class ForgotPasswordController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function sendResetLinkEmail(Request $request)
+    public function sendResetLinkEmail(Request $request): RedirectResponse
     {
         $this->validateEmail($request);
 
@@ -58,7 +59,7 @@ class ForgotPasswordController extends Controller
      *
      * @return void
      */
-    protected function validateEmail(Request $request)
+    protected function validateEmail(Request $request): void
     {
         $this->validate($request, ['username' => 'required']);
     }
@@ -69,7 +70,7 @@ class ForgotPasswordController extends Controller
      * @param  string  $response
      * @return \Illuminate\Http\RedirectResponse
      */
-    protected function sendResetLinkResponse(Request $request, $response)
+    protected function sendResetLinkResponse(Request $request, string $response): RedirectResponse
     {
         return back()->with('status', trans($response));
     }
@@ -81,7 +82,7 @@ class ForgotPasswordController extends Controller
      * @param  string  $response
      * @return \Illuminate\Http\RedirectResponse
      */
-    protected function sendResetLinkFailedResponse(Request $request, $response)
+    protected function sendResetLinkFailedResponse(Request $request, string $response): RedirectResponse
     {
         return back()->withErrors(
             ['username' => trans($response)]

@@ -42,7 +42,7 @@ class User extends Authenticatable
      *
      * @return bool
      */
-    public function isAdmin()
+    public function isAdmin(): bool
     {
         return $this->user_type == 'admin';
     }
@@ -64,7 +64,7 @@ class User extends Authenticatable
      *
      * @return string
      */
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'slug';
     }

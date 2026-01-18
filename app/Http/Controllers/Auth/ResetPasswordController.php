@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Contracts\Auth\CanResetPassword;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
@@ -59,7 +62,7 @@ class ResetPasswordController extends Controller
      * @param  string|null  $token
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showResetForm(Request $request, $token = null)
+    public function showResetForm(Request $request, ?string $token = null): View
     {
         return view('auth.passwords.reset')->with(
             ['token' => $token, 'username' => $request->username]
@@ -71,7 +74,7 @@ class ResetPasswordController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function reset(Request $request)
+    public function reset(Request $request): RedirectResponse
     {
         $this->validate($request, $this->rules(), $this->validationErrorMessages());
 
@@ -97,7 +100,7 @@ class ResetPasswordController extends Controller
      *
      * @return array
      */
-    protected function rules()
+    protected function rules(): array
     {
         return [
             'token' => 'required',
@@ -111,7 +114,7 @@ class ResetPasswordController extends Controller
      *
      * @return array
      */
-    protected function validationErrorMessages()
+    protected function validationErrorMessages(): array
     {
         return [];
     }
@@ -121,7 +124,7 @@ class ResetPasswordController extends Controller
      *
      * @return array
      */
-    protected function credentials(Request $request)
+    protected function credentials(Request $request): array
     {
         return $request->only(
             'username', 'password', 'password_confirmation', 'token'
@@ -135,7 +138,7 @@ class ResetPasswordController extends Controller
      * @param  string  $password
      * @return void
      */
-    protected function resetPassword($user, $password)
+    protected function resetPassword(CanResetPassword $user, string $password): void
     {
         $user->forceFill([
             'password' => Hash::make($password),
@@ -151,7 +154,7 @@ class ResetPasswordController extends Controller
      * @param  string  $response
      * @return \Illuminate\Http\RedirectResponse
      */
-    protected function sendResetResponse(Request $request, $response)
+    protected function sendResetResponse(Request $request, string $response): RedirectResponse
     {
         return redirect($this->redirectPath())
             ->with('status', trans($response));
@@ -164,7 +167,7 @@ class ResetPasswordController extends Controller
      * @param  string  $response
      * @return \Illuminate\Http\RedirectResponse
      */
-    protected function sendResetFailedResponse(Request $request, $response)
+    protected function sendResetFailedResponse(Request $request, string $response): RedirectResponse
     {
         return redirect()->back()
             ->withInput($request->only('username'))

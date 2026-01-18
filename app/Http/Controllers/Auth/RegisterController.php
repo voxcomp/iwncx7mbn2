@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
 use App\Registrant;
 use App\User;
@@ -51,7 +53,7 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function needValidation()
+    public function needValidation(): View
     {
         return view('auth.validation');
     }
@@ -75,7 +77,7 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator_step1(array $data)
+    protected function validator_step1(array $data): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($data, [
             'fname' => 'required|string|max:50',
@@ -126,7 +128,7 @@ class RegisterController extends Controller
      * @param  string  $token
      * @return \Illuminate\Http\Response
      */
-    public function validateUser($token)
+    public function validateUser(string $token): RedirectResponse
     {
         if ($user = $this->validationFactory->validateUser($token)) {
             // add user to mailchimp
@@ -143,7 +145,7 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($data, [
             'fname' => 'required|string|max:50',
@@ -159,7 +161,7 @@ class RegisterController extends Controller
      *
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(array $data): User
     {
         $user = User::create([
             'fname' => $data['fname'],

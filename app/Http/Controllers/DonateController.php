@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use App\Donation;
 use App\Event;
 use App\Registrant;
@@ -15,7 +16,7 @@ class DonateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function pageCause($cause)
+    public function pageCause($cause): View
     {
         return view('pages.donate', ['hideHeader' => true, 'stripe_pk' => ((env('STRIPE_MODE', 'test') == 'live') ? env('STRIPE_PK') : env('STRIPE_TEST_PK')), 'cause' => $cause]);
     }
@@ -25,7 +26,7 @@ class DonateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function page(?Event $event = null, ?Registrant $registrant = null)
+    public function page(?Event $event = null, ?Registrant $registrant = null): View
     {
 
         if (is_null($event->id)) {
@@ -44,7 +45,7 @@ class DonateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function teamPage(Event $event, Team $team)
+    public function teamPage(Event $event, Team $team): View
     {
         return view('pages.donate', ['team' => $team, 'event' => $event, 'hideHeader' => true, 'stripe_pk' => ((env('STRIPE_MODE', 'test') == 'live') ? env('STRIPE_PK') : env('STRIPE_TEST_PK'))]);
     }
@@ -271,7 +272,7 @@ class DonateController extends Controller
         }
     }
 
-    public function cancelSubscription($subscription_id)
+    public function cancelSubscription($subscription_id): View
     {
         try {
             \Stripe\Stripe::setApiKey(((env('STRIPE_MODE', 'live') == 'live') ? env('STRIPE_SK') : env('STRIPE_TEST_SK')));
@@ -291,7 +292,7 @@ class DonateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function pagePromise()
+    public function pagePromise(): View
     {
         return view('pages.donatepromise', ['hideHeader' => true, 'stripe_pk' => ((env('STRIPE_MODE', 'test') == 'live') ? env('STRIPE_PK') : env('STRIPE_TEST_PK'))]);
     }

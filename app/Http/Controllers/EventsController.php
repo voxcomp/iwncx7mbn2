@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use App\Donation;
 use App\Event;
 use App\Registrant;
@@ -16,17 +17,17 @@ use Illuminate\Validation\Rule;
 
 class EventsController extends Controller
 {
-    public function create()
+    public function create(): View
     {
         return view('event.form');
     }
 
-    public function edit(Event $event)
+    public function edit(Event $event): View
     {
         return view('event.form', ['event' => $event]);
     }
 
-    public function all()
+    public function all(): View
     {
         $events = Event::get(); // Event::where("event_date",">",time())->get();
 
@@ -147,7 +148,7 @@ class EventsController extends Controller
         $event->delete();
     }
 
-    public function view(Event $event)
+    public function view(Event $event): View
     {
         // if (Cache::has($event->id.'topparticipants')) {
         $participants = $event->participants;
@@ -190,7 +191,7 @@ class EventsController extends Controller
         return view('event.view', compact('event', 'participants', 'teams'));
     }
 
-    public function personalView(Event $event, Registrant $registrant)
+    public function personalView(Event $event, Registrant $registrant): View
     {
         if (! empty($registrant->pagetitle) && ! is_null($registrant->pagetitle) && ($registrant->moderated && $registrant->reviewed)) {
             $donors = Donation::where('event_id', $event->id)->where('registrant_id', $registrant->id)->orderBy('amount', 'DESC')->get();
@@ -201,7 +202,7 @@ class EventsController extends Controller
         }
     }
 
-    public function teampageView(Event $event, Team $team)
+    public function teampageView(Event $event, Team $team): View
     {
         if (! empty($team->pagetitle) && ! is_null($team->pagetitle) && ($team->moderated && $team->reviewed)) {
             $donors = Donation::where('event_id', $event->id)->where('team_id', $team->id)->orderBy('amount', 'DESC')->get();
@@ -691,7 +692,7 @@ class EventsController extends Controller
         return \Redirect::route('event.register', [$event->slug])->with('message', 'It seems your session has expired, please register for this event again.');
     }
 
-    public function registerConfirm(Event $event, Registrant $registrant, $team = null, $donation = null, $user = null)
+    public function registerConfirm(Event $event, Registrant $registrant, $team = null, $donation = null, $user = null): View
     {
         if (! is_null($team) && $team != 0) {
             $team = Team::where('id', $team)->first();
@@ -839,12 +840,12 @@ class EventsController extends Controller
         return \Redirect::route('home')->with('message', 'Your team page has been saved'.((! $team->moderated) ? ' and sent to an administrator for approval.' : '.'));
     }
 
-    public function volunteer(Event $event)
+    public function volunteer(Event $event): View
     {
         return view('volunteers.form', compact('event'));
     }
 
-    public function volunteerSubmission(Request $request, Event $event)
+    public function volunteerSubmission(Request $request, Event $event): View
     {
         $this->validate($request, [
             'company' => 'nullable|string|max:150',
@@ -879,7 +880,7 @@ class EventsController extends Controller
         return view('volunteers.thanks', compact('volunteer', 'event'));
     }
 
-    public function pageList(Event $event)
+    public function pageList(Event $event): View
     {
         foreach ($event->participants as &$registrant) {
             try {
@@ -909,7 +910,7 @@ class EventsController extends Controller
         return view('event.pagelist', compact('event'));
     }
 
-    public function registrantSearch()
+    public function registrantSearch(): View
     {
         $events = Event::get()->pluck('title', 'id')->toArray();
 
