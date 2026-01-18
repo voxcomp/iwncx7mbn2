@@ -17,7 +17,8 @@
         "maatwebsite/excel": "^3.1.8",
         "nztim/mailchimp": "^3.6",
         "stripe/stripe-php": "^14.9",
-        "fideloper/proxy": "^4.4"
+        "fideloper/proxy": "^4.4",
+        "laravel/ui": "^2.0"
     },
     "require-dev": {
         "mockery/mockery": "~1.0",
