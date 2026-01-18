@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
-use Illuminate\Support\ServiceProvider;
 
 return [
 
@@ -10,7 +9,6 @@ return [
     'log' => env('APP_LOG', 'single'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
-
 
     'aliases' => Facade::defaultAliases()->merge([
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
