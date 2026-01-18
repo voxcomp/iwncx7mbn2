@@ -53,8 +53,6 @@ class DataController extends Controller
 
     /**
      * Check coupon code.  Prints true if usable.
-     *
-     * @param  string  $coupon
      */
     public function coupon(string $coupon, $amount)
     {
@@ -73,8 +71,6 @@ class DataController extends Controller
 
     /**
      * Save the specified profile photo. Print/return new image name and path, both public and private urls
-     *
-     * @param  App\Http\Requests  $request
      */
     public function profilePhoto(Request $request)
     {

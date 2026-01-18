@@ -23,8 +23,6 @@ class Registrant extends Model
 
     /**
      * Gets donations attributed to user/participant, can be searched for event
-     *
-     * @return App\Donation
      */
     public function donations(): HasMany
     {
@@ -84,8 +82,6 @@ class Registrant extends Model
 
     /**
      * Get the route key for the model.
-     *
-     * @return string
      */
     public function getRouteKeyName(): string
     {

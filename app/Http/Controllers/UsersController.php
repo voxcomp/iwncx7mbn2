@@ -79,7 +79,6 @@ class UsersController extends Controller
      * Show/edit profile of logged in user
      *
      * @param App\User
-     * @return \Illuminate\Http\Response
      */
     public function profile(?User $user = null): View
     {

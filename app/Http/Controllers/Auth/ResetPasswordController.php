@@ -59,7 +59,6 @@ class ResetPasswordController extends Controller
      *
      * If no token is present, display the link request form.
      *
-     * @param  string|null  $token
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function showResetForm(Request $request, ?string $token = null): View
@@ -71,8 +70,6 @@ class ResetPasswordController extends Controller
 
     /**
      * Reset the given user's password.
-     *
-     * @return \Illuminate\Http\RedirectResponse
      */
     public function reset(Request $request): RedirectResponse
     {
@@ -97,8 +94,6 @@ class ResetPasswordController extends Controller
 
     /**
      * Get the password reset validation rules.
-     *
-     * @return array
      */
     protected function rules(): array
     {
@@ -111,8 +106,6 @@ class ResetPasswordController extends Controller
 
     /**
      * Get the password reset validation error messages.
-     *
-     * @return array
      */
     protected function validationErrorMessages(): array
     {
@@ -121,8 +114,6 @@ class ResetPasswordController extends Controller
 
     /**
      * Get the password reset credentials from the request.
-     *
-     * @return array
      */
     protected function credentials(Request $request): array
     {
@@ -133,10 +124,6 @@ class ResetPasswordController extends Controller
 
     /**
      * Reset the given user's password.
-     *
-     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
-     * @param  string  $password
-     * @return void
      */
     protected function resetPassword(CanResetPassword $user, string $password): void
     {
@@ -150,9 +137,6 @@ class ResetPasswordController extends Controller
 
     /**
      * Get the response for a successful password reset.
-     *
-     * @param  string  $response
-     * @return \Illuminate\Http\RedirectResponse
      */
     protected function sendResetResponse(Request $request, string $response): RedirectResponse
     {
@@ -164,8 +148,6 @@ class ResetPasswordController extends Controller
      * Get the response for a failed password reset.
      *
      * @param  \Illuminate\Http\Request
-     * @param  string  $response
-     * @return \Illuminate\Http\RedirectResponse
      */
     protected function sendResetFailedResponse(Request $request, string $response): RedirectResponse
     {

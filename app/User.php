@@ -39,8 +39,6 @@ class User extends Authenticatable
 
     /**
      * Tests user_type field, returns true if user is admin
-     *
-     * @return bool
      */
     public function isAdmin(): bool
     {
@@ -61,8 +59,6 @@ class User extends Authenticatable
 
     /**
      * Get the route key for the model.
-     *
-     * @return string
      */
     public function getRouteKeyName(): string
     {

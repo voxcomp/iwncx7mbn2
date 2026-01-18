@@ -22,8 +22,6 @@ class Event extends Model
 
     /**
      * Gets donations attributed to event
-     *
-     * @return App\Donation
      */
     public function donations(): HasMany
     {
@@ -32,8 +30,6 @@ class Event extends Model
 
     /**
      * Gets participants for event
-     *
-     * @return App\Participant
      */
     public function participants(): HasMany
     {
@@ -42,8 +38,6 @@ class Event extends Model
 
     /**
      * Gets teams for event
-     *
-     * @return App\Team
      */
     public function teams(): HasMany
     {
@@ -52,8 +46,6 @@ class Event extends Model
 
     /**
      * Gets sponsors for event
-     *
-     * @return App\Sponsor
      */
     public function sponsors(): HasMany
     {
@@ -62,8 +54,6 @@ class Event extends Model
 
     /**
      * Gets sponsor submissions for event
-     *
-     * @return App\SponsorSubmission
      */
     public function sponsorSubmissions(): HasMany
     {
@@ -72,8 +62,6 @@ class Event extends Model
 
     /**
      * Gets volunteer submissions for event
-     *
-     * @return App\VolunteerSubmission
      */
     public function volunteerSubmissions(): HasMany
     {
@@ -82,8 +70,6 @@ class Event extends Model
 
     /**
      * Gets costs for event
-     *
-     * @return App\Cost
      */
     public function costs(): HasMany
     {
@@ -92,8 +78,6 @@ class Event extends Model
 
     /**
      * Gets donations and signups for event
-     *
-     * @return int
      */
     public function raised(): int
     {
@@ -110,8 +94,6 @@ class Event extends Model
 
     /**
      * Gets percentage of goal for event
-     *
-     * @return int
      */
     public function percent(): int
     {
@@ -134,8 +116,6 @@ class Event extends Model
 
     /**
      * Get the route key for the model.
-     *
-     * @return string
      */
     public function getRouteKeyName(): string
     {

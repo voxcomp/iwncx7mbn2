@@ -50,8 +50,6 @@ class RegisterController extends Controller
 
     /**
      * Displays a validation message to the user.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function needValidation(): View
     {
@@ -74,8 +72,6 @@ class RegisterController extends Controller
 
     /**
      * Get a validator for an incoming registration request step 1.
-     *
-     * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator_step1(array $data): \Illuminate\Contracts\Validation\Validator
     {
@@ -124,9 +120,6 @@ class RegisterController extends Controller
 
     /**
      * Handle a registration request for the application.
-     *
-     * @param  string  $token
-     * @return \Illuminate\Http\Response
      */
     public function validateUser(string $token): RedirectResponse
     {
@@ -142,8 +135,6 @@ class RegisterController extends Controller
 
     /**
      * Get a validator for an incoming registration request.
-     *
-     * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data): \Illuminate\Contracts\Validation\Validator
     {
@@ -158,8 +149,6 @@ class RegisterController extends Controller
 
     /**
      * Create a new user instance after a valid registration.
-     *
-     * @return \App\User
      */
     protected function create(array $data): User
     {

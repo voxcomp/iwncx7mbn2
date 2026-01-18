@@ -35,8 +35,6 @@ class ForgotPasswordController extends Controller
 
     /**
      * Send a reset link to the given user.
-     *
-     * @return \Illuminate\Http\RedirectResponse
      */
     public function sendResetLinkEmail(Request $request): RedirectResponse
     {
@@ -56,8 +54,6 @@ class ForgotPasswordController extends Controller
 
     /**
      * Validate the email for the given request.
-     *
-     * @return void
      */
     protected function validateEmail(Request $request): void
     {
@@ -66,9 +62,6 @@ class ForgotPasswordController extends Controller
 
     /**
      * Get the response for a successful password reset link.
-     *
-     * @param  string  $response
-     * @return \Illuminate\Http\RedirectResponse
      */
     protected function sendResetLinkResponse(Request $request, string $response): RedirectResponse
     {
@@ -79,8 +72,6 @@ class ForgotPasswordController extends Controller
      * Get the response for a failed password reset link.
      *
      * @param  \Illuminate\Http\Request
-     * @param  string  $response
-     * @return \Illuminate\Http\RedirectResponse
      */
     protected function sendResetLinkFailedResponse(Request $request, string $response): RedirectResponse
     {

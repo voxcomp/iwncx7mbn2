@@ -13,8 +13,6 @@ class DonateController extends Controller
 {
     /**
      * Show donate (payment) page for particular cause.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function pageCause($cause): View
     {
@@ -23,8 +21,6 @@ class DonateController extends Controller
 
     /**
      * Show donate (payment) page.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function page(?Event $event = null, ?Registrant $registrant = null): View
     {
@@ -42,8 +38,6 @@ class DonateController extends Controller
 
     /**
      * Show donate (payment) page for a team.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function teamPage(Event $event, Team $team): View
     {
@@ -53,7 +47,6 @@ class DonateController extends Controller
     /**
      * Retrieve donation payment information via Request and send to Stripe API for processing
      *
-     * @param  App\Http\Requests  $request
      * @return \Illuminate\Http\Response
      */
     public function donate(Request $request)
@@ -289,8 +282,6 @@ class DonateController extends Controller
 
     /**
      * Show donate (payment) page for Promise Wall.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function pagePromise(): View
     {

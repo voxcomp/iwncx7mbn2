@@ -17,8 +17,6 @@ class Coupon extends Model
 
     /**
      * Tests valid_to field, returns true if coupon is not expired
-     *
-     * @return bool
      */
     public function isExpired(): bool
     {
@@ -27,8 +25,6 @@ class Coupon extends Model
 
     /**
      * Tests valid_from field, returns true if coupon is usable
-     *
-     * @return bool
      */
     public function isValid(): bool
     {
@@ -37,8 +33,6 @@ class Coupon extends Model
 
     /**
      * Tests active field, returns true if coupon is currently active
-     *
-     * @return bool
      */
     public function isActive(): bool
     {
@@ -47,8 +41,6 @@ class Coupon extends Model
 
     /**
      * Tests if coupon code is usable, returns true if coupon is usable
-     *
-     * @return bool
      */
     public function isUsable(): bool
     {
@@ -57,9 +49,6 @@ class Coupon extends Model
 
     /**
      * Returns cost after coupon value is taken
-     *
-     * @param  float  $charge
-     * @return bool
      */
     public function value(float $charge): bool
     {
