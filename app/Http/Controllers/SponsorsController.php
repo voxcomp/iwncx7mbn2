@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
-use App\Sponsor;
-use App\SponsorSubmission;
+use App\Models\Event;
+use App\Models\Sponsor;
+use App\Models\SponsorSubmission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;

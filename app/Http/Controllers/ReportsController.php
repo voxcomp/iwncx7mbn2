@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Donation;
-use App\Event;
+use App\Models\Donation;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 

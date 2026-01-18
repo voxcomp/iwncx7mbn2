@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
@@ -22,22 +22,22 @@ class Team extends Model
 
     public function members(): HasMany
     {
-        return $this->hasMany(\App\TeamMember::class);
+        return $this->hasMany(\App\Models\TeamMember::class);
     }
 
     public function event(): BelongsTo
     {
-        return $this->belongsTo(\App\Event::class, 'event_id', 'id');
+        return $this->belongsTo(\App\Models\Event::class, 'event_id', 'id');
     }
 
     public function captain(): BelongsTo
     {
-        return $this->belongsTo(\App\Registrant::class, 'registrant_id', 'id');
+        return $this->belongsTo(\App\Models\Registrant::class, 'registrant_id', 'id');
     }
 
     public function donations(): HasMany
     {
-        return $this->hasMany(\App\Donation::class);
+        return $this->hasMany(\App\Models\Donation::class);
     }
 
     public function eventDonations(Event $event)

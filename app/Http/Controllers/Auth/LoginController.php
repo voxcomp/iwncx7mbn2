@@ -71,7 +71,7 @@ class LoginController extends Controller
 
         $credentials = $this->credentials($request);
 
-        $user = \App\User::where('username', $request->username)->first();
+        $user = \App\Models\User::where('username', $request->username)->first();
 
         if (\Auth::validate($credentials)) {
 

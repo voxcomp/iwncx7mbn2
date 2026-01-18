@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -25,7 +25,7 @@ class Event extends Model
      */
     public function donations(): HasMany
     {
-        return $this->hasMany(\App\Donation::class)->whereDate('created_at', '<=', Carbon::today());
+        return $this->hasMany(\App\Models\Donation::class)->whereDate('created_at', '<=', Carbon::today());
     }
 
     /**
@@ -33,7 +33,7 @@ class Event extends Model
      */
     public function participants(): HasMany
     {
-        return $this->hasMany(\App\Registrant::class);
+        return $this->hasMany(\App\Models\Registrant::class);
     }
 
     /**
@@ -41,7 +41,7 @@ class Event extends Model
      */
     public function teams(): HasMany
     {
-        return $this->hasMany(\App\Team::class);
+        return $this->hasMany(\App\Models\Team::class);
     }
 
     /**
@@ -49,7 +49,7 @@ class Event extends Model
      */
     public function sponsors(): HasMany
     {
-        return $this->hasMany(\App\Sponsor::class);
+        return $this->hasMany(\App\Models\Sponsor::class);
     }
 
     /**
@@ -57,7 +57,7 @@ class Event extends Model
      */
     public function sponsorSubmissions(): HasMany
     {
-        return $this->hasMany(\App\SponsorSubmission::class);
+        return $this->hasMany(\App\Models\SponsorSubmission::class);
     }
 
     /**
@@ -65,7 +65,7 @@ class Event extends Model
      */
     public function volunteerSubmissions(): HasMany
     {
-        return $this->hasMany(\App\VolunteerSubmission::class);
+        return $this->hasMany(\App\Models\VolunteerSubmission::class);
     }
 
     /**
@@ -73,7 +73,7 @@ class Event extends Model
      */
     public function costs(): HasMany
     {
-        return $this->hasMany(\App\Cost::class);
+        return $this->hasMany(\App\Models\Cost::class);
     }
 
     /**
@@ -85,7 +85,7 @@ class Event extends Model
         $total += $this->sponsorSubmissions->sum('paid');
         $total += $this->sponsorSubmissions->sum('inkind_value');
         $total += $this->donations->sum('amount');
-        // $total += \App\Donation::whereDate('created_at', ">=", new Carbon("june 22, 2025"))->get()->sum('amount');
+        // $total += \App\Models\Donation::whereDate('created_at', ">=", new Carbon("june 22, 2025"))->get()->sum('amount');
         // ->whereDate('created_at',"<",Carbon::today()->addDay())
         // where('event_id',0)->where('team_id',0)->where('registrant_id',0)->
 

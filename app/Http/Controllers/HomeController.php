@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Donation;
-use App\Event;
+use App\Models\Donation;
+use App\Models\Event;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -23,9 +23,9 @@ class HomeController extends Controller
     public function index()
     {
         if (\Auth::check() && \Auth::user()->isAdmin()) {
-            $events = \App\Event::orderBy('event_date', 'DESC')->limit(1)->get();
+            $events = \App\Models\Event::orderBy('event_date', 'DESC')->limit(1)->get();
         } else {
-            $events = \App\Event::where('event_date', '>', time())->get();
+            $events = \App\Models\Event::where('event_date', '>', time())->get();
         }
 
         if ($events->count() == 1) {

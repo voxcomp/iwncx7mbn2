@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Donation;
-use App\Event;
-use App\Registrant;
-use App\Team;
+use App\Models\Donation;
+use App\Models\Event;
+use App\Models\Registrant;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 

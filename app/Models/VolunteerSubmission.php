@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sponsor extends Model
+class VolunteerSubmission extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,6 +12,6 @@ class Sponsor extends Model
      * @var array
      */
     protected $fillable = [
-        'event_id', 'name', 'filename', 'presenting', 'vendor', 'url',
+        'event_id', 'company', 'fname', 'lname', 'email', 'phone', 'address', 'city', 'state', 'zip',
     ];
 }

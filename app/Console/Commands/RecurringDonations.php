@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Donation;
+use App\Models\Donation;
 use Illuminate\Console\Command;
 
 class RecurringDonations extends Command

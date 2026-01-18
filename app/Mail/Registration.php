@@ -2,11 +2,11 @@
 
 namespace App\Mail;
 
-use App\Donation;
-use App\Event;
-use App\Registrant;
-use App\Team;
-use App\User;
+use App\Models\Donation;
+use App\Models\Event;
+use App\Models\Registrant;
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;

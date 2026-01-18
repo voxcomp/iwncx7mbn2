@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Donation;
-use App\Event;
-use App\Registrant;
-use App\Team;
-use App\TeamMember;
-use App\User;
+use App\Models\Donation;
+use App\Models\Event;
+use App\Models\Registrant;
+use App\Models\Team;
+use App\Models\TeamMember;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
@@ -412,7 +412,7 @@ class EventsController extends Controller
                 $team->pageshorturl = $team->pageurl;
                 $team->save();
             }
-            $is_member = \App\TeamMember::where('registrant_id', $registrant->id)->where('team_id', $team->id)->count();
+            $is_member = \App\Models\TeamMember::where('registrant_id', $registrant->id)->where('team_id', $team->id)->count();
             if (! $is_member) {
                 TeamMember::create([
                     'team_id' => $team->id,
@@ -422,7 +422,7 @@ class EventsController extends Controller
             }
         } elseif ($registrationpersonal['team'] != 0) {
             $team = Team::where('id', $registrationpersonal['team'])->first();
-            $is_member = \App\TeamMember::where('registrant_id', $registrant->id)->where('team_id', $registrationpersonal['team'])->count();
+            $is_member = \App\Models\TeamMember::where('registrant_id', $registrant->id)->where('team_id', $registrationpersonal['team'])->count();
             if (! $is_member) {
                 TeamMember::create([
                     'team_id' => $registrationpersonal['team'],
@@ -466,7 +466,7 @@ class EventsController extends Controller
                 $regcost += 8;
             }
             if (isset($request->coupon) && ! empty($request->coupon)) {
-                $coupon = \App\Coupon::where('name', '=', $request->coupon)->first();
+                $coupon = \App\Models\Coupon::where('name', '=', $request->coupon)->first();
                 if (! empty($coupon) && ! is_null($coupon)) {
                     if ($coupon->isUsable()) {
                         $regcost = $coupon->value($regcost);
@@ -510,7 +510,7 @@ class EventsController extends Controller
             }
             if ($registration['registrant'] == 'adult') {
                 if (isset($request->coupon) && ! empty($request->coupon)) {
-                    $coupon = \App\Coupon::where('name', '=', $request->coupon)->first();
+                    $coupon = \App\Models\Coupon::where('name', '=', $request->coupon)->first();
                     if (! empty($coupon) && ! is_null($coupon)) {
                         $coupon->useCoupon();
                     }
@@ -614,7 +614,7 @@ class EventsController extends Controller
                     $team->pageshorturl = $team->pageurl;
                     $team->save();
                 }
-                $is_member = \App\TeamMember::where('registrant_id', $registrant->id)->where('team_id', $team->id)->count();
+                $is_member = \App\Models\TeamMember::where('registrant_id', $registrant->id)->where('team_id', $team->id)->count();
                 if (! $is_member) {
                     TeamMember::create([
                         'team_id' => $team->id,
@@ -624,7 +624,7 @@ class EventsController extends Controller
                 }
             } elseif ($registrationpersonal['team'] != 0) {
                 $team = Team::where('id', $registrationpersonal['team'])->first();
-                $is_member = \App\TeamMember::where('registrant_id', $registrant->id)->where('team_id', $registrationpersonal['team'])->count();
+                $is_member = \App\Models\TeamMember::where('registrant_id', $registrant->id)->where('team_id', $registrationpersonal['team'])->count();
                 if (! $is_member) {
                     TeamMember::create([
                         'team_id' => $registrationpersonal['team'],
@@ -734,7 +734,7 @@ class EventsController extends Controller
             \Mail::to($registrant->email)->send(new \App\Mail\CreateTeam($team));
         } elseif ($request->{'team'.$event->id} != 0) {
             $team = Team::where('id', $request->{'team'.$event->id})->first();
-            $is_member = \App\TeamMember::where('registrant_id', $registrant->id)->where('team_id', $request->{'team'.$event->id})->count();
+            $is_member = \App\Models\TeamMember::where('registrant_id', $registrant->id)->where('team_id', $request->{'team'.$event->id})->count();
             if (! $is_member) {
                 TeamMember::create([
                     'team_id' => $request->{'team'.$event->id},
@@ -872,7 +872,7 @@ class EventsController extends Controller
             'zip' => $request->zip,
         ];
 
-        $volunteer = \App\VolunteerSubmission::create($create);
+        $volunteer = \App\Models\VolunteerSubmission::create($create);
 
         $emails = explode(',', env('VOLUNTEER_EMAIL'));
         \Mail::to($emails)->send(new \App\Mail\VolunteerAdmin($volunteer, $event));

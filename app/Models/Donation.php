@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -18,16 +18,16 @@ class Donation extends Model
 
     public function registrant(): BelongsTo
     {
-        return $this->belongsTo(\App\Registrant::class);
+        return $this->belongsTo(\App\Models\Registrant::class);
     }
 
     public function team(): BelongsTo
     {
-        return $this->belongsTo(\App\Team::class);
+        return $this->belongsTo(\App\Models\Team::class);
     }
 
     public function event(): BelongsTo
     {
-        return $this->belongsTo(\App\Event::class);
+        return $this->belongsTo(\App\Models\Event::class);
     }
 }

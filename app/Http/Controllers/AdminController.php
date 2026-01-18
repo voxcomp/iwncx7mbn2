@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Coupon;
-use App\Donation;
-use App\Event;
-use App\Registrant;
-use App\Team;
-use App\TeamMember;
+use App\Models\Coupon;
+use App\Models\Donation;
+use App\Models\Event;
+use App\Models\Registrant;
+use App\Models\Team;
+use App\Models\TeamMember;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;

@@ -2,8 +2,8 @@
 
 namespace App\Exports;
 
-use App\Event;
-use App\SponsorSubmission;
+use App\Models\Event;
+use App\Models\SponsorSubmission;
 use Maatwebsite\Excel\Concerns\FromView;
 
 class SponsorsExport implements FromView

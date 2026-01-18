@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
@@ -26,7 +26,7 @@ class Registrant extends Model
      */
     public function donations(): HasMany
     {
-        return $this->hasMany(\App\Donation::class);
+        return $this->hasMany(\App\Models\Donation::class);
     }
 
     public function eventDonations(Event $event)
@@ -44,7 +44,7 @@ class Registrant extends Model
 
     public function event(): BelongsTo
     {
-        return $this->belongsTo(\App\Event::class);
+        return $this->belongsTo(\App\Models\Event::class);
     }
 
     public function isParticipant(Event $event)
@@ -54,17 +54,17 @@ class Registrant extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(\App\User::class);
+        return $this->belongsTo(\App\Models\User::class);
     }
 
     public function teams(): HasMany
     {
-        return $this->hasMany(\App\TeamMember::class);
+        return $this->hasMany(\App\Models\TeamMember::class);
     }
 
     public function team(): HasOne
     {
-        return $this->hasOne(\App\Team::class);
+        return $this->hasOne(\App\Models\Team::class);
     }
 
     /**

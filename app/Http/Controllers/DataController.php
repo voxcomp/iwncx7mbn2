@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Coupon;
-use App\Event;
-use App\Registrant;
-use App\Team;
-use App\User;
+use App\Models\Coupon;
+use App\Models\Event;
+use App\Models\Registrant;
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DataController extends Controller

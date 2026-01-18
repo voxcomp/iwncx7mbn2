@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
-use App\Registrant;
-use App\Team;
-use App\TeamMember;
-use App\User;
+use App\Models\Event;
+use App\Models\Registrant;
+use App\Models\Team;
+use App\Models\TeamMember;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -78,7 +78,7 @@ class UsersController extends Controller
     /**
      * Show/edit profile of logged in user
      *
-     * @param App\User
+     * @param App\Models\User
      */
     public function profile(?User $user = null): View
     {
@@ -201,7 +201,7 @@ class UsersController extends Controller
     /**
      * Show/edit profile of logged in user
      *
-     * @param App\User
+     * @param App\Models\User
      */
     public function delete(User $user)
     {

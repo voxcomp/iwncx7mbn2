@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -34,7 +34,7 @@ class User extends Authenticatable
 
     public function registrations(): HasMany
     {
-        return $this->hasMany(\App\Registrant::class);
+        return $this->hasMany(\App\Models\Registrant::class);
     }
 
     /**

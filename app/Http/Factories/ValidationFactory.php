@@ -3,7 +3,7 @@
 namespace App\Http\Factories;
 
 use App\Http\Repositories\ValidationRepo;
-use App\User;
+use App\Models\User;
 
 class ValidationFactory
 {

@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Registrant;
-use App\Team;
+use App\Models\Registrant;
+use App\Models\Team;
 use Illuminate\Console\Command;
 
 class PPReviewAlert extends Command

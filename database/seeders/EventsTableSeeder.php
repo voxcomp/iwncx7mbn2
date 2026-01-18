@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Cost;
-use App\Donation;
-use App\Event;
-use App\Registrant;
-use App\Sponsor;
-use App\Team;
-use App\TeamMember;
-use App\User;
+use App\Models\Cost;
+use App\Models\Donation;
+use App\Models\Event;
+use App\Models\Registrant;
+use App\Models\Sponsor;
+use App\Models\Team;
+use App\Models\TeamMember;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Event;
 
