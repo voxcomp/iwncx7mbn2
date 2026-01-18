@@ -40,9 +40,14 @@
 									    </div>
 									    <div class="form-group">
 											<div class="col col-sm-12">
-									            <label for="teampagecontent{{$event->id}}">Team Page Content</label>
+												{!! Form::hidden('teampagecontent'.$event->id, (isset($event->team))?$event->team->pagecontent:'')!!}
+												<div id="teampage{{$event->id}}_toolbar"></div>
+												<div id="teampage{{$event->id}}_content">
+													{!! (isset($event->team))?$event->team->pagecontent:'' !!}
+												</div>
+									            {{--<label for="teampagecontent{{$event->id}}">Team Page Content</label>
 									            {!!Form::textarea('teampagecontent'.$event->id,old('teampagecontent'.$event->id,(isset($event->team))?$event->team->pagecontent:''),['class'=>'form-control','id'=>'teampagecontent'.$event->id.'_ckeditor'])!!}
-									            <div class="black-note">To upload an image, simply drag and drop it onto the editor.  Double-click the image to change its properties (i.e. alignment).</div>
+									            <div class="black-note">To upload an image, simply drag and drop it onto the editor.  Double-click the image to change its properties (i.e. alignment).</div>--}}
 											</div>
 									    </div>
 								        <div class="form-group{{ $errors->has('teampagegoal'.$event->id) ? ' has-error' : '' }}">
@@ -98,9 +103,14 @@
 							    </div>
 							    <div class="form-group">
 									<div class="col col-sm-12">
-							            <label for="pagecontent{{$event->id}}">Page Content</label>
+										{!!Form::hidden('pagecontent'.$event->id, htmlspecialchars_decode($event->registrant->pagecontent))!!}
+										<div id="page{{$event->id}}_toolbar"></div>
+										<div id="page{{$event->id}}_content">
+											{!! htmlspecialchars_decode($event->registrant->pagecontent) !!}
+										</div>
+							            {{--<label for="pagecontent{{$event->id}}">Page Content</label>
 							            {!!Form::textarea('pagecontent'.$event->id,old('pagecontent'.$event->id,htmlspecialchars_decode($event->registrant->pagecontent)),['class'=>'form-control','id'=>'pagecontent'.$event->id.'_ckeditor'])!!}
-							            <div class="black-note">To upload an image, simply drag and drop it onto the editor.  Double-click the image to change its properties (i.e. alignment).</div>
+							            <div class="black-note">To upload an image, simply drag and drop it onto the editor.  Double-click the image to change its properties (i.e. alignment).</div>--}}
 									</div>
 							    </div>
 						        <div class="form-group{{ $errors->has('pagegoal'.$event->id) ? ' has-error' : '' }}">

@@ -1,5 +1,11 @@
 @extends((\Auth::user()->isAdmin())?'layouts.admin':'layouts.app')
 
+@section('head')
+	@if(!\Auth::user()->isAdmin())
+		<script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/decoupled-document/ckeditor.js"></script>
+	@endif
+@endsection
+
 @section('title')
 	My Account
 @stop
@@ -25,8 +31,24 @@
 
 @section('footer')
 	@if(!\Auth::user()->isAdmin())
-		<script src="/ckeditor/ckeditor.js"></script>
 		<script>
+			var sections = [
+				@foreach($myevents as $key=>$event)
+					'page{{$event->id}}','teampage{{$event->id}}',
+				@endforeach
+			];
+			sections.forEach(function(value) {
+				DecoupledEditor
+					.create( document.querySelector( '#'+value+'_content' ) )
+					.then( editor => {
+						const toolbarContainer = document.querySelector( '#'+value+'_toolbar' );
+			
+						toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+					} )
+					.catch( error => {
+						console.error( error );
+					} );
+			});
 			(function($) {
 				$(document).ready(function() {
 					@foreach($myevents as $event)
@@ -44,7 +66,6 @@
 				});
 			})(jQuery);
 			@foreach($myevents as $event)
-			    CKEDITOR.replace( 'pagecontent{{$event->id}}_ckeditor', { customConfig:'config-basic.js' } );
 			    $( "#pagegoal_slider{{$event->id}}" ).slider({
 			      value:{{str_replace('$','',old('pagegoal'.$event->id,$event->registrant->goal))}},
 			      min: 0,
@@ -57,7 +78,6 @@
 				$( "#pagegoal{{$event->id}}" ).val( "$" + $( "#pagegoal_slider{{$event->id}}" ).slider( "value" ) );
 
 				@if(isset($event->team))
-				    CKEDITOR.replace( 'teampagecontent{{$event->id}}_ckeditor', { customConfig:'config-basic.js' } );
 				    $( "#teampagegoal{{$event->id}}_slider" ).slider({
 				      value:{{str_replace('$','',old('teampagegoal'.$event->id,$event->team->goal))}},
 				      min: 0,
