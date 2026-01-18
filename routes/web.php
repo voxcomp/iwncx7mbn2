@@ -8,8 +8,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\SponsorsController;
 use App\Http\Controllers\UsersController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
