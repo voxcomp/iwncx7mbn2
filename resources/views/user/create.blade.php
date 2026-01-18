@@ -12,7 +12,7 @@
 	@endif
 	<div class="row">	
 		<div class="col col-sm-6 col-md-6">
-			{!! Form::open(array('route' => 'user.save','files'=>true, 'id'=>'profile_form')) !!}
+			{{ html()->form('POST', route('user.save'))->acceptsFiles()->id('profile_form')->open() }}
 			    @include('parts.profileform')
 		        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
 			        <div class="col col-sm-12">
@@ -52,11 +52,11 @@
 					    <label for="user_type">User Type</label>
 				    </div>
 					<div class="col col-sm-9">
-						{!!Form::select('user_type',['auth'=>'User','admin'=>'Administrator'],old('user_type','auth'),['class'=>'form-control'])!!}
+						{{ html()->select('user_type', ['auth' => 'User', 'admin' => 'Administrator'], old('user_type', 'auth'))->class('form-control') }}
 					</div>
 			    </div>
 				<hr>
-			{!! Form::close() !!}
+			{{ html()->form()->close() }}
 		</div>
 		<div class="visible-xs"><hr></div>
 		<div class="col col-sm-6 col-md-4 col-md-offset-1">

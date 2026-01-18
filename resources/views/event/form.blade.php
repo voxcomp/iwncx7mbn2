@@ -115,7 +115,7 @@
 		</div>
         @if(isset($event))
         	@foreach($event->costs as $cost)
-        		{!!Form::hidden('costs[]',$cost->cost.":".date("m/d/Y",$cost->ends),['class'=>'cost'.$cost->cost])!!}
+        		{{ html()->hidden('costs[]', $cost->cost . ":" . date("m/d/Y", $cost->ends))->class('cost' . $cost->cost) }}
         	@endforeach
         @endif
 	</form>

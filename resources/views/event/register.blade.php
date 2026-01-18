@@ -20,7 +20,7 @@
 	    </div>
 	@endif
 	<div class="medium-content-area">
-		{!! Form::open(array('route' => ['event.register.step1',$event->slug], 'id'=>'event_register_form')) !!}
+		{{ html()->form('POST', route('event.register.step1', $event->slug))->id('event_register_form')->open() }}
 		    <h3 class="gray-bkg padding-8">Contact Information</h3>
 	        <div class="row">
 				<div class="col col-sm-6 col-spacing{{ $errors->has('fname') ? ' has-error' : '' }}">
@@ -65,25 +65,25 @@
 		    <h3 class="gray-bkg padding-8">Registrant</h3>
 			<div class="form-group">
 				<div class="col col-sm-5 col-spacing">
-		            {{Form::radio('registrant','adult',true)}} Adult - ${{$event->costs->where('ends','>',time())->sortBy('ends')->first()->cost}}.00<br>
-		            {{Form::radio('registrant','youth')}} Youth - 12 and under FREE
+		            {{ html()->radio('registrant', true, 'adult') }} Adult - ${{$event->costs->where('ends','>',time())->sortBy('ends')->first()->cost}}.00<br>
+		            {{ html()->radio('registrant', null, 'youth') }} Youth - 12 and under FREE
 				</div>
 				<div class="col col-sm-7">
 					<div class="row">
 						<div class="col col-sm-6 col-spacing">
 							<div class="form-group">
 								<label for="tshirt">T-Shirt Size</label><br>
-								{!!Form::select('tshirt',['noshirt'=>'No Shirt', 'xxxl'=>'XXXL', 'xxl'=>'XXL', 'xl'=>'XL', 'l'=>'L', 'm'=>'M', 's'=>'S', 'youthl'=>'Youth L', 'youthm'=>'Youth M', 'youths'=>'Youth S'],old('tshirt','noshirt'),['class'=>'form-control'])!!}
+								{{ html()->select('tshirt', ['noshirt' => 'No Shirt', 'xxxl' => 'XXXL', 'xxl' => 'XXL', 'xl' => 'XL', 'l' => 'L', 'm' => 'M', 's' => 'S', 'youthl' => 'Youth L', 'youthm' => 'Youth M', 'youths' => 'Youth S'], old('tshirt', 'noshirt'))->class('form-control') }}
 							</div>
 							{{--
 							<div class="form-group">
-								{{Form::checkbox('shipshirt','1',(isset($user['shipshirt']) && $user['shipshirt'])?true:false,['class'=>'shipshirt','onchange'=>'showShipping()'])}} Mail my shirt and swag for an additional $8
+								{{ html()->checkbox('shipshirt', isset($user['shipshirt']) && $user['shipshirt'] ? true : false, '1')->class('shipshirt')->attribute('onchange', 'showShipping()') }} Mail my shirt and swag for an additional $8
 							</div>--}}
 							<div class="form-group red-note"><strong>Need to register prior to September 20, {{date("Y")}} to be assured of a t-shirt.</strong></div>
 						</div>
 						<div class="col col-sm-6">
 							<label for="pets">Number of Pets Attending</label>
-							{!!Form::text('pets',0,['class'=>'form-control'])!!}
+							{{ html()->text('pets', 0)->class('form-control') }}
 						</div>
 					</div>
 				</div>
@@ -91,7 +91,7 @@
 			<div class="form-group shipping" @if(!(isset($user['shipshirt']) && $user['shipshirt'])) style="display:none;" @endif>
 				<div class="col col-sm-12 col-spacing">
 				    <h3 class="gray-bkg padding-8">Shipping Address</h3>
-				    {{Form::checkbox('copybilling','1',false,['id'=>'copybilling','onchange'=>'copyBilling()'])}} Same as my billing address
+				    {{ html()->checkbox('copybilling', false, '1')->id('copybilling')->attribute('onchange', 'copyBilling()') }} Same as my billing address
 					@include('parts.shipaddressform')
 				</div>
 			</div>
@@ -101,7 +101,7 @@
 		    <h3 class="gray-bkg padding-8">Liability Terms</h3>
 		    <div class="form-group">
 				<div class="col col-sm-12">
-		            {{Form::checkbox('liability','1',false)}} I have read and agree to the <a href="https://www.czarspromise.com/event-liability-waiver" target="_blank">liability terms and conditions</a>
+		            {{ html()->checkbox('liability', false, '1') }} I have read and agree to the <a href="https://www.czarspromise.com/event-liability-waiver" target="_blank">liability terms and conditions</a>
 				</div>
 		    </div>
 		    <p>&nbsp;</p>
@@ -110,7 +110,7 @@
 		            <input type="submit" class="btn btn-primary" value="Continue to Step 2">
 		        </div>
 		    </div>
-		{!! Form::close() !!}
+		{{ html()->form()->close() }}
 	</div>
 @stop
 

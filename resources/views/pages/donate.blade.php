@@ -31,16 +31,16 @@
 			    {{ csrf_field() }}
 			    @if(isset($event) && !is_null($event->id) && !isset($registrant) && !isset($team))
 			    	<p>Your donation will go toward our goal of raising <strong>${{$event->goal}}</strong> at our <strong>{{$event->title}}</strong>.</p>
-			    	{{Form::hidden('event',$event->slug)}}
+			    	{{ html()->hidden('event', $event->slug) }}
 			    @elseif(isset($registrant) && !is_null($registrant->id))
 			    	<p>Your donation will go toward our goal of raising <strong>${{$event->goal}}</strong> at our <strong>{{$event->title}}</strong> in the name of <strong>{{$registrant->fname}} {{$registrant->lname}}</strong>.</p>
-			    	{{Form::hidden('registrant',$registrant->slug)}}
+			    	{{ html()->hidden('registrant', $registrant->slug) }}
 			    @elseif(isset($team) && !is_null($team->id))
 			    	<p>Your donation will go toward our goal of raising <strong>${{$event->goal}}</strong> at our <strong>{{$event->title}}</strong> for the team <strong>{{$team->name}}</strong>.</p>
-			    	{{Form::hidden('team',$team->slug)}}
+			    	{{ html()->hidden('team', $team->slug) }}
 			    @endif
 				@if(isset($cause))
-			    	{{Form::hidden('cause',$cause)}}
+			    	{{ html()->hidden('cause', $cause) }}
 				@endif
 				<p>&nbsp;</p>
 			    <img src="/images/donate.jpg" class="img-responsive" alt="">
@@ -133,7 +133,7 @@
 			        </div>
 				    <hr>
 				@else
-			    	{{Form::hidden('mailinglist',0)}}
+			    	{{ html()->hidden('mailinglist', 0) }}
 				@endif
 		        <div class="form-group">
 					<div class="col col-sm-8">
@@ -161,7 +161,7 @@
 				@endif
 				<input type="hidden" id="recurring" name="recurring" value="NO">
 			    @if(\Auth::check() && \Auth::user()->isAdmin())
-				    	{!!Form::checkbox('nopayment',1)!!} Offline (cash or check) Payment
+				    	{{ html()->checkbox('nopayment', null, 1) }} Offline (cash or check) Payment
 				    	<p class="black-note">Payment information below is not required.</p>
 			    @endif
 		    	<div class="form-group">

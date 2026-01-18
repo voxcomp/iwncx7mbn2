@@ -11,7 +11,7 @@
 	    </div>
 	@endif
 
-	{!!Form::open(['route'=>'get.generalreport'])!!}
+	{{ html()->form('POST', route('get.generalreport'))->open() }}
 		<h1>General Reports</h1>
 		<hr>
 		<h3>Date Range:</h3>
@@ -57,9 +57,9 @@
 	            <input type="submit" value="Download Report" class="btn btn-primary">
 	        </div>
 	    </div>
-	{!!Form::close()!!}
+	{{ html()->form()->close() }}
 		<p>&nbsp;</p>
-	{!!Form::open(['route'=>'reports'])!!}
+	{{ html()->form('POST', route('reports'))->open() }}
 		<h1>Event Specific Reports</h1>
 		<hr>
 		<h3>Choose Event:</h3>
@@ -97,7 +97,7 @@
 	            <input type="submit" value="Download Report" class="btn btn-primary">
 	        </div>
 	    </div>
-	{!!Form::close()!!}
+	{{ html()->form()->close() }}
 @stop
 
 @section('footer')

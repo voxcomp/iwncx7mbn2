@@ -1,1 +1,1 @@
- {!!Form::select('team',array_merge(['0'=>'Choose a team'],$event->teams->pluck('name','id')->toArray()),0,['class'=>'form-control'])!!}
+ {{ html()->select('team', array_merge(['0' => 'Choose a team'], $event->teams->pluck('name', 'id')->toArray()), 0)->class('form-control') }}

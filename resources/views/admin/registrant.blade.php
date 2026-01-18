@@ -33,27 +33,27 @@
 						<p><strong>Team Goal:</strong> ${{$event->team->goal}}.00<br>
 						<strong>Total Raised:</strong> ${{$event->team->eventDonations($event)}}.00{!!($event->team->eventDonations($event)>$event->team->goal)?' <i class="red-text fa fa-thumbs-up"></i>':''!!}</p>
 				@else
-					{!!Form::open(['route'=>['event.join.team',$event->slug,$event->registrant->slug, 'registrant.view']])!!}
+					{{ html()->form('POST', route('event.join.team', [$event->slug, $event->registrant->slug, 'registrant.view']))->open() }}
 					    <h3 class="gray-bkg padding-8" style="margin-top:0;">Join A Team</h3>
 					    <p><strong>Join or start a team.</strong></p>
 					    <div class="form-group">
 							@if($event->teams->count() > 0)
 								<div class="col col-sm-6">
 						            <label for="team{{$event->id}}">Join a Team</label>
-						            {!!Form::select('team'.$event->id,['0'=>'Choose a team']+$event->teams->pluck('name','id')->toArray(),old('team'.$event->id),['class'=>'form-control'])!!}
+						            {{ html()->select('team' . $event->id, ['0' => 'Choose a team'] + $event->teams->pluck('name', 'id')->toArray(), old('team' . $event->id))->class('form-control') }}
 								</div>
 							@endif
 							<div class="col col-sm-6">
 					            <label for="newteam{{$event->id}}">Create a new team</label><br>
-					            {!!Form::text('newteam'.$event->id,old('newteam'.$event->id),['id'=>'newteam'.$event->id,'class'=>'form-control', 'onkeyup'=>'teamPageDetails(this.value)'])!!}
+					            {{ html()->text('newteam' . $event->id, old('newteam' . $event->id))->id('newteam' . $event->id)->class('form-control')->attribute('onkeyup', 'teamPageDetails(this.value)') }}
 							</div>
 					    </div>
 					    <div class="form-group">
 						    <div class="col col-sm-12 rteright">
-							    {!!Form::submit('Join Team',['class'=>'btn btn-primary'])!!}
+							    {{ html()->input('submit')->value('Join Team')->class('btn btn-primary') }}
 						    </div>
 					    </div>
-					{!!Form::close()!!}
+					{{ html()->form()->close() }}
 				@endif
 			</div>
 		</div>

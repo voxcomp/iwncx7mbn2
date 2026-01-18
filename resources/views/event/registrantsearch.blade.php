@@ -17,7 +17,7 @@
 						    <label for="Event">Event</label>
 					    </div>
 						<div class="col col-sm-9">
-							{!!Form::select('event',$events,old('event',array_shift($events)),['class'=>'form-control'])!!}
+							{{ html()->select('event', $events, old('event', array_shift($events)))->class('form-control') }}
 						</div>
 				    </div>
 		        <div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">

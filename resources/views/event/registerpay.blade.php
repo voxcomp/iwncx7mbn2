@@ -43,7 +43,7 @@
 			        </div>
 				@endif
 				@if(\Auth::check() && \Auth::user()->isAdmin())
-						{!!Form::checkbox('nopayment',1)!!} Offline (cash or check) Payment
+						{{ html()->checkbox('nopayment', null, 1) }} Offline (cash or check) Payment
 						<p class="black-note">Payment information below is not required.</p>
 				@endif
 		    	<div class="form-group">

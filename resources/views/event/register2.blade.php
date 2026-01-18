@@ -11,7 +11,7 @@
 	    </div>
 	@endif
 	<div class="medium-content-area">
-		{!! Form::open(array('route' => ['event.register.step2',$event], 'id'=>'event_register_form')) !!}
+		{{ html()->form('POST', route('event.register.step2', $event))->id('event_register_form')->open() }}
 		    {{ method_field('PATCH') }}
 		    @if(!\Auth::check())
 			    <h3 class="gray-bkg padding-8">User Account</h3>
@@ -52,11 +52,11 @@
 		    <div class="form-group">
 				<div class="col col-sm-6">
 		            <label for="team">Join a Team</label>
-		            {!!Form::select('team',['0'=>'Choose a team']+$event->teams->pluck('name','id')->toArray(),old('team'),['class'=>'form-control'])!!}
+		            {{ html()->select('team', ['0' => 'Choose a team'] + $event->teams->pluck('name', 'id')->toArray(), old('team'))->class('form-control') }}
 				</div>
 				<div class="col col-sm-6">
 		            <label for="newteam">Create a new team</label><br>
-		            {!!Form::text('newteam',old('newteam'),['id'=>'newteam','class'=>'form-control', 'onkeyup'=>'teamPageDetails(this.value)'])!!}
+		            {{ html()->text('newteam', old('newteam'))->id('newteam')->class('form-control')->attribute('onkeyup', 'teamPageDetails(this.value)') }}
 				</div>
 		    </div>
 		    <div class="row-spacing" id="teamPageDetails" style="display:none;">
@@ -64,13 +64,13 @@
 			    <div class="form-group">
 					<div class="col col-sm-6">
 			            <label for="pagetitle">Team Page Title</label>
-			            {!!Form::text('teampagetitle',old('teampagetitle'),['class'=>'form-control'])!!}
+			            {{ html()->text('teampagetitle', old('teampagetitle'))->class('form-control') }}
 					</div>
 			    </div>
 			    <div class="form-group">
 					<div class="col col-sm-12">
 			            <label for="pagecontent">Team Page Content</label>
-			            {!!Form::textarea('teampagecontent',old('teampagecontent'),['class'=>'form-control','id'=>'teampagecontent_ckeditor'])!!}
+			            {{ html()->textarea('teampagecontent', old('teampagecontent'))->class('form-control')->id('teampagecontent_ckeditor') }}
 			            <div class="black-note">To upload an image, simply drag and drop it onto the editor.  Double-click the image to change its properties (i.e. alignment).</div>
 					</div>
 			    </div>
@@ -96,13 +96,13 @@
 		    <div class="form-group">
 				<div class="col col-sm-6">
 		            <label for="pagetitle">Page Title</label>
-		            {!!Form::text('pagetitle',old('pagetitle'),['class'=>'form-control'])!!}
+		            {{ html()->text('pagetitle', old('pagetitle'))->class('form-control') }}
 				</div>
 		    </div>
 		    <div class="form-group">
 				<div class="col col-sm-12">
 		            <label for="pagecontent">Page Content</label>
-		            {!!Form::textarea('pagecontent',old('pagecontent'),['class'=>'form-control','id'=>'pagecontent_ckeditor'])!!}
+		            {{ html()->textarea('pagecontent', old('pagecontent'))->class('form-control')->id('pagecontent_ckeditor') }}
 		            <div class="black-note">To upload an image, simply drag and drop it onto the editor.  Double-click the image to change its properties (i.e. alignment).</div>
 				</div>
 		    </div>
@@ -131,7 +131,7 @@
 			        @endif
 		        </div>
 		    </div>
-		{!! Form::close() !!}
+		{{ html()->form()->close() }}
 	</div>
 @stop
 

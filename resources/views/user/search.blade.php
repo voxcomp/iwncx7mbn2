@@ -17,7 +17,7 @@
 						    <label for="user_type">User Type</label>
 					    </div>
 						<div class="col col-sm-9">
-							{!!Form::select('user_type',[''=>'Select','auth'=>'User','admin'=>'Administrator'],old('user_type'),['class'=>'form-control'])!!}
+							{{ html()->select('user_type', ['' => 'Select', 'auth' => 'User', 'admin' => 'Administrator'], old('user_type'))->class('form-control') }}
 						</div>
 				    </div>
 		        <div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">

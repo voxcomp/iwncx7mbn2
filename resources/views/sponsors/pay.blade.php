@@ -13,7 +13,7 @@
 			    </div>
 			@endif
 			<p>Thank you for supporting Czar's Promise and our mission of Inspiring Hope and Funding Research. Your generous donation will provide support for companion animals diagnosed with cancer, and grant funding for canine and pediatric cancer research within Madison, WI and surrounding communities. We are truly grateful to each of you who give so generously of your kind hearts.</p>
-			{!!Form::open(['route'=>['sponsor.payment',$event->slug], 'id'=>'payment-form'])!!}
+			{{ html()->form('POST', route('sponsor.payment', $event->slug))->id('payment-form')->open() }}
 			    {{ method_field('PATCH') }}
 		        <div class="form-group">
 					<div class="col col-sm-8">

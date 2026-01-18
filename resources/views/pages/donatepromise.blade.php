@@ -39,7 +39,7 @@
 				<div class="row">
 					<div class="col col-md-6">
 						<h4>Upload A Photo</h4>
-					    {!! Form::open(array('route' => 'data.profilePhoto','files'=>true, 'id'=>'profile_photo_form')) !!}
+					    {{ html()->form('POST', route('data.profilePhoto'))->acceptsFiles()->id('profile_photo_form')->open() }}
 					    	<div class="">
 								<input type="file" class="image" id="profile-photo-field" name="photo" value="">
 								<input type="hidden" name="photoData" value="">
@@ -56,7 +56,7 @@
 					            <span class="photo help-block">
 					            </span>
 					    	</div>
-				        {!! Form::close() !!}
+				        {{ html()->form()->close() }}
 					</div>
 					<div class="col col-md-6">
 						<div class="profile-photo-container"><img class="img-responsive" id="profile-photo" @if(!empty($photo)) src="{{ $photo }}" @endif style="" /></div>
@@ -202,7 +202,7 @@
 				</div>
 				<input type="hidden" id="recurring" name="recurring" value="NO">
 			    @if(\Auth::check() && \Auth::user()->isAdmin())
-				    	{!!Form::checkbox('nopayment',1)!!} Offline (cash or check) Payment
+				    	{{ html()->checkbox('nopayment', null, 1) }} Offline (cash or check) Payment
 				    	<p class="black-note">Payment information below is not required.</p>
 			    @endif
 		    	<div class="form-group">

@@ -31,22 +31,22 @@
 									@else
 									    <p>Every team receives a page to use for their fundraising efforts.  Each page must be approved by an administrator before it will be available unless you have previously had a page approved.</p>
 									@endif
-									{!!Form::open(['route'=>['event.team.page',$event->team->slug]])!!}
+									{{ html()->form('POST', route('event.team.page', $event->team->slug))->open() }}
 									    <div class="form-group">
 											<div class="col col-sm-6">
 									            <label for="teampagetitle{{$event->id}}">Team Page Title</label>
-									            {!!Form::text('teampagetitle'.$event->id,old('teampagetitle'.$event->id,(isset($event->team))?$event->team->pagetitle:''),['class'=>'form-control'])!!}
+									            {{ html()->text('teampagetitle' . $event->id, old('teampagetitle' . $event->id, isset($event->team) ? $event->team->pagetitle : ''))->class('form-control') }}
 											</div>
 									    </div>
 									    <div class="form-group">
 											<div class="col col-sm-12">
-												{!! Form::hidden('teampagecontent'.$event->id, (isset($event->team))?$event->team->pagecontent:'')!!}
+												{{ html()->hidden('teampagecontent' . $event->id, isset($event->team) ? $event->team->pagecontent : '') }}
 												<div id="teampage{{$event->id}}_toolbar"></div>
 												<div id="teampage{{$event->id}}_content">
 													{!! (isset($event->team))?$event->team->pagecontent:'' !!}
 												</div>
 									            {{--<label for="teampagecontent{{$event->id}}">Team Page Content</label>
-									            {!!Form::textarea('teampagecontent'.$event->id,old('teampagecontent'.$event->id,(isset($event->team))?$event->team->pagecontent:''),['class'=>'form-control','id'=>'teampagecontent'.$event->id.'_ckeditor'])!!}
+									            {{ html()->textarea('teampagecontent' . $event->id, old('teampagecontent' . $event->id, isset($event->team) ? $event->team->pagecontent : ''))->class('form-control')->id('teampagecontent' . $event->id . '_ckeditor') }}
 									            <div class="black-note">To upload an image, simply drag and drop it onto the editor.  Double-click the image to change its properties (i.e. alignment).</div>--}}
 											</div>
 									    </div>
@@ -67,10 +67,10 @@
 								        </div>
 									    <div class="form-group">
 										    <div class="col col-sm-12 rteright">
-											    {!!Form::submit('Save Team Page',['class'=>'btn btn-primary'])!!}
+											    {{ html()->input('submit')->value('Save Team Page')->class('btn btn-primary') }}
 										    </div>
 									    </div>
-								    {!!Form::close()!!}
+								    {{ html()->form()->close() }}
 							    </div>
 							@endif
 							<hr>
@@ -94,22 +94,22 @@
 								<p>Every participant receives a personal fundraising page to use for promoting to your friends and family in collecting donations for participating. Once submitted, your page will be reviewed by an administrator and then approved for going live.</p>
 							@endif
 
-							{!!Form::open(['route'=>['event.personal.page',$event->registrant->slug]])!!}
+							{{ html()->form('POST', route('event.personal.page', $event->registrant->slug))->open() }}
 							    <div class="form-group">
 									<div class="col col-sm-6">
 							            <label for="pagetitle{{$event->id}}">Page Title</label>
-							            {!!Form::text('pagetitle'.$event->id,old('pagetitle'.$event->id,$event->registrant->pagetitle),['class'=>'form-control'])!!}
+							            {{ html()->text('pagetitle' . $event->id, old('pagetitle' . $event->id, $event->registrant->pagetitle))->class('form-control') }}
 									</div>
 							    </div>
 							    <div class="form-group">
 									<div class="col col-sm-12">
-										{!!Form::hidden('pagecontent'.$event->id, htmlspecialchars_decode($event->registrant->pagecontent))!!}
+										{{ html()->hidden('pagecontent' . $event->id, htmlspecialchars_decode($event->registrant->pagecontent)) }}
 										<div id="page{{$event->id}}_toolbar"></div>
 										<div id="page{{$event->id}}_content">
 											{!! htmlspecialchars_decode($event->registrant->pagecontent) !!}
 										</div>
 							            {{--<label for="pagecontent{{$event->id}}">Page Content</label>
-							            {!!Form::textarea('pagecontent'.$event->id,old('pagecontent'.$event->id,htmlspecialchars_decode($event->registrant->pagecontent)),['class'=>'form-control','id'=>'pagecontent'.$event->id.'_ckeditor'])!!}
+							            {{ html()->textarea('pagecontent' . $event->id, old('pagecontent' . $event->id, htmlspecialchars_decode($event->registrant->pagecontent)))->class('form-control')->id('pagecontent' . $event->id . '_ckeditor') }}
 							            <div class="black-note">To upload an image, simply drag and drop it onto the editor.  Double-click the image to change its properties (i.e. alignment).</div>--}}
 									</div>
 							    </div>
@@ -130,10 +130,10 @@
 						        </div>
 							    <div class="form-group">
 								    <div class="col col-sm-12 rteright">
-									    {!!Form::submit('Save Personal Page',['class'=>'btn btn-primary'])!!}
+									    {{ html()->input('submit')->value('Save Personal Page')->class('btn btn-primary') }}
 								    </div>
 							    </div>
-							{!!Form::close()!!}
+							{{ html()->form()->close() }}
 						</div>
 						@endif
 						<div class="row">
@@ -157,28 +157,28 @@
 										@endif
 									@endif
 								@elseif($event->event_date > time())
-									{!!Form::open(['route'=>['event.join.team',$event->slug,$event->registrant->slug]])!!}
+									{{ html()->form('POST', route('event.join.team', [$event->slug, $event->registrant->slug]))->open() }}
 									    <h3 class="gray-bkg padding-8" style="margin-top:0;">Join A Team</h3>
 									    <p><strong>Optional:</strong> Join or start a team.  If you do not see your team name, you can join after registration.</p>
 									    <div class="form-group">
 											@if($event->teams->count() > 0)
 												<div class="col col-sm-6">
 										            <label for="team{{$event->id}}">Join a Team</label>
-										            {!!Form::select('team'.$event->id,['0'=>'Choose a team']+$event->teams->pluck('name','id')->toArray(),old('team'.$event->id),['class'=>'form-control'])!!}
+										            {{ html()->select('team' . $event->id, ['0' => 'Choose a team'] + $event->teams->pluck('name', 'id')->toArray(), old('team' . $event->id))->class('form-control') }}
 												</div>
 											@endif
 											<div class="col col-sm-6">
 									            <label for="newteam{{$event->id}}">Create a new team</label><br>
-									            {!!Form::text('newteam'.$event->id,old('newteam'.$event->id),['id'=>'newteam'.$event->id,'class'=>'form-control', 'onkeyup'=>'teamPageDetails(this.value)'])!!}
+									            {{ html()->text('newteam' . $event->id, old('newteam' . $event->id))->id('newteam' . $event->id)->class('form-control')->attribute('onkeyup', 'teamPageDetails(this.value)') }}
 									            <div class="black-note">After creating your team, you will be able to set up your team fundraising page in the section below.</div>
 											</div>
 									    </div>
 									    <div class="form-group">
 										    <div class="col col-sm-12 rteright">
-											    {!!Form::submit('Join Team',['class'=>'btn btn-primary'])!!}
+											    {{ html()->input('submit')->value('Join Team')->class('btn btn-primary') }}
 										    </div>
 									    </div>
-									{!!Form::close()!!}
+									{{ html()->form()->close() }}
 								@endif
 							</div>
 						</div>

@@ -12,7 +12,7 @@
 	    </div>
 	@endif
 	<p>Thank you for your interest in joining the {{$event->title}} as a community partner sponsor or vendor! For questions in regard to our sponsor programs, please email us at <a href="mailto:beth.viney@czarspromise.com?subject={{str_replace(" ","%20",$event->title)}}%20Sponsorship%20Inquiry">beth.viney@czarspromise.com</a> and provide your name, address, email and phone, and we will be in touch as soon as possible! It is truly because of you, our community partner sponsors and vendors, that {{date("l, F j",$event->event_date)}} will be such a special day for all participants - human and canine!</p>
-	{!!Form::open(['route'=>['sponsor.submission',$event->slug],'files'=>true, 'id'=>'sponsor_form'])!!}
+	{{ html()->form('POST', route('sponsor.submission', $event->slug))->acceptsFiles()->id('sponsor_form')->open() }}
         <div class="form-group{{ $errors->has('company') ? ' has-error' : '' }}">
 	        <div class="col col-sm-12">
                 <input id="company" type="text" class="form-control" name="company" value="{{ old('company') }}" placeholder="Company" autofocus>
@@ -87,7 +87,7 @@
 			</div>
 			<div class="visible-xs clearfix"></div>
 			<div class="col col-sm-2 col-xs-4 col-spacing{{ $errors->has('state') ? ' has-error' : '' }}">
-	            {!! Form::select('state', ['AL'=>'AL','AK'=>'AK','AS'=>'AS','AZ'=>'AZ','AR'=>'AR','CA'=>'CA','CO'=>'CO','CT'=>'CT','DE'=>'DE','DC'=>'DC','FM'=>'FM','FL'=>'FL','GA'=>'GA','GU'=>'GU','HI'=>'HI','ID'=>'ID','IL'=>'IL','IN'=>'IN','IA'=>'IA','KS'=>'KS','KY'=>'KY','LA'=>'LA','ME'=>'ME','MH'=>'MH','MD'=>'MD','MA'=>'MA','MI'=>'MI','MN'=>'MN','MS'=>'MS','MO'=>'MO','MT'=>'MT','NE'=>'NE','NV'=>'NV','NH'=>'NH','NJ'=>'NJ','NM'=>'NM','NY'=>'NY','NC'=>'NC','ND'=>'ND','MP'=>'MP','OH'=>'OH','OK'=>'OK','OR'=>'OR','PW'=>'PW','PA'=>'PA','PR'=>'PR','RI'=>'RI','SC'=>'SC','SD'=>'SD','TN'=>'TN','TX'=>'TX','UT'=>'UT','VT'=>'VT','VI'=>'VI','VA'=>'VA','WA'=>'WA','WV'=>'WV','WI'=>'WI','WY'=>'WY'], old('state'), ['class'=>'form-control', 'required']) !!}
+	            {{ html()->select('state', ['AL' => 'AL', 'AK' => 'AK', 'AS' => 'AS', 'AZ' => 'AZ', 'AR' => 'AR', 'CA' => 'CA', 'CO' => 'CO', 'CT' => 'CT', 'DE' => 'DE', 'DC' => 'DC', 'FM' => 'FM', 'FL' => 'FL', 'GA' => 'GA', 'GU' => 'GU', 'HI' => 'HI', 'ID' => 'ID', 'IL' => 'IL', 'IN' => 'IN', 'IA' => 'IA', 'KS' => 'KS', 'KY' => 'KY', 'LA' => 'LA', 'ME' => 'ME', 'MH' => 'MH', 'MD' => 'MD', 'MA' => 'MA', 'MI' => 'MI', 'MN' => 'MN', 'MS' => 'MS', 'MO' => 'MO', 'MT' => 'MT', 'NE' => 'NE', 'NV' => 'NV', 'NH' => 'NH', 'NJ' => 'NJ', 'NM' => 'NM', 'NY' => 'NY', 'NC' => 'NC', 'ND' => 'ND', 'MP' => 'MP', 'OH' => 'OH', 'OK' => 'OK', 'OR' => 'OR', 'PW' => 'PW', 'PA' => 'PA', 'PR' => 'PR', 'RI' => 'RI', 'SC' => 'SC', 'SD' => 'SD', 'TN' => 'TN', 'TX' => 'TX', 'UT' => 'UT', 'VT' => 'VT', 'VI' => 'VI', 'VA' => 'VA', 'WA' => 'WA', 'WV' => 'WV', 'WI' => 'WI', 'WY' => 'WY'], old('state'))->class('form-control')->required() }}
 	            @if ($errors->has('state'))
 	                <span class="help-block">
 	                    <strong>{{ $errors->first('state') }}</strong>
@@ -109,60 +109,60 @@
 			<div class="col col-sm-6">
 				{{-- <a class="link" onclick="AlertDialog('','Guardian Sponsor Level','https://www.czarspromise.com/sponsorlevel/guardian-sponsor',600,600)"> --}}
 				@if(($event->sponsorSubmissions->where('level','Guardian')->count()<4 && time()<strtotime('first day of june this year')))
-					{!!Form::radio('level','Guardian')!!} Guardian - 4 Available (${{\App\Http\Controllers\Controller::levelCost('Guardian')}})
+					{{ html()->radio('level', null, 'Guardian') }} Guardian - 4 Available (${{\App\Http\Controllers\Controller::levelCost('Guardian')}})
 				@else
-					{!!Form::radio('level','Guardian',false,['disabled'=>'disabled'])!!} <span class="disabled-text">Guardian - Presenting Sponsor (Sold Out)</span>
+					{{ html()->radio('level', false, 'Guardian')->disabled() }} <span class="disabled-text">Guardian - Presenting Sponsor (Sold Out)</span>
 				@endif
 				<br>
 				@if(time()<strtotime('first day of august this year'))
-					{!!Form::radio('level','Golden Retriever')!!} Golden Retriever (${{\App\Http\Controllers\Controller::levelCost('Golden Retriever')}})
+					{{ html()->radio('level', null, 'Golden Retriever') }} Golden Retriever (${{\App\Http\Controllers\Controller::levelCost('Golden Retriever')}})
 				@else
-					{!!Form::radio('level','Golden Retriever',false,['disabled'=>'disabled'])!!} <span class="disabled-text">Golden Retriever (Sold Out)</span>
+					{{ html()->radio('level', false, 'Golden Retriever')->disabled() }} <span class="disabled-text">Golden Retriever (Sold Out)</span>
 				@endif
 				<br>
 				@if(time()<strtotime('first day of august this year'))
-					{!!Form::radio('level','Stage')!!} Stage - 1 Available (${{\App\Http\Controllers\Controller::levelCost('Stage')}})
+					{{ html()->radio('level', null, 'Stage') }} Stage - 1 Available (${{\App\Http\Controllers\Controller::levelCost('Stage')}})
 				@else
-					{!!Form::radio('level','Stage',false,['disabled'=>'disabled'])!!} <span class="disabled-text">Stage (Sold Out)</span>
+					{{ html()->radio('level', false, 'Stage')->disabled() }} <span class="disabled-text">Stage (Sold Out)</span>
 				@endif
 				<br>
 				@if($event->sponsorSubmissions->where('level','Heroes')->count()<1 && time()<strtotime('first day of june this year'))
-					{!!Form::radio('level','Heroes')!!} Heroes - 1 Available (${{\App\Http\Controllers\Controller::levelCost('Heroes')}})
+					{{ html()->radio('level', null, 'Heroes') }} Heroes - 1 Available (${{\App\Http\Controllers\Controller::levelCost('Heroes')}})
 				@else
-					{!!Form::radio('level','Heroes',false,['disabled'=>'disabled'])!!} <span class="disabled-text">Heroes (Sold Out)</span>
+					{{ html()->radio('level', false, 'Heroes')->disabled() }} <span class="disabled-text">Heroes (Sold Out)</span>
 				@endif
 				<br>
 				@if($event->sponsorSubmissions->where('level','Inspiring Hope')->count()<1 && time()<strtotime('first day of september this year'))
-					{!!Form::radio('level','Inspiring Hope')!!} Inspiring Hope - 1 Available (${{\App\Http\Controllers\Controller::levelCost('Inspiring Hope')}})
+					{{ html()->radio('level', null, 'Inspiring Hope') }} Inspiring Hope - 1 Available (${{\App\Http\Controllers\Controller::levelCost('Inspiring Hope')}})
 				@else
-					{!!Form::radio('level','Inspiring Hope',false,['disabled'=>'disabled'])!!} <span class="disabled-text">Inspiring Hope (Sold Out)</span>
+					{{ html()->radio('level', false, 'Inspiring Hope')->disabled() }} <span class="disabled-text">Inspiring Hope (Sold Out)</span>
 				@endif
 				<br>
 				@if(time()<strtotime('first day of september this year'))
-					{!!Form::radio('level','Hound')!!} Hound (${{\App\Http\Controllers\Controller::levelCost('Hound')}})
+					{{ html()->radio('level', null, 'Hound') }} Hound (${{\App\Http\Controllers\Controller::levelCost('Hound')}})
 				@else
-					{!!Form::radio('level','Hound',false,['disabled'=>'disabled'])!!} <span class="disabled-text">Hound (Sold Out)</span>
+					{{ html()->radio('level', false, 'Hound')->disabled() }} <span class="disabled-text">Hound (Sold Out)</span>
 				@endif
 			</div>
 			<div class="col col-sm-6">
 				@if(time()<strtotime('first day of october this year'))
-					{!!Form::radio('level','Veterinary Partner')!!} Veterinary Partner (${{\App\Http\Controllers\Controller::levelCost('Veterinary Partner')}})<br>
+					{{ html()->radio('level', null, 'Veterinary Partner') }} Veterinary Partner (${{\App\Http\Controllers\Controller::levelCost('Veterinary Partner')}})<br>
 				@else
-					{!!Form::radio('level','Veterinary Partner',false,['disabled'=>'disabled'])!!} <span class="disabled-text">Veterinary Partner (Sold Out)</span><br>
+					{{ html()->radio('level', false, 'Veterinary Partner')->disabled() }} <span class="disabled-text">Veterinary Partner (Sold Out)</span><br>
 				@endif
 				@if(time()<strtotime('first day of october this year'))
-					{!!Form::radio('level','Bulldog')!!} Bulldog (${{\App\Http\Controllers\Controller::levelCost('Bulldog')}})<br>
+					{{ html()->radio('level', null, 'Bulldog') }} Bulldog (${{\App\Http\Controllers\Controller::levelCost('Bulldog')}})<br>
 				@else
-						{!!Form::radio('level','Bulldog',false,['disabled'=>'disabled'])!!} <span class="disabled-text">Bulldog (Sold Out)</span><br>
+						{{ html()->radio('level', false, 'Bulldog')->disabled() }} <span class="disabled-text">Bulldog (Sold Out)</span><br>
 				@endif
 				@if(time()<strtotime('first day of october this year'))
-					{!!Form::radio('level','Non-Profit Partner')!!} Non-Profit Partner (${{\App\Http\Controllers\Controller::levelCost('Non-Profit Partner')}})<br>
+					{{ html()->radio('level', null, 'Non-Profit Partner') }} Non-Profit Partner (${{\App\Http\Controllers\Controller::levelCost('Non-Profit Partner')}})<br>
 				@else
-						{!!Form::radio('level','Non-Profit Partner',false,['disabled'=>'disabled'])!!} <span class="disabled-text">Non-Profit Partner (Sold Out)</span><br>
+						{{ html()->radio('level', false, 'Non-Profit Partner')->disabled() }} <span class="disabled-text">Non-Profit Partner (Sold Out)</span><br>
 				@endif
 				@if(\Auth::check() && \Auth::user()->isAdmin())
-					{!!Form::radio('level','In-Kind')!!} In-Kind (${{\App\Http\Controllers\Controller::levelCost('In-Kind')}})<br>
-					<label for="inkindvalue">In-Kind Value ($):</label>{!!Form::text('inkindvalue',old('inkindvalue',0),['class'=>'form-control'])!!}
+					{{ html()->radio('level', null, 'In-Kind') }} In-Kind (${{\App\Http\Controllers\Controller::levelCost('In-Kind')}})<br>
+					<label for="inkindvalue">In-Kind Value ($):</label>{{ html()->text('inkindvalue', old('inkindvalue', 0))->class('form-control') }}
 				@endif
 			</div>
 		</div>
@@ -185,7 +185,7 @@
         <p>&nbsp;</p>
 	    @if(\Auth::check() && \Auth::user()->isAdmin())
 	    	<div class="row-spacing">
-		    	{!!Form::checkbox('nopayment',1)!!} Offline (cash or check) Payment
+		    	{{ html()->checkbox('nopayment', null, 1) }} Offline (cash or check) Payment
 	    	</div>
 	    @endif
         <div class="form-group">
@@ -193,6 +193,6 @@
                 <input type="submit" class="btn btn-primary" name="submit" value="Submit">
             </div>
         </div>
-    {!!Form::close()!!}
+    {{ html()->form()->close() }}
 </div>
 @endsection

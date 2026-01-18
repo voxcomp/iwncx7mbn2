@@ -13,7 +13,7 @@
 	@endif
 	<p>Thank you for your interest in volunteering at the {{$event->title}}! Please complete the form below and our Czar's Promise volunteer coordinator will be in touch with you very soon!</p>
 	<p>For additional questions or requests for volunteer opportunities, please email us at <a href="mailto:cpvolunteers@czarspromise.com?subject={{str_replace(" ","%20",$event->title)}}%20Volunteer">cpvolunteers@czarspromise.com</a>.</p>
-	{!!Form::open(['route'=>['volunteer.submission',$event->slug],'id'=>'volunteer_form'])!!}
+	{{ html()->form('POST', route('volunteer.submission', $event->slug))->id('volunteer_form')->open() }}
         <div class="form-group{{ $errors->has('company') ? ' has-error' : '' }}">
 	        <div class="col col-sm-12">
                 <input id="company" type="text" class="form-control" name="company" value="{{ old('company') }}" placeholder="Company" autofocus>
@@ -88,7 +88,7 @@
 			</div>
 			<div class="visible-xs clearfix"></div>
 			<div class="col col-sm-2 col-xs-4 col-spacing{{ $errors->has('state') ? ' has-error' : '' }}">
-	            {!! Form::select('state', ['AL'=>'AL','AK'=>'AK','AS'=>'AS','AZ'=>'AZ','AR'=>'AR','CA'=>'CA','CO'=>'CO','CT'=>'CT','DE'=>'DE','DC'=>'DC','FM'=>'FM','FL'=>'FL','GA'=>'GA','GU'=>'GU','HI'=>'HI','ID'=>'ID','IL'=>'IL','IN'=>'IN','IA'=>'IA','KS'=>'KS','KY'=>'KY','LA'=>'LA','ME'=>'ME','MH'=>'MH','MD'=>'MD','MA'=>'MA','MI'=>'MI','MN'=>'MN','MS'=>'MS','MO'=>'MO','MT'=>'MT','NE'=>'NE','NV'=>'NV','NH'=>'NH','NJ'=>'NJ','NM'=>'NM','NY'=>'NY','NC'=>'NC','ND'=>'ND','MP'=>'MP','OH'=>'OH','OK'=>'OK','OR'=>'OR','PW'=>'PW','PA'=>'PA','PR'=>'PR','RI'=>'RI','SC'=>'SC','SD'=>'SD','TN'=>'TN','TX'=>'TX','UT'=>'UT','VT'=>'VT','VI'=>'VI','VA'=>'VA','WA'=>'WA','WV'=>'WV','WI'=>'WI','WY'=>'WY'], old('state'), ['class'=>'form-control', 'required']) !!}
+	            {{ html()->select('state', ['AL' => 'AL', 'AK' => 'AK', 'AS' => 'AS', 'AZ' => 'AZ', 'AR' => 'AR', 'CA' => 'CA', 'CO' => 'CO', 'CT' => 'CT', 'DE' => 'DE', 'DC' => 'DC', 'FM' => 'FM', 'FL' => 'FL', 'GA' => 'GA', 'GU' => 'GU', 'HI' => 'HI', 'ID' => 'ID', 'IL' => 'IL', 'IN' => 'IN', 'IA' => 'IA', 'KS' => 'KS', 'KY' => 'KY', 'LA' => 'LA', 'ME' => 'ME', 'MH' => 'MH', 'MD' => 'MD', 'MA' => 'MA', 'MI' => 'MI', 'MN' => 'MN', 'MS' => 'MS', 'MO' => 'MO', 'MT' => 'MT', 'NE' => 'NE', 'NV' => 'NV', 'NH' => 'NH', 'NJ' => 'NJ', 'NM' => 'NM', 'NY' => 'NY', 'NC' => 'NC', 'ND' => 'ND', 'MP' => 'MP', 'OH' => 'OH', 'OK' => 'OK', 'OR' => 'OR', 'PW' => 'PW', 'PA' => 'PA', 'PR' => 'PR', 'RI' => 'RI', 'SC' => 'SC', 'SD' => 'SD', 'TN' => 'TN', 'TX' => 'TX', 'UT' => 'UT', 'VT' => 'VT', 'VI' => 'VI', 'VA' => 'VA', 'WA' => 'WA', 'WV' => 'WV', 'WI' => 'WI', 'WY' => 'WY'], old('state'))->class('form-control')->required() }}
 	            @if ($errors->has('state'))
 	                <span class="help-block">
 	                    <strong>{{ $errors->first('state') }}</strong>
@@ -110,6 +110,6 @@
                 <input type="submit" class="btn btn-primary" name="submit" value="Sign Me Up!">
             </div>
         </div>
-    {!!Form::close()!!}
+    {{ html()->form()->close() }}
 </div>
 @endsection

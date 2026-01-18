@@ -139,7 +139,6 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
-        Collective\Html\HtmlServiceProvider::class,
         NZTim\Mailchimp\MailchimpServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
@@ -171,7 +170,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'Form' => Collective\Html\FormFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Mailchimp' => NZTim\Mailchimp\MailchimpFacade::class,
         'Redis' => Illuminate\Support\Facades\Redis::class,

@@ -26,7 +26,7 @@
 						<div class="row-same-height row-full-height">
 							<div class="col col-sm-9 col-sm-height col-full-height col-bottom col-spacing">
 								<label for="pp{{$registrant->id}}">Notes To User:</label>
-								{!!Form::textarea('pp'.$registrant->id,'',['id'=>'pp'.$registrant->id,'class'=>'form-control','rows'=>'3'])!!}
+								{{ html()->textarea('pp' . $registrant->id, '')->id('pp' . $registrant->id)->class('form-control')->rows('3') }}
 							</div>
 							<div class="col col-sm-3 col-sm-height col-full-height col-bottom rteright">
 								<button class="btn btn-danger btn-block" onclick="AjaxSubmission('{{route('admin.personalpage.fail',[$registrant->slug])}}', '', $('#pp{{$registrant->id}}').val(), false, $('#pp{{$registrant->id}}-row'), false, null)">Fail</button>
@@ -61,7 +61,7 @@
 						<div class="row-same-height row-full-height">
 							<div class="col col-sm-9 col-sm-height col-full-height col-bottom col-spacing">
 								<label for="tp{{$team->slug}}">Notes To User:</label>
-								{!!Form::textarea('tp'.$team->slug,'',['id'=>'tp'.$team->slug,'class'=>'form-control','rows'=>'3'])!!}
+								{{ html()->textarea('tp' . $team->slug, '')->id('tp' . $team->slug)->class('form-control')->rows('3') }}
 							</div>
 							<div class="col col-sm-3 col-sm-height col-full-height col-bottom rteright">
 								<button class="btn btn-danger btn-block" onclick="AjaxSubmission('{{route('admin.teampage.fail',[$team->slug])}}', '', $('#tp{{$team->slug}}').val(), false, $('#tp{{$team->slug}}-row'), false, null)">Fail</button>

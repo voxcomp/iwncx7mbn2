@@ -65,12 +65,12 @@
 		        </div>
 		        <div class="form-group">
 			        <div class="col col-sm-12">
-				        {!!Form::checkbox('presenting', 1, (old('presenting'))?true:false)!!} Presenting Sponsor
+				        {{ html()->checkbox('presenting', old('presenting') ? true : false, 1) }} Presenting Sponsor
 			        </div>
 		        </div>
 		        <div class="form-group">
 			        <div class="col col-sm-12">
-				        {!!Form::checkbox('vendor', 1, (old('presenting'))?true:false)!!} Vendor
+				        {{ html()->checkbox('vendor', old('presenting') ? true : false, 1) }} Vendor
 			        </div>
 		        </div>
 		        <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">

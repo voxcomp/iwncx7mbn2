@@ -14,7 +14,7 @@
 					</div>
 				</div>
 				<h4>Upload A Photo</h4>
-			    {!! Form::open(array('route' => 'data.profilePhoto','files'=>true, 'id'=>'profile_photo_form')) !!}
+			    {{ html()->form('POST', route('data.profilePhoto'))->acceptsFiles()->id('profile_photo_form')->open() }}
 			    	<div class="form-group">
 						<input type="file" class="image" id="profile-photo-field" name="photo" value="">
 						<input type="hidden" name="photoData" value="">
@@ -30,4 +30,4 @@
 			            <span class="photo help-block">
 			            </span>
 			    	</div>
-		        {!! Form::close() !!}
+		        {{ html()->form()->close() }}

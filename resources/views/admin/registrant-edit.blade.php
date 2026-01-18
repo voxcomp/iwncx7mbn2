@@ -21,7 +21,7 @@
 	@endif
 	
 	<div class="row-spacing">
-		{!! Form::open(array('route' => ['admin.registrant.save',$registrant->slug], 'id'=>'event_register_form')) !!}
+		{{ html()->form('POST', route('admin.registrant.save', $registrant->slug))->id('event_register_form')->open() }}
 		<div class="row">
 			<div class="col col-md-6 col-spacing">
 			    <h3 class="gray-bkg padding-8">Contact Information</h3>
@@ -72,22 +72,22 @@
 					<div class="col col-sm-6 col-spacing">
 						<div class="form-group">
 							<label for="tshirt">T-Shirt Size</label><br>
-							{!!Form::select('shirt',['xxxl'=>'XXXL', 'xxl'=>'XXL', 'xl'=>'XL', 'l'=>'L', 'm'=>'M', 's'=>'S', 'youthl'=>'Youth L', 'youthm'=>'Youth M', 'youths'=>'Youth S'],old('shirt',(isset($user['shirt']))?$user['shirt']:'l'),['class'=>'form-control'])!!}
+							{{ html()->select('shirt', ['xxxl' => 'XXXL', 'xxl' => 'XXL', 'xl' => 'XL', 'l' => 'L', 'm' => 'M', 's' => 'S', 'youthl' => 'Youth L', 'youthm' => 'Youth M', 'youths' => 'Youth S'], old('shirt', isset($user['shirt']) ? $user['shirt'] : 'l'))->class('form-control') }}
 						</div>
 						<div class="form-group">
-							{{Form::checkbox('shipshirt','1',(isset($user['shipshirt']) && $user['shipshirt'])?true:false,['class'=>'shipshirt','onchange'=>'showShipping()'])}} Mail my shirt and swag
+							{{ html()->checkbox('shipshirt', isset($user['shipshirt']) && $user['shipshirt'] ? true : false, '1')->class('shipshirt')->attribute('onchange', 'showShipping()') }} Mail my shirt and swag
 						</div>
 					</div>
 					<div class="col col-sm-6">
 						<label for="pets">Number of Pets Attending</label>
-						{!!Form::text('pets',0,['class'=>'form-control'])!!}
+						{{ html()->text('pets', 0)->class('form-control') }}
 					</div>
 				</div>
 				<p>&nbsp;</p>
 				<div class="form-group shipping" @if(!(isset($user['shipshirt']) && $user['shipshirt'])) style="display:none;" @endif>
 					<div class="col col-sm-12 col-spacing">
 					    <h3 class="gray-bkg padding-8">Shipping Address</h3>
-					    {{Form::checkbox('copybilling','1',false,['id'=>'copybilling','onchange'=>'copyBilling()'])}} Same as my billing address
+					    {{ html()->checkbox('copybilling', false, '1')->id('copybilling')->attribute('onchange', 'copyBilling()') }} Same as my billing address
 						@include('parts.shipaddressform')
 					</div>
 				</div>
@@ -98,13 +98,13 @@
 	    <div class="row">
 		    <div class="col-sm-6 col-spacing">
 	            <label for="teampagetitle">Page Title</label>
-	            {!!Form::text('pagetitle',$registrant->pagetitle,['class'=>'form-control'])!!}
+	            {{ html()->text('pagetitle', $registrant->pagetitle)->class('form-control') }}
 		    </div>
 	    </div>
 		<div class="row">
 			<div class="col-sm-6 col-spacing">
 	            <label for="pagecontent">Page Content</label>
-	            {!!Form::textarea('pagecontent',old('pagecontent',$registrant->pagecontent),['class'=>'form-control','id'=>'pagecontent_ckeditor'])!!}
+	            {{ html()->textarea('pagecontent', old('pagecontent', $registrant->pagecontent))->class('form-control')->id('pagecontent_ckeditor') }}
 	            <div class="black-note">To upload an image, click the image button on the toolbar, then click the Upload tab.</div>
 			</div>
 			<div class="col-sm-6 col-spacing">
@@ -119,13 +119,13 @@
 	    <div class="row">
 		    <div class="col-sm-6 col-spacing">
 	            <label for="teampagetitle">Page Title</label>
-	            {!!Form::text('teampagetitle',$registrant->team->pagetitle,['class'=>'form-control'])!!}
+	            {{ html()->text('teampagetitle', $registrant->team->pagetitle)->class('form-control') }}
 		    </div>
 	    </div>
 		<div class="row">
 			<div class="col-sm-6 col-spacing">
 	            <label for="teampagecontent">Page Content</label>
-	            {!!Form::textarea('teampagecontent',old('pagecontent',$registrant->team->pagecontent),['class'=>'form-control','id'=>'teampagecontent_ckeditor'])!!}
+	            {{ html()->textarea('teampagecontent', old('pagecontent', $registrant->team->pagecontent))->class('form-control')->id('teampagecontent_ckeditor') }}
 	            <div class="black-note">To upload an image, click the image button on the toolbar, then click the Upload tab.</div>
 			</div>
 			<div class="col-sm-6 col-spacing">
