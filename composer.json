@@ -18,7 +18,6 @@
         "nztim/mailchimp": "^3.6",
         "stripe/stripe-php": "^14.9",
         "laravel/ui": "^3.0",
-        "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1"
     },
     "require-dev": {
