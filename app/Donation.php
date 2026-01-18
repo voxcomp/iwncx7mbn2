@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 
 class Donation extends Model
@@ -15,17 +16,17 @@ class Donation extends Model
         'fname', 'lname', 'email', 'phone', 'address', 'city', 'state', 'zip', 'join', 'amount', 'event_id', 'registrant_id', 'team_id', 'paytype', 'anonymous', 'payid', 'recurring', 'customerid', 'planid', 'subscriptionid', 'cancelled_on', 'recurring_amount', 'promise', 'memoryof', 'photo', 'cause',
     ];
 
-    public function registrant()
+    public function registrant(): BelongsTo
     {
         return $this->belongsTo(\App\Registrant::class);
     }
 
-    public function team()
+    public function team(): BelongsTo
     {
         return $this->belongsTo(\App\Team::class);
     }
 
-    public function event()
+    public function event(): BelongsTo
     {
         return $this->belongsTo(\App\Event::class);
     }

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -31,7 +32,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function registrations()
+    public function registrations(): HasMany
     {
         return $this->hasMany(\App\Registrant::class);
     }

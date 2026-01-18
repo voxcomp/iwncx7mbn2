@@ -36,7 +36,7 @@ class RecurringDonations extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(): void
     {
         $count = 0;
         $total = 0;

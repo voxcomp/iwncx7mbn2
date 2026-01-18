@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
@@ -24,7 +25,7 @@ class Event extends Model
      *
      * @return App\Donation
      */
-    public function donations()
+    public function donations(): HasMany
     {
         return $this->hasMany(\App\Donation::class)->whereDate('created_at', '<=', Carbon::today());
     }
@@ -34,7 +35,7 @@ class Event extends Model
      *
      * @return App\Participant
      */
-    public function participants()
+    public function participants(): HasMany
     {
         return $this->hasMany(\App\Registrant::class);
     }
@@ -44,7 +45,7 @@ class Event extends Model
      *
      * @return App\Team
      */
-    public function teams()
+    public function teams(): HasMany
     {
         return $this->hasMany(\App\Team::class);
     }
@@ -54,7 +55,7 @@ class Event extends Model
      *
      * @return App\Sponsor
      */
-    public function sponsors()
+    public function sponsors(): HasMany
     {
         return $this->hasMany(\App\Sponsor::class);
     }
@@ -64,7 +65,7 @@ class Event extends Model
      *
      * @return App\SponsorSubmission
      */
-    public function sponsorSubmissions()
+    public function sponsorSubmissions(): HasMany
     {
         return $this->hasMany(\App\SponsorSubmission::class);
     }
@@ -74,7 +75,7 @@ class Event extends Model
      *
      * @return App\VolunteerSubmission
      */
-    public function volunteerSubmissions()
+    public function volunteerSubmissions(): HasMany
     {
         return $this->hasMany(\App\VolunteerSubmission::class);
     }
@@ -84,7 +85,7 @@ class Event extends Model
      *
      * @return App\Cost
      */
-    public function costs()
+    public function costs(): HasMany
     {
         return $this->hasMany(\App\Cost::class);
     }

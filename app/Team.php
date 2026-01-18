@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,22 +20,22 @@ class Team extends Model
         'name', 'registrant_id', 'event_id', 'moderated', 'reviewed', 'adminnotes', 'pagecontent', 'pagetitle', 'pageurl', 'pageshorturl', 'goal',
     ];
 
-    public function members()
+    public function members(): HasMany
     {
         return $this->hasMany(\App\TeamMember::class);
     }
 
-    public function event()
+    public function event(): BelongsTo
     {
         return $this->belongsTo(\App\Event::class, 'event_id', 'id');
     }
 
-    public function captain()
+    public function captain(): BelongsTo
     {
         return $this->belongsTo(\App\Registrant::class, 'registrant_id', 'id');
     }
 
-    public function donations()
+    public function donations(): HasMany
     {
         return $this->hasMany(\App\Donation::class);
     }

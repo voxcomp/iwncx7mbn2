@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 
 class TeamMember extends Model
@@ -15,12 +16,12 @@ class TeamMember extends Model
         'registrant_id', 'team_id',
     ];
 
-    public function registrant()
+    public function registrant(): BelongsTo
     {
         return $this->belongsTo(\App\Registrant::class);
     }
 
-    public function team()
+    public function team(): BelongsTo
     {
         return $this->belongsTo(\App\Team::class);
     }

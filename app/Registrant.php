@@ -2,6 +2,9 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,7 +26,7 @@ class Registrant extends Model
      *
      * @return App\Donation
      */
-    public function donations()
+    public function donations(): HasMany
     {
         return $this->hasMany(\App\Donation::class);
     }
@@ -41,7 +44,7 @@ class Registrant extends Model
         return ($percent > 100) ? 100 : $percent;
     }
 
-    public function event()
+    public function event(): BelongsTo
     {
         return $this->belongsTo(\App\Event::class);
     }
@@ -51,17 +54,17 @@ class Registrant extends Model
         return $this->event->title == $event->title;
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(\App\User::class);
     }
 
-    public function teams()
+    public function teams(): HasMany
     {
         return $this->hasMany(\App\TeamMember::class);
     }
 
-    public function team()
+    public function team(): HasOne
     {
         return $this->hasOne(\App\Team::class);
     }

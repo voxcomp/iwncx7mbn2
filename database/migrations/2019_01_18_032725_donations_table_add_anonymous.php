@@ -10,7 +10,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::table('donations', function ($table) {
             $table->smallInteger('anonymous')->default(0);
@@ -22,7 +22,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::table('donations', function ($table) {
             $table->dropColumn('anonymous');

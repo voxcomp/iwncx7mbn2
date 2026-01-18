@@ -37,7 +37,7 @@ class PPReviewAlert extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(): void
     {
         $count = Registrant::where('moderated', 0)->where(function ($query) {
             $query->whereNotNull('pagetitle')->Where('pagetitle', '<>', '');

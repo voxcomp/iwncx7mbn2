@@ -10,7 +10,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::table('sponsor_submissions', function ($table) {
             $table->string('paytype', 20)->nullable()->default('');
@@ -23,7 +23,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::table('sponsor_submissions', function ($table) {
             $table->dropColumn('paytype');
