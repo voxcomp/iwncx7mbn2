@@ -11,6 +11,7 @@ use App\Team;
 use App\TeamMember;
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Event;
 
 class EventsTableSeeder extends Seeder
 {
