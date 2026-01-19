@@ -9,6 +9,7 @@ use App\Models\TeamMember;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -31,10 +32,10 @@ class UsersController extends Controller
      */
     public function home()
     {
-        if (\Auth::user()->isAdmin()) {
+        if (Auth::user()->isAdmin()) {
             return \Redirect::route('event.list');
         } else {
-            $user = \Auth::user();
+            $user = Auth::user();
             $events = Event::where('event_date', '>', time())->whereDoesntHave('participants', function ($query) use ($user) {
                 $query->where('user_id', $user->id);
             })->get();
@@ -82,14 +83,17 @@ class UsersController extends Controller
      */
     public function profile(?User $user = null): View
     {
+        if(is_null($user) && auth()->check()) {
+            $user = Auth::user();
+        }
         if (! is_null($user->id)) {
-            if (\Auth::user()->isAdmin()) {
+            if (!Auth::user()->isAdmin()) {
                 return view('user.profile', compact('user'));
             } else {
                 return view('pages.unauthorized');
             }
         } else {
-            return view('user.profile', ['user' => \Auth::user()]);
+            return view('user.profile', ['user' => Auth::user()]);
         }
     }
 
@@ -102,7 +106,7 @@ class UsersController extends Controller
     public function update(Request $request)
     {
         $isadmin = false;
-        if (\Auth::user()->isAdmin() && ! (! isset($request->cred) || empty($request->cred))) {
+        if (Auth::user()->isAdmin() && ! (! isset($request->cred) || empty($request->cred))) {
             $isadmin = true;
         } else {
             $viewredirect = '/home';
@@ -110,13 +114,13 @@ class UsersController extends Controller
         $errorredirect = '/account';
         // test if request has UID (cred) field, if so the member is being edited by an admin and does not need current password
         if (! $isadmin) {
-            $user = User::where('id', \Auth::user()->id)->first();
+            $user = User::where('id', Auth::user()->id)->first();
 
             // require current password if new password sent
             if (empty($request->current_password) && ! empty($request->password)) {
                 return \Redirect::to($errorredirect)->with('message', 'There was an error, please see the form below for specifics.')->withErrors(['current_password' => 'Your current password is required.']);
             } elseif (! empty($request->current_password) && ! empty($request->password)) {
-                if (! \Auth::validate(['username' => $user->username, 'password' => $request->current_password])) {
+                if (! Auth::validate(['username' => $user->username, 'password' => $request->current_password])) {
                     return \Redirect::to($errorredirect)->with('message', 'There was an error, please see the form below for specifics.')->withErrors(['current_password' => 'The password entered is incorrect.']);
                 }
             }
@@ -205,21 +209,21 @@ class UsersController extends Controller
      */
     public function delete(User $user)
     {
-        if ($user->id == \Auth::user()->id) {
-            \Auth::logout();
+        if ($user->id == Auth::user()->id) {
+            Auth::logout();
             Registrant::where('user_id', $user->id)->update(['user_id' => 0]);
             $user->delete();
         } else {
-            if (\Auth::user()->isAdmin()) {
+            if (Auth::user()->isAdmin()) {
                 // get current user
-                //				$loggedInUser = \Auth::user();
+                //				$loggedInUser = Auth::user();
 
                 // logout user
-                // \Auth::setUser($user);
-                // \Auth::logout();
+                // Auth::setUser($user);
+                // Auth::logout();
 
                 // set again current user
-                // \Auth::setUser($loggedInUser);
+                // Auth::setUser($loggedInUser);
                 Registrant::where('user_id', $user->id)->update(['user_id' => 0]);
                 $user->delete();
             }
