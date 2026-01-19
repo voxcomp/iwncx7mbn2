@@ -7,6 +7,8 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/js/theme.js',
+                'resources/sass/cropper.min.css'
             ],
             refresh: true,
         }),
