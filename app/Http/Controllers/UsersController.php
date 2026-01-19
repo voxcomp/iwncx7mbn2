@@ -8,8 +8,8 @@ use App\Models\Team;
 use App\Models\TeamMember;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -83,11 +83,11 @@ class UsersController extends Controller
      */
     public function profile(?User $user = null): View
     {
-        if(is_null($user) && auth()->check()) {
+        if (is_null($user) && auth()->check()) {
             $user = Auth::user();
         }
         if (! is_null($user->id)) {
-            if (!Auth::user()->isAdmin()) {
+            if (! Auth::user()->isAdmin()) {
                 return view('user.profile', compact('user'));
             } else {
                 return view('pages.unauthorized');
