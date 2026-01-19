@@ -51,7 +51,7 @@ class DonateController extends Controller
      */
     public function donate(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'fname' => 'required|string|max:50',
             'lname' => 'required|string|max:75',
             'email' => 'required|email|max:150',
@@ -290,7 +290,7 @@ class DonateController extends Controller
 
     public function donatePromise(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'fname' => 'required|string|max:50',
             'lname' => 'required|string|max:75',
             'email' => 'required|email|max:150',

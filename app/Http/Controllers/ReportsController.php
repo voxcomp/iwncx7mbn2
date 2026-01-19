@@ -26,7 +26,7 @@ class ReportsController extends Controller
 
     public function getGeneralReports(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'report' => 'required',
             'start_date' => 'nullable|date|date_format:m/d/Y',
             'end_date' => 'nullable|date|after:start_date|date_format:m/d/Y',
@@ -45,7 +45,7 @@ class ReportsController extends Controller
 
     public function getReports(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'event' => 'required|integer',
             'report' => 'required',
         ]);

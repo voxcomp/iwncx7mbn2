@@ -64,7 +64,7 @@ class AdminController extends Controller
 
     public function registrantSave(Request $request, Registrant $registrant): View
     {
-        $this->validate($request, [
+        $request->validate([
             'fname' => 'required|string|max:50',
             'lname' => 'required|string|max:75',
             'email' => 'required|email|max:150',
@@ -156,7 +156,7 @@ class AdminController extends Controller
     public function couponCreate(Request $request)
     {
         // validate post vars from form
-        $this->validate($request, [
+        $request->validate([
             'name' => 'required|string|max:25|unique:coupons',
             'amount' => 'required|numeric',
             'maxuse' => 'required|integer',
@@ -188,7 +188,7 @@ class AdminController extends Controller
         $coupon = Coupon::where('id', '=', $request->id)->first();
         if (! empty($coupon)) {
             // validate post vars from form
-            $this->validate($request, [
+            $request->validate([
                 'name' => 'required|string|max:25',
                 'amount' => 'required|numeric',
                 'maxuse' => 'required|integer',
@@ -247,7 +247,7 @@ class AdminController extends Controller
 
     public function donationSave(Request $request, Donation $donation)
     {
-        $this->validate($request, [
+        $request->validate([
             'fname' => 'required|string|max:50',
             'lname' => 'required|string|max:75',
             'email' => 'required|email|max:150',

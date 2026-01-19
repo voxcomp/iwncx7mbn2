@@ -19,7 +19,7 @@ class SponsorsController extends Controller
 
     public function saveSubmission(Request $request, Event $event)
     {
-        $this->validate($request, [
+        $request->validate([
             'company' => 'nullable|string|max:150',
             'fname' => 'required|string|max:50',
             'lname' => 'required|string|max:75',
@@ -138,7 +138,7 @@ class SponsorsController extends Controller
 
     public function eventSponsorAdd(Request $request, Event $event)
     {
-        $this->validate($request, [
+        $request->validate([
             'name' => 'required|string|max:150',
             'image' => 'required|mimes:png,jpg,jpeg|dimensions:max_width=600,max_height=600|max:512',
         ]);

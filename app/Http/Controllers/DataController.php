@@ -74,7 +74,7 @@ class DataController extends Controller
      */
     public function profilePhoto(Request $request)
     {
-        $valid = $this->validate($request, [
+        $valid = $request->validate([
             'photo' => 'mimes:png,jpg,jpeg|dimensions:min_width=200,min_height=200',
         ]);
 

@@ -152,7 +152,7 @@ class UsersController extends Controller
         if (! empty($request->password)) {
             $tovalidate['password'] = 'required|min:6|max:25|confirmed';
         }
-        $this->validate($request, $tovalidate);
+        $request->validate($tovalidate);
 
         $updatable = [
             'fname' => $request->fname,
@@ -266,7 +266,7 @@ class UsersController extends Controller
 
     public function save(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'fname' => 'required|string|max:50',
             'lname' => 'required|string|max:75',
             'email' => 'required|email|max:150',

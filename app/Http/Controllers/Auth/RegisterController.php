@@ -108,7 +108,7 @@ class RegisterController extends Controller
 
     public function resendValidation(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'username' => 'required|max:255|exists:users',
         ]);
 

@@ -39,7 +39,7 @@ class EventsController extends Controller
         if (is_null($request->costs)) {
             return \Redirect::back()->withInput()->withErrors(['cost' => ['At least one registration cost is required.']]);
         }
-        $this->validate($request, [
+        $request->validate([
             'title' => 'required|string|max:250',
             'short' => 'required|string|max:50',
             'description' => 'required',
@@ -93,7 +93,7 @@ class EventsController extends Controller
         if (is_null($request->costs)) {
             return \Redirect::back()->withInput()->withErrors(['cost' => ['At least one registration cost is required.']]);
         }
-        $this->validate($request, [
+        $request->validate([
             'title' => 'required|string|max:250',
             'short' => 'required|string|max:50',
             'description' => 'required',
@@ -252,7 +252,7 @@ class EventsController extends Controller
                     }
                 }
         */
-        $this->validate($request, [
+        $request->validate([
             'fname' => 'required|string|max:50',
             'lname' => 'required|string|max:75',
             'email' => 'required|email|max:150',
@@ -282,7 +282,7 @@ class EventsController extends Controller
 
     public function registerStep2(Request $request, Event $event, ?User $user = null)
     {
-        $this->validate($request, [
+        $request->validate([
             'username' => 'nullable|unique:users|string|min:5|max:20',
             'password' => 'nullable|string|min:6|max:25|confirmed',
             'newteam' => 'nullable|string|max:100',
@@ -715,7 +715,7 @@ class EventsController extends Controller
 
     public function teamJoin(Request $request, Event $event, Registrant $registrant, $route = '')
     {
-        $this->validate($request, [
+        $request->validate([
             'newteam'.$event->id => 'nullable|string|max:100',
             'newteam'.$event->id => Rule::unique('teams', 'name')->where(function ($query) use ($event) {
                 $query->where('event_id', $event->id);
@@ -786,7 +786,7 @@ class EventsController extends Controller
 
     public function personalPage(Request $request, Registrant $registrant)
     {
-        $this->validate($request, [
+        $request->validate([
             'pagetitle'.$registrant->event_id => 'nullable|string|max:100',
         ]);
 
@@ -814,7 +814,7 @@ class EventsController extends Controller
 
     public function teamPage(Request $request, Team $team)
     {
-        $this->validate($request, [
+        $request->validate([
             'teampagetitle'.$team->event_id => 'nullable|string|max:100',
         ]);
 
@@ -847,7 +847,7 @@ class EventsController extends Controller
 
     public function volunteerSubmission(Request $request, Event $event): View
     {
-        $this->validate($request, [
+        $request->validate([
             'company' => 'nullable|string|max:150',
             'fname' => 'required|string|max:50',
             'lname' => 'required|string|max:75',

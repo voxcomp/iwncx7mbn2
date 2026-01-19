@@ -57,7 +57,7 @@ class ForgotPasswordController extends Controller
      */
     protected function validateEmail(Request $request): void
     {
-        $this->validate($request, ['username' => 'required']);
+        $request->validate(['username' => 'required']);
     }
 
     /**
