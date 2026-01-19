@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use App\Http\Controllers\Controller;
 use App\Models\Registrant;
 use App\Models\User;
@@ -13,7 +15,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
-class RegisterController extends Controller
+class RegisterController extends Controller implements HasMiddleware
 {
     /*
     |--------------------------------------------------------------------------
@@ -44,8 +46,15 @@ class RegisterController extends Controller
      */
     public function __construct(\App\Http\Factories\ValidationFactory $validationFactory)
     {
-        $this->middleware('guest');
+
         $this->validationFactory = $validationFactory;
+    }
+
+    public static function middleware(): array
+    {
+        return [
+            'guest',
+        ];
     }
 
     /**

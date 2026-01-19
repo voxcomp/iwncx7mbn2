@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use App\Models\Donation;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class ReportsController extends Controller
+class ReportsController extends Controller implements HasMiddleware
 {
-    /**
-     * Create a new controller instance.  Entire controller requires logged in admin
-     *
-     * @return void
-     */
-    public function __construct()
+    public static function middleware(): array
     {
-        $this->middleware('admin');
+        return [
+            'admin',
+        ];
     }
 
     public function reports(): View

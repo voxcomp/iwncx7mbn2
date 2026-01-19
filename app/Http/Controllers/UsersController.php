@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use App\Models\Event;
 use App\Models\Registrant;
 use App\Models\Team;
@@ -13,16 +15,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
-class UsersController extends Controller
+class UsersController extends Controller implements HasMiddleware
 {
-    /**
-     * Create a new controller instance.  Entire controller requires logged in user
-     *
-     * @return void
-     */
-    public function __construct()
+    public static function middleware(): array
     {
-        $this->middleware('auth');
+        return [
+            'auth',
+        ];
     }
 
     /**
