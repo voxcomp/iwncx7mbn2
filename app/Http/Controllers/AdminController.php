@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controllers\HasMiddleware;
-use Illuminate\Routing\Controllers\Middleware;
 use App\Models\Coupon;
 use App\Models\Donation;
 use App\Models\Event;
@@ -12,6 +10,7 @@ use App\Models\Team;
 use App\Models\TeamMember;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\View\View;
 
 class AdminController extends Controller implements HasMiddleware

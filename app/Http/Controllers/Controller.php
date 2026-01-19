@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-
 class Controller
 {
-
     public static function levelCost($level)
     {
         switch ($level) {
