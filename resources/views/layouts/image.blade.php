@@ -17,7 +17,7 @@
 	<meta name="theme-color" content="#E34856">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+	@vite(['resources/sass/app.scss'])
 
 	@yield('head')
 </head>
@@ -49,7 +49,7 @@
 
 	<div id="dialog-confirm"></div>
 
-    <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
+	@vite(['resources/js/app.js'])
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	@yield('footer')
 </body>
